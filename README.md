@@ -2,8 +2,8 @@
 Repository for a video game entitled Project Tuto Rial, developed as part of an undergraduate project.
 
 ## Developers:
-Bao Duong (bduong11037@gmail.com)
-Matthew Jun (Mjemailbox91@gmail.com)
+Bao Duong (bduong11037@gmail.com),
+Matthew Jun (Mjemailbox91@gmail.com), &
 Ethan Jones (ethanjones421@yahoo.com)
 
 ## Project Description:
