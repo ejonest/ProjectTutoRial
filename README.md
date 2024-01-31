@@ -13,7 +13,7 @@ The camera will focus on the player in a 3-person view.
 
 ## More Info:
 This game was developed using the Godot Game engine version 4.2.1 with assets created in Blender.
-Programming was done in C# and GDScript based on developers taste.
+Programming was done in C# and GDScript based on the developer's taste.
 
 ## How To Run It:
 Currently, Project Tuto Rial may be run within the Godot game engine by creating a clone of this repository
