@@ -1,0 +1,107 @@
+[gd_scene load_steps=12 format=3 uid="uid://clid1fxm6rbk7"]
+
+[ext_resource type="PackedScene" uid="uid://bn5yge8ckq24w" path="res://player.tscn" id="1_ls6da"]
+[ext_resource type="Script" path="res://rotate_basis.gd" id="2_l8cdf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fhe3e"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_henlo"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wcg7r"]
+albedo_color = Color(0, 0.447059, 0.164706, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2ti8o"]
+size = Vector3(1, 5, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tsp4w"]
+size = Vector3(1, 5, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m3527"]
+size = Vector3(50, 5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p1qyl"]
+size = Vector3(50, 5, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wl8ry"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_1t852"]
+
+[node name="Node" type="Node"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_fhe3e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_henlo")
+surface_material_override/0 = SubResource("StandardMaterial3D_wcg7r")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="player_body" parent="Node3D" instance=ExtResource("1_ls6da")]
+speed = null
+
+[node name="rotate_basis" type="Node3D" parent="Node3D/player_body"]
+script = ExtResource("2_l8cdf")
+
+[node name="player_camera" type="Camera3D" parent="Node3D/player_body/rotate_basis"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.67431, 2.33816)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00783642, 0.999969, 0, -0.999969, -0.00783642, 0, 11.2492, 0)
+
+[node name="Wall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("BoxMesh_2ti8o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_tsp4w")
+
+[node name="Wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("BoxMesh_2ti8o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_tsp4w")
+
+[node name="Wall3" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -25)
+mesh = SubResource("BoxMesh_m3527")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -25)
+shape = SubResource("BoxShape3D_p1qyl")
+
+[node name="Wall4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -25)
+mesh = SubResource("BoxMesh_m3527")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -25)
+shape = SubResource("BoxShape3D_p1qyl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.868, 20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_wl8ry")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PrismMesh_1t852")
