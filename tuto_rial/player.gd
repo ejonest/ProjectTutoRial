@@ -17,7 +17,7 @@ func _physics_process(delta):
 		direction -= camera_x 
 		
 	if Input.is_action_pressed("forward"):
-		direction -= camera_z 
+		direction -= camera_z
 		
 	if Input.is_action_pressed("back"):
 		direction += camera_z 

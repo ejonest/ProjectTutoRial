@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bn5yge8ckq24w"]
+[gd_scene load_steps=9 format=3 uid="uid://bn5yge8ckq24w"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_vqp7x"]
-[ext_resource type="Script" path="res://hitbox_detect.gd" id="2_osa3p"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_k38x3"]
 
@@ -38,10 +37,10 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.5
 mesh = SubResource("PrismMesh_xgf08")
 
 [node name="hitbox_detect" type="MeshInstance3D" parent="Pivot"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.844)
 visible = false
 mesh = SubResource("BoxMesh_88egx")
-script = ExtResource("2_osa3p")
 
 [node name="player_hitbox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
