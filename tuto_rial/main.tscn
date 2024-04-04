@@ -1,9 +1,9 @@
 [gd_scene load_steps=21 format=3 uid="uid://clid1fxm6rbk7"]
 
 [ext_resource type="Texture2D" uid="uid://c7npctp3w7kqr" path="res://grass.png" id="1_1d8sd"]
+[ext_resource type="PackedScene" uid="uid://d03vk37obtttv" path="res://player.tscn" id="3_umclc"]
 [ext_resource type="Texture2D" uid="uid://buv0q10c25b7j" path="res://brick.png" id="4_7u8j7"]
 [ext_resource type="Script" path="res://CameraController.gd" id="5_smn05"]
-[ext_resource type="PackedScene" uid="uid://brxrlyyp5ynqv" path="res://tuto_rial_animated.tscn" id="5_wll4j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fg2oq"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -17,6 +17,11 @@ background_mode = 2
 sky = SubResource("Sky_7vsln")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kcm1d"]
+points = PackedVector3Array(0, 0.4, 0.55, 0, 0.4, -0.55, 0.5, -0.5, 0.55, 0.5, -0.5, -0.55, -0.5, -0.5, -0.55, -0.5, -0.5, 0.55)
+
+[sub_resource type="PrismMesh" id="PrismMesh_1t852"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fhe3e"]
 size = Vector3(50, 1, 50)
@@ -57,11 +62,6 @@ size = Vector3(50, 5, 1)
 albedo_texture = ExtResource("4_7u8j7")
 uv1_scale = Vector3(50, 5, 1)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kcm1d"]
-points = PackedVector3Array(0, 0.4, 0.55, 0, 0.4, -0.55, 0.5, -0.5, 0.55, 0.5, -0.5, -0.55, -0.5, -0.5, -0.55, -0.5, -0.5, 0.55)
-
-[sub_resource type="PrismMesh" id="PrismMesh_1t852"]
-
 [node name="Node" type="Node"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -71,7 +71,37 @@ environment = SubResource("Environment_lgdfh")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
+[node name="Environment" type="Node" parent="."]
+
+[node name="Prism" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.868, 20)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Prism"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.136162, 0)
+shape = SubResource("ConvexPolygonShape3D_kcm1d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Prism"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.354905, 0)
+mesh = SubResource("PrismMesh_1t852")
+
+[node name="TutoRial" parent="." instance=ExtResource("3_umclc")]
+
+[node name="CameraController" type="Node3D" parent="." groups=["CameraController"]]
+script = ExtResource("5_smn05")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraController"]
+collision_mask = 2
+spring_length = 6.0
+margin = 0.05
+
+[node name="Camera3D" type="Camera3D" parent="CameraController/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1715e-07, 2.19646, 8.11771)
+
+[node name="LookAt" type="Node3D" parent="CameraController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218803, 2.41586, -4.98026)
+
 [node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.498382, 0)
 collision_layer = 3
 collision_mask = 3
 
@@ -83,7 +113,7 @@ mesh = SubResource("BoxMesh_henlo")
 surface_material_override/0 = SubResource("StandardMaterial3D_wcg7r")
 
 [node name="Wall" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, -0.506208, 0)
 collision_layer = 3
 collision_mask = 3
 
@@ -97,7 +127,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_tsp4w")
 
 [node name="Wall2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -0.506208, 0)
 collision_layer = 3
 collision_mask = 3
 
@@ -111,6 +141,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_tsp4w")
 
 [node name="Wall3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.506208, 0)
 collision_layer = 3
 collision_mask = 3
 
@@ -124,7 +155,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -25)
 shape = SubResource("BoxShape3D_p1qyl")
 
 [node name="Wall4" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.506208, 50)
 collision_layer = 3
 collision_mask = 3
 
@@ -136,61 +167,3 @@ surface_material_override/0 = SubResource("StandardMaterial3D_17hi6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -25)
 shape = SubResource("BoxShape3D_p1qyl")
-
-[node name="Prism" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.868, 20)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Prism"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.136162, 0)
-shape = SubResource("ConvexPolygonShape3D_kcm1d")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Prism"]
-mesh = SubResource("PrismMesh_1t852")
-
-[node name="CameraController" type="Node3D" parent="." groups=["CameraController"]]
-script = ExtResource("5_smn05")
-
-[node name="SpringArm3D" type="SpringArm3D" parent="CameraController"]
-collision_mask = 2
-spring_length = 5.0
-
-[node name="Camera3D" type="Camera3D" parent="CameraController/SpringArm3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.33868, 8.93218)
-
-[node name="LookAt" type="Node3D" parent="CameraController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.32678, -1.79426)
-
-[node name="TutoRialAnimated" parent="." instance=ExtResource("5_wll4j")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.712497, 0)
-
-[node name="Skeleton3D" parent="TutoRialAnimated/Armature" index="0"]
-bones/0/rotation = Quaternion(-5.33851e-08, 0.707107, -0.707107, 5.33851e-08)
-bones/1/rotation = Quaternion(-0.00906007, 3.17852e-08, 1.08004e-09, 0.999959)
-bones/2/rotation = Quaternion(-1.86265e-09, 8.88395e-15, -4.38522e-18, 1)
-bones/3/rotation = Quaternion(-6.9849e-09, 1.77723e-15, 5.12505e-16, 1)
-bones/4/rotation = Quaternion(0.00906007, 1.75301e-15, -7.92057e-10, 0.999959)
-bones/5/rotation = Quaternion(-3.30872e-24, 1.77636e-15, -9.47345e-17, 1)
-bones/7/rotation = Quaternion(-0.630952, -0.318876, 0.631402, -0.318669)
-bones/8/rotation = Quaternion(0.121233, -0.00260029, -0.0212861, 0.992392)
-bones/9/rotation = Quaternion(0.131144, 0.0015129, 0.0114357, 0.991296)
-bones/10/rotation = Quaternion(-0.00176486, 3.42181e-06, -0.00206867, 0.999996)
-bones/11/rotation = Quaternion(0.025626, 0.000395243, 0.0153733, 0.999553)
-bones/12/rotation = Quaternion(-1.93577e-06, -1.53575e-06, -1.15309e-07, 1)
-bones/13/rotation = Quaternion(1.23546e-08, 5.4715e-07, 9.17935e-08, 1)
-bones/15/rotation = Quaternion(0.622854, -0.323051, 0.639247, 0.314729)
-bones/16/rotation = Quaternion(0.121522, 0.000565616, 0.00461982, 0.992578)
-bones/17/rotation = Quaternion(0.131059, -0.000479743, -0.00362871, 0.991368)
-bones/18/rotation = Quaternion(-0.00170214, -6.71805e-06, 0.00399629, 0.999991)
-bones/19/rotation = Quaternion(0.0326012, -0.000458591, -0.0140667, 0.999369)
-bones/20/rotation = Quaternion(-8.9871e-07, 6.08385e-07, 1.58325e-08, 1)
-bones/21/rotation = Quaternion(1.41712e-06, -7.723e-07, -2.36323e-08, 1)
-bones/23/rotation = Quaternion(-4.6875e-05, -0.00420366, 0.999929, -0.0111675)
-bones/24/rotation = Quaternion(-0.00164487, 1.84586e-05, -0.0105924, 0.999943)
-bones/25/rotation = Quaternion(0.521803, 0.00857976, -0.00524845, 0.853006)
-bones/26/rotation = Quaternion(0.240346, -0.0755595, 0.0187693, 0.96756)
-bones/28/rotation = Quaternion(4.43191e-05, -0.00396721, 0.99993, 0.0111676)
-bones/29/rotation = Quaternion(-0.00177612, -2.02107e-05, 0.0105925, 0.999942)
-bones/30/rotation = Quaternion(0.522365, -0.00854571, 0.0052353, 0.852663)
-bones/31/rotation = Quaternion(0.239595, 0.0750698, -0.018585, 0.967788)
-
-[editable path="TutoRialAnimated"]

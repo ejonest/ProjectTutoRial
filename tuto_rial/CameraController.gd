@@ -1,24 +1,24 @@
 extends Node3D
 
-var tuto_rial
-@export var sensitivity = 3
+var player
+@export var sensitivity := 5
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	tuto_rial = get_tree().get_nodes_in_group("TutoRialAnimated")[0]
+	player = get_tree().get_nodes_in_group("Player")[0]
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	#rotation.z = tuto_rial.global_position.y
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	global_position = tuto_rial.global_position
-	$SpringArm3D/Camera3D.look_at(tuto_rial.get_node("LookAt").global_position)
+	global_position = player.global_position
+	$SpringArm3D/Camera3D.look_at(player.get_node("LookAt").global_position)
 	pass
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		var tempRotation = rotation.x - event.relative.y / 1000 * sensitivity
-		tempRotation = clamp(tempRotation, -1, -.5) # Floor than top of character
-		rotation.x = tempRotation
+		var tempRot = rotation.x - event.relative.y / 1000 * sensitivity
 		rotation.y -= event.relative.x / 1000 * sensitivity
+# Bind the vertical camera rotation between 0 and .25 to not go over or under bounds
+		tempRot = clamp(tempRot, -1, -.25)
+		rotation.x = tempRot
