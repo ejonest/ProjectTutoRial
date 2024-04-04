@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://clid1fxm6rbk7"]
+[gd_scene load_steps=22 format=3 uid="uid://clid1fxm6rbk7"]
 
 [ext_resource type="Texture2D" uid="uid://c7npctp3w7kqr" path="res://grass.png" id="1_1d8sd"]
 [ext_resource type="PackedScene" uid="uid://d03vk37obtttv" path="res://player.tscn" id="3_umclc"]
 [ext_resource type="Texture2D" uid="uid://buv0q10c25b7j" path="res://brick.png" id="4_7u8j7"]
+[ext_resource type="PackedScene" uid="uid://c8340arsybqqc" path="res://hud.tscn" id="5_sk40m"]
 [ext_resource type="Script" path="res://CameraController.gd" id="5_smn05"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fg2oq"]
@@ -167,3 +168,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_17hi6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -25)
 shape = SubResource("BoxShape3D_p1qyl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("5_sk40m")]
