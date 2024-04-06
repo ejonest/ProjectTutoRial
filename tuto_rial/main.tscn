@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://clid1fxm6rbk7"]
+[gd_scene load_steps=22 format=3 uid="uid://clid1fxm6rbk7"]
 
 [ext_resource type="Texture2D" uid="uid://c7npctp3w7kqr" path="res://grass.png" id="1_1d8sd"]
+[ext_resource type="PackedScene" uid="uid://it4f5mfgvygk" path="res://Sword.glb" id="2_1lr21"]
 [ext_resource type="PackedScene" uid="uid://d03vk37obtttv" path="res://player.tscn" id="3_umclc"]
 [ext_resource type="Texture2D" uid="uid://buv0q10c25b7j" path="res://brick.png" id="4_7u8j7"]
 [ext_resource type="Script" path="res://CameraController.gd" id="5_smn05"]
@@ -86,6 +87,42 @@ mesh = SubResource("PrismMesh_1t852")
 
 [node name="TutoRial" parent="." instance=ExtResource("3_umclc")]
 
+[node name="Skeleton3D" parent="TutoRial/Armature" index="0"]
+bones/0/position = Vector3(-0.411638, 2.53246, -163.285)
+bones/0/rotation = Quaternion(-0.601149, -0.270934, 0.343016, 0.668996)
+bones/1/rotation = Quaternion(0.0657971, 0.0259073, -0.0148436, 0.997386)
+bones/2/rotation = Quaternion(0.0125352, 0.0504761, -0.0354626, 0.998017)
+bones/3/rotation = Quaternion(-0.0905735, 0.0538934, -0.0300529, 0.993976)
+bones/4/rotation = Quaternion(0.0993827, 0.10115, -0.0189193, 0.989714)
+bones/5/rotation = Quaternion(-0.0411917, 0.198347, -0.0381966, 0.978521)
+bones/7/rotation = Quaternion(-0.660038, -0.313326, 0.551385, -0.402679)
+bones/8/rotation = Quaternion(0.181157, -0.0480485, -0.0799784, 0.979019)
+bones/9/rotation = Quaternion(0.0985986, -0.159401, 0.225665, 0.956005)
+bones/10/rotation = Quaternion(-0.0640654, 0.0389359, 0.0200519, 0.996984)
+bones/11/rotation = Quaternion(0.101366, -0.00211058, 0.0300833, 0.994392)
+bones/12/rotation = Quaternion(0.0474884, 0.00144708, -0.00221811, 0.998868)
+bones/13/rotation = Quaternion(0.0154123, 0.00756826, -0.0531958, 0.998437)
+bones/15/rotation = Quaternion(0.669227, -0.304961, 0.480514, 0.477744)
+bones/16/rotation = Quaternion(0.249599, 0.0951425, 0.391504, 0.880552)
+bones/17/rotation = Quaternion(0.0911086, 0.0929111, -0.479135, 0.868042)
+bones/18/rotation = Quaternion(0.12438, -0.0227909, -0.227395, 0.965558)
+bones/23/rotation = Quaternion(0.396318, 0.335036, 0.842418, -0.144967)
+bones/24/rotation = Quaternion(-0.31738, 0.168309, -0.0406438, 0.932357)
+bones/25/rotation = Quaternion(0.515401, -0.0466749, -0.0591185, 0.853632)
+bones/28/rotation = Quaternion(-0.0774716, 0.23195, 0.950551, 0.191442)
+bones/29/rotation = Quaternion(-0.38829, -0.043003, -0.0367891, 0.919798)
+bones/30/rotation = Quaternion(0.690185, 0.0690309, 0.178439, 0.697881)
+bones/31/rotation = Quaternion(0.230214, 0.0375198, 0.0204824, 0.972201)
+
+[node name="BoneAttachment3D" parent="TutoRial/Armature/Skeleton3D" index="1"]
+transform = Transform3D(-0.0568679, -0.709105, 0.702807, 0.638719, 0.515198, 0.571497, -0.767336, 0.481396, 0.42362, -88.6186, -23.5684, -180.691)
+
+[node name="Sword" parent="TutoRial/Armature/Skeleton3D/BoneAttachment3D" index="0" instance=ExtResource("2_1lr21")]
+transform = Transform3D(1.69211, 39.88, -2.59259, 33.8881, -2.80724, -21.0645, -21.1833, -1.30537, -33.9053, -39.7091, 18.1143, 5.39325)
+
+[node name="AnimationTree" parent="TutoRial" index="4"]
+parameters/conditions/jumpStand = false
+
 [node name="CameraController" type="Node3D" parent="." groups=["CameraController"]]
 script = ExtResource("5_smn05")
 
@@ -167,3 +204,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_17hi6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -25)
 shape = SubResource("BoxShape3D_p1qyl")
+
+[editable path="TutoRial"]
