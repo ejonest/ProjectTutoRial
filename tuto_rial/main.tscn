@@ -115,13 +115,10 @@ bones/30/rotation = Quaternion(0.690185, 0.0690309, 0.178439, 0.697881)
 bones/31/rotation = Quaternion(0.230214, 0.0375198, 0.0204824, 0.972201)
 
 [node name="BoneAttachment3D" parent="TutoRial/Armature/Skeleton3D" index="1"]
-transform = Transform3D(-0.0568679, -0.709105, 0.702807, 0.638719, 0.515198, 0.571497, -0.767336, 0.481396, 0.42362, -88.6186, -23.5684, -180.691)
+transform = Transform3D(-0.0568697, -0.709105, 0.702806, 0.638719, 0.515197, 0.571498, -0.767336, 0.481396, 0.42362, -88.6185, -23.5684, -180.691)
 
 [node name="Sword" parent="TutoRial/Armature/Skeleton3D/BoneAttachment3D" index="0" instance=ExtResource("2_1lr21")]
 transform = Transform3D(1.69211, 39.88, -2.59259, 33.8881, -2.80724, -21.0645, -21.1833, -1.30537, -33.9053, -39.7091, 18.1143, 5.39325)
-
-[node name="AnimationTree" parent="TutoRial" index="4"]
-parameters/conditions/jumpStand = false
 
 [node name="CameraController" type="Node3D" parent="." groups=["CameraController"]]
 script = ExtResource("5_smn05")
