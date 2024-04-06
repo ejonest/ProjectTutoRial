@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://it4f5mfgvygk" path="res://Sword.glb" id="2_1lr21"]
 [ext_resource type="PackedScene" uid="uid://d03vk37obtttv" path="res://player.tscn" id="3_umclc"]
 [ext_resource type="Texture2D" uid="uid://buv0q10c25b7j" path="res://brick.png" id="4_7u8j7"]
+[ext_resource type="PackedScene" uid="uid://c8340arsybqqc" path="res://hud.tscn" id="5_sk40m"]
 [ext_resource type="Script" path="res://CameraController.gd" id="5_smn05"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fg2oq"]

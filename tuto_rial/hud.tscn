@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8340arsybqqc"]
+
+[ext_resource type="Texture2D" uid="uid://be7mhthxadrgd" path="res://HUD_1.png" id="1_2yihk"]
+[ext_resource type="Texture2D" uid="uid://dxfmav037qki1" path="res://HUD_2.png" id="2_s1n27"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hud1" type="Sprite2D" parent="."]
+position = Vector2(540, 360)
+texture = ExtResource("1_2yihk")
+
+[node name="Hud2" type="Sprite2D" parent="."]
+position = Vector2(612, 360)
+texture = ExtResource("2_s1n27")
