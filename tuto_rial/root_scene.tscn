@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://xlp4bny2owsr"]
+
+[ext_resource type="PackedScene" uid="uid://datwe08g6a044" path="res://Asset/Characters/MainCharacter/LittleAdventurerAndie.fbx" id="1_vov62"]
+[ext_resource type="Material" uid="uid://dsxg0h0pajegl" path="res://Asset/Characters/MainCharacter/LittleAdventurerAndie_Material.tres" id="2_82m2n"]
+
+[node name="Root Scene" instance=ExtResource("1_vov62")]
+
+[node name="LittleAdventurerAndieMesh" parent="RootNode/LittleAdventurerAndie_GameRig/Skeleton3D" index="0"]
+material_override = ExtResource("2_82m2n")
