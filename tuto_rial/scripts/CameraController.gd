@@ -1,7 +1,7 @@
 extends Node3D
 
 var player
-@export var sensitivity := 5
+@export var sensitivity := 2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]

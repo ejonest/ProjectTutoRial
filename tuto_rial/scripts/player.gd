@@ -2,7 +2,6 @@ extends CharacterBody3D
 
 @onready var visual : Node3D = $Armature
 
-
 var SPEED = 5.0
 const JUMP_VELOCITY = 4
 

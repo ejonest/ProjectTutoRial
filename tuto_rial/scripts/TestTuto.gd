@@ -1,13 +1,13 @@
 extends CharacterBody3D
 
-
 var SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 var crouching = false
 var sword = false
 var meleeOne = false
 var weaponNode
-var playerHealth = 100
+@export var playerHealth = 100
+@export var maxPlayerHealth = 100
 var hitLeft = true
 var lookat
 var lastLookAtDirection : Vector3
@@ -19,6 +19,7 @@ var attacking = false
 var moveOn = 1
 
 signal attack
+signal healthChange
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -42,9 +43,11 @@ func _physics_process(delta):
 		weaponNode.visible = false
 	# Handle the sprint/crouch/walk speed (10, 3, 5) respectivly 
 	if Input.is_action_pressed("sprint") && !crouching:
-		SPEED = 10.0
+		SPEED = 8.0
 		sword = false
 		weaponNode.visible = false
+	elif Input.is_action_just_released("sprint") && !crouching:
+		SPEED = 5.0
 	elif Input.is_action_just_pressed("crouch") && !crouching:
 		crouching = true
 		SPEED = 3.0
@@ -55,6 +58,11 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("equip"):
 		sword = !sword
 		weaponNode.visible = !weaponNode.visible
+		
+	if Input.is_action_just_pressed("heal"):
+		if playerHealth < maxPlayerHealth:
+			playerHealth += 10
+			healthChange.emit()
 	
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -83,13 +91,13 @@ func _physics_process(delta):
 		&& SPEED == 5.0 && !crouching)
 #SPRINT
 	$AnimationTree.set("parameters/conditions/sprint", input_dir.x == 0 && input_dir.y == -1 
-		&& is_on_floor() && SPEED == 10.0)
+		&& is_on_floor() && SPEED == 8.0)
 	$AnimationTree.set("parameters/conditions/sprintBack", input_dir.x == 0 && input_dir.y == 1 
-		&& is_on_floor() && SPEED == 10.0)
+		&& is_on_floor() && SPEED == 8.0)
 	$AnimationTree.set("parameters/conditions/sprintLeft", input_dir.x == -1 && is_on_floor() 
-		&& SPEED == 10.0)
+		&& SPEED == 8.0)
 	$AnimationTree.set("parameters/conditions/sprintRight", input_dir.x == 1 && is_on_floor()
-		&& SPEED == 10.0)
+		&& SPEED == 8.0)
 #JUMP
 	$AnimationTree.set("parameters/conditions/jump", Input.is_action_pressed("jump"))
 #CROUCH IDLE
@@ -140,6 +148,7 @@ func hit():
 	print(playerHealth)
 	if playerHealth > 0:
 		playerHealth -= 10
+		healthChange.emit()
 	damageAni = true
 	await get_tree().create_timer(1.0).timeout
 	damageAni = false
