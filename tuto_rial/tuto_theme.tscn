@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://0wt06abe2p4x"]
+
+[ext_resource type="AudioStream" uid="uid://ced1ik07aqhnu" path="res://tuto.wav" id="1_1ne4l"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_1ne4l")
+volume_db = -50.0
+autoplay = true
