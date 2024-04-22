@@ -64,13 +64,24 @@ func _physics_process(delta):
 			playerHealth += 10
 			healthChange.emit()
 	
-	var input_dir = Input.get_vector("left", "right", "forward", "backward")
+	#var input_dir = Input.get_vector("left", "right", "forward", "backward")
+	var input_dir = Vector2(0, 0)
+	if Input.is_action_pressed("left"):
+		input_dir.x += -1
+	if Input.is_action_pressed("right"):
+		input_dir.x += 1
+	if Input.is_action_pressed("backward"):
+		input_dir.y += 1
+	if Input.is_action_pressed("forward"):
+		input_dir.y += -1
+	
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		var lerpDirection = lerp(lastLookAtDirection, Vector3(lookat.global_position.x, 
 			global_position.y, lookat.global_position.z), .05)
 		if moveOn == 1:
 			look_at(lerpDirection)
+			pass
 		lastLookAtDirection = lerpDirection
 		velocity.x = direction.x * SPEED * moveOn
 		velocity.z = direction.z * SPEED * moveOn
