@@ -26,6 +26,7 @@ project/assembly_name="tutorial"
 
 [filesystem]
 
+import/blender/enabled=false
 import/fbx/enabled=false
 
 [input]
