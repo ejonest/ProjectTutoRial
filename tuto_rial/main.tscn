@@ -418,12 +418,12 @@ transform = Transform3D(1, -4.23684e-16, 3.4065e-16, 3.4065e-16, 0.976672, 0.214
 [node name="LookAt" type="Node3D" parent="CameraController"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218803, 2.41586, -4.98026)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="HUD_stuff" type="CanvasLayer" parent="."]
 
-[node name="Hud" parent="CanvasLayer" instance=ExtResource("5_sk40m")]
+[node name="Hud" parent="HUD_stuff" instance=ExtResource("5_sk40m")]
 script = ExtResource("4_oufyj")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD_stuff"]
 z_index = 2
 offset_left = 136.0
 offset_top = -56.0
@@ -4103,6 +4103,7 @@ bones/31/rotation = Quaternion(0.297715, 0.0308492, -0.00591019, 0.954138)
 transform = Transform3D(0.371518, 0.0174024, 0.928263, 0.925074, 0.0779494, -0.371702, -0.0788259, 0.996805, 0.0128611, -37.2573, 9.78414, -161.484)
 
 [node name="Sword" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D" index="0"]
+transform = Transform3D(-23.1219, 49.007, -9.41749, 10.4524, -5.39307, -53.7277, -48.7968, -24.3768, -7.04625, -50.6289, 20.7265, 24.3065)
 script = ExtResource("46_wk8wj")
 
 [editable path="TestTuto"]
