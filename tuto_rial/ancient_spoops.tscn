@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d6i6iaht7uvw"]
+
+[ext_resource type="AudioStream" uid="uid://ci04odrriifsf" path="res://ancient_spoops.wav" id="1_ghurn"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_ghurn")
+volume_db = -10.0
+autoplay = true

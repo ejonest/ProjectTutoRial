@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dft31cqjctt3t"]
+[gd_scene load_steps=13 format=3 uid="uid://dft31cqjctt3t"]
 
 [ext_resource type="Texture2D" uid="uid://ckw3ovkkinolo" path="res://tuto_rial_title.png" id="1_hyx8b"]
 [ext_resource type="Script" path="res://main_menu.gd" id="1_ksmet"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://oi7tnh8vwdnb" path="res://tuto_shadow.png" id="9_xa55o"]
 [ext_resource type="Script" path="res://tuto_himself_spr.gd" id="10_8kqrr"]
 [ext_resource type="PackedScene" uid="uid://0wt06abe2p4x" path="res://tuto_theme.tscn" id="10_opii8"]
+[ext_resource type="FontFile" uid="uid://ckrrvcbu53esy" path="res://PixelifySans-Regular.ttf" id="12_13iwq"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -117,5 +118,17 @@ offset_right = 808.0
 offset_bottom = 484.0
 scale = Vector2(0.397167, 0.421131)
 icon = ExtResource("2_jcan5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 240.0
+offset_top = 216.0
+offset_right = 400.0
+offset_bottom = 248.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("12_13iwq")
+theme_override_font_sizes/normal_font_size = 20
+text = "Prototype Build"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
