@@ -9,7 +9,7 @@ var player : Node3D
 #var direction: Vector3
 var stopDistance : float = 1
 
-var health = 10
+var health = 20
 var lookat
 var lastLookAtDirection : Vector3
 var takingDamage = false
@@ -72,8 +72,13 @@ func jump():
 	if health > 0:
 		velocity.y = 3
 	
-func hit():
-	health -= 1;
+func hit(attackType):
+	if attackType == 'sword':
+		health -= 2;
+	elif attackType == 'fist':
+		health -= 1;
+	else:
+		push_error("Attack occured but it was not with sword or fist")
 	takingDamage = true
 	knockback = 2
 	print(health)
@@ -86,9 +91,9 @@ func setPos(x, y, z):
 func getHealth():
 	return health
 
-func _on_test_tuto_attack():
+func _on_test_tuto_attack(attackType):
 	if attackPossible:
-		hit()
+		hit(attackType)
 	
 func _on_hitbox_area_entered(area):
 	if area.is_in_group("Sword"):

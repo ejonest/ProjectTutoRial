@@ -169,7 +169,10 @@ func wait(seconds: float) -> void:
 	
 func attackNow():
 	attacking = true
-	emit_signal("attack")
+	if sword:
+		emit_signal("attack", 'sword')
+	else:
+		emit_signal("attack", 'fist')
 	await get_tree().create_timer(.5).timeout
 	attacking = false
 	
