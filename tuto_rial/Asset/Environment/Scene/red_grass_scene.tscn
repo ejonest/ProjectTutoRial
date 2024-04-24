@@ -70,17 +70,47 @@ material_override = ExtResource("1_sn16t")
 multimesh = SubResource("MultiMesh_c63dp")
 
 [node name="MultiMeshInstance3D5" type="MultiMeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.81815, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.44557, 0, 0)
 material_override = ExtResource("1_sn16t")
 multimesh = SubResource("MultiMesh_c63dp")
 
 [node name="MultiMeshInstance3D6" type="MultiMeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0556, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.33484, 0, -18.1697)
+material_override = ExtResource("1_sn16t")
+multimesh = SubResource("MultiMesh_c63dp")
+
+[node name="MultiMeshInstance3D14" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.33484, 0, -15.0676)
+material_override = ExtResource("1_sn16t")
+multimesh = SubResource("MultiMesh_c63dp")
+
+[node name="MultiMeshInstance3D15" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.33484, 0, -12.2379)
+material_override = ExtResource("1_sn16t")
+multimesh = SubResource("MultiMesh_c63dp")
+
+[node name="MultiMeshInstance3D11" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.33484, 0, -23.2786)
+material_override = ExtResource("1_sn16t")
+multimesh = SubResource("MultiMesh_c63dp")
+
+[node name="MultiMeshInstance3D16" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.33484, 0, -25.9607)
+material_override = ExtResource("1_sn16t")
+multimesh = SubResource("MultiMesh_c63dp")
+
+[node name="MultiMeshInstance3D12" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.33484, 0, -28.0271)
+material_override = ExtResource("1_sn16t")
+multimesh = SubResource("MultiMesh_c63dp")
+
+[node name="MultiMeshInstance3D13" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.33484, 0, -29.9188)
 material_override = ExtResource("1_sn16t")
 multimesh = SubResource("MultiMesh_c63dp")
 
 [node name="MultiMeshInstance3D7" type="MultiMeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2334, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6503, 0, 0)
 material_override = ExtResource("1_sn16t")
 multimesh = SubResource("MultiMesh_c63dp")
 
