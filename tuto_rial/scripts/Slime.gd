@@ -10,6 +10,7 @@ var player : Node3D
 var stopDistance : float = 1
 
 var health = 20
+var maxHealth = 20
 var lookat
 var lastLookAtDirection : Vector3
 var takingDamage = false
@@ -28,6 +29,8 @@ func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 	player.attack.connect(_on_test_tuto_attack)
 	lookat = player.get_node("LookAt")
+	$SubViewport/healthbar.value = health
+	$SubViewport/healthbar.max_value = maxHealth
 
 func _physics_process(delta):
 	var input_dir
@@ -75,8 +78,10 @@ func jump():
 func hit(attackType):
 	if attackType == 'sword':
 		health -= 2;
+		$SubViewport/healthbar.value -= 2;
 	elif attackType == 'fist':
 		health -= 1;
+		$SubViewport/healthbar.value -= 1;
 	else:
 		push_error("Attack occured but it was not with sword or fist")
 	takingDamage = true

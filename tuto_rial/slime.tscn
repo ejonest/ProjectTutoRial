@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://dhdv4nfr2cq5n"]
+[gd_scene load_steps=28 format=3 uid="uid://dhdv4nfr2cq5n"]
 
 [ext_resource type="Script" path="res://scripts/Slime.gd" id="1_aukqg"]
+[ext_resource type="PackedScene" uid="uid://bblrihf6tplii" path="res://enemy_health.tscn" id="2_w42tw"]
 
 [sub_resource type="Animation" id="Animation_4l7c8"]
 resource_name = "Damage"
@@ -245,6 +246,9 @@ shadow_mesh = SubResource("ArrayMesh_3im8m")
 height = 0.390346
 radius = 0.588111
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_h8fd3"]
+viewport_path = NodePath("SubViewport")
+
 [node name="Slime" type="CharacterBody3D" groups=["Enemy"]]
 script = ExtResource("1_aukqg")
 
@@ -278,6 +282,17 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.180879, 0)
 shape = SubResource("CylinderShape3D_fpujj")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+
+[node name="healthbar" parent="SubViewport" instance=ExtResource("2_w42tw")]
+
+[node name="healthSprite" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.609344, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_h8fd3")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_exited" from="Hitbox" to="." method="_on_hitbox_area_exited"]
