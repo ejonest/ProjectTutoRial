@@ -193,3 +193,6 @@ func _on_hitbox_area_exited(area):
 	if area.is_in_group("Enemy"):
 		beingTouched = false
 		#print(beingTouched)
+		
+func _swordChange():
+	pass

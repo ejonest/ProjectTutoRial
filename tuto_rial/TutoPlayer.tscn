@@ -1,4 +1,4 @@
-[gd_scene load_steps=288 format=3 uid="uid://d1plc8ddh0ybl"]
+[gd_scene load_steps=304 format=3 uid="uid://d1plc8ddh0ybl"]
 
 [ext_resource type="Script" path="res://scripts/TestTuto.gd" id="1_1isvh"]
 [ext_resource type="PackedScene" uid="uid://bbe2ociik4h2r" path="res://Sword.glb" id="2_hgtx8"]
@@ -15289,6 +15289,70 @@ advance_condition = &"punchRight"
 advance_mode = 2
 advance_condition = &"punchRight"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gpx0l"]
+advance_mode = 2
+advance_condition = &"punchLeft"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8ak4f"]
+advance_mode = 2
+advance_condition = &"punchRight"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h0x6f"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5i7lp"]
+advance_mode = 2
+advance_condition = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wavp5"]
+advance_mode = 2
+advance_condition = &"left"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ity2d"]
+advance_mode = 2
+advance_condition = &"left"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n5prw"]
+advance_mode = 2
+advance_condition = &"punchLeft"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e31aj"]
+advance_mode = 2
+advance_condition = &"punchRight"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8ecey"]
+advance_mode = 2
+advance_condition = &"punchLeft"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_62iv1"]
+advance_mode = 2
+advance_condition = &"punchRight"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ig3gr"]
+advance_mode = 2
+advance_condition = &"right"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nbjn2"]
+advance_mode = 2
+advance_condition = &"right"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o0tv6"]
+advance_mode = 2
+advance_condition = &"punchLeft"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kb5pc"]
+advance_mode = 2
+advance_condition = &"punchRight"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_luv4u"]
+advance_mode = 2
+advance_condition = &"back"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ni2xr"]
+advance_mode = 2
+advance_condition = &"back"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4kxat"]
 states/CrouchBack/node = SubResource("AnimationNodeAnimation_hsi4w")
 states/CrouchBack/position = Vector2(756.156, 821.177)
@@ -15318,9 +15382,9 @@ states/JumpRunBack/position = Vector2(838.566, 262.566)
 states/JumpStand/node = SubResource("AnimationNodeAnimation_87ggc")
 states/JumpStand/position = Vector2(368.982, -7.5575)
 states/PunchLeft/node = SubResource("AnimationNodeAnimation_0ycv0")
-states/PunchLeft/position = Vector2(1164.13, -242.736)
+states/PunchLeft/position = Vector2(-136.045, -241.387)
 states/PunchRight/node = SubResource("AnimationNodeAnimation_krmo5")
-states/PunchRight/position = Vector2(1419.13, -242.314)
+states/PunchRight/position = Vector2(108.955, -242.962)
 states/Run/node = SubResource("AnimationNodeAnimation_gl7dw")
 states/Run/position = Vector2(546.935, 363.065)
 states/RunBack/node = SubResource("AnimationNodeAnimation_4vfgi")
@@ -15338,13 +15402,13 @@ states/Unequip/position = Vector2(461.296, -169.221)
 states/Walk/node = SubResource("AnimationNodeAnimation_dwfk6")
 states/Walk/position = Vector2(544.222, 99.2154)
 states/WalkBack/node = SubResource("AnimationNodeAnimation_i8muw")
-states/WalkBack/position = Vector2(652.541, 262.748)
+states/WalkBack/position = Vector2(675.041, 262.612)
 states/WalkLeft/node = SubResource("AnimationNodeAnimation_e211l")
-states/WalkLeft/position = Vector2(305.096, 262.657)
+states/WalkLeft/position = Vector2(314.109, 262.657)
 states/WalkRight/node = SubResource("AnimationNodeAnimation_os0dk")
 states/WalkRight/position = Vector2(459.55, 262.522)
-transitions = ["Start", "IdleStand", SubResource("AnimationNodeStateMachineTransition_dtnp0"), "IdleStand", "Walk", SubResource("AnimationNodeStateMachineTransition_ba6rb"), "Walk", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_l68le"), "Walk", "WalkBack", SubResource("AnimationNodeStateMachineTransition_nd3fv"), "Walk", "WalkRight", SubResource("AnimationNodeStateMachineTransition_siliw"), "WalkBack", "Walk", SubResource("AnimationNodeStateMachineTransition_djeoc"), "WalkLeft", "Walk", SubResource("AnimationNodeStateMachineTransition_72gjs"), "WalkRight", "Walk", SubResource("AnimationNodeStateMachineTransition_0c2s4"), "Walk", "IdleStand", SubResource("AnimationNodeStateMachineTransition_0kwn4"), "IdleStand", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_for5x"), "IdleStand", "WalkRight", SubResource("AnimationNodeStateMachineTransition_xdfb1"), "WalkRight", "IdleStand", SubResource("AnimationNodeStateMachineTransition_gbqma"), "IdleStand", "WalkBack", SubResource("AnimationNodeStateMachineTransition_jur5l"), "WalkBack", "IdleStand", SubResource("AnimationNodeStateMachineTransition_wsc70"), "WalkLeft", "IdleStand", SubResource("AnimationNodeStateMachineTransition_bw7v1"), "IdleStand", "JumpStand", SubResource("AnimationNodeStateMachineTransition_s7o6p"), "JumpStand", "IdleStand", SubResource("AnimationNodeStateMachineTransition_js1sq"), "Walk", "JumpRun", SubResource("AnimationNodeStateMachineTransition_yfw4f"), "JumpRun", "Walk", SubResource("AnimationNodeStateMachineTransition_m3jbo"), "WalkBack", "JumpRunBack", SubResource("AnimationNodeStateMachineTransition_imc4u"), "JumpRunBack", "WalkBack", SubResource("AnimationNodeStateMachineTransition_3hqdb"), "WalkRight", "JumpRun", SubResource("AnimationNodeStateMachineTransition_srl77"), "JumpRun", "WalkRight", SubResource("AnimationNodeStateMachineTransition_x2is2"), "WalkLeft", "JumpRun", SubResource("AnimationNodeStateMachineTransition_1gufy"), "JumpRun", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_y248v"), "JumpRun", "WalkBack", SubResource("AnimationNodeStateMachineTransition_vbsh6"), "JumpRunBack", "Walk", SubResource("AnimationNodeStateMachineTransition_nyykx"), "JumpRun", "IdleStand", SubResource("AnimationNodeStateMachineTransition_q5xmq"), "JumpRunBack", "IdleStand", SubResource("AnimationNodeStateMachineTransition_kwrmq"), "IdleStand", "Run", SubResource("AnimationNodeStateMachineTransition_aj42p"), "Run", "IdleStand", SubResource("AnimationNodeStateMachineTransition_c7dn5"), "Run", "Walk", SubResource("AnimationNodeStateMachineTransition_iv86x"), "Walk", "Run", SubResource("AnimationNodeStateMachineTransition_q2rj6"), "Run", "JumpRun", SubResource("AnimationNodeStateMachineTransition_f7s2q"), "JumpRun", "Run", SubResource("AnimationNodeStateMachineTransition_kfchk"), "Run", "RunLeft", SubResource("AnimationNodeStateMachineTransition_2jv6f"), "Run", "RunRight", SubResource("AnimationNodeStateMachineTransition_4sbfo"), "Run", "RunBack", SubResource("AnimationNodeStateMachineTransition_jer70"), "RunBack", "Run", SubResource("AnimationNodeStateMachineTransition_xd8sd"), "RunRight", "Run", SubResource("AnimationNodeStateMachineTransition_aerch"), "RunLeft", "Run", SubResource("AnimationNodeStateMachineTransition_v6q6q"), "RunRight", "IdleStand", SubResource("AnimationNodeStateMachineTransition_wce6r"), "RunLeft", "IdleStand", SubResource("AnimationNodeStateMachineTransition_8f3bf"), "IdleStand", "RunLeft", SubResource("AnimationNodeStateMachineTransition_no0lf"), "IdleStand", "RunRight", SubResource("AnimationNodeStateMachineTransition_yhhdt"), "IdleStand", "RunBack", SubResource("AnimationNodeStateMachineTransition_phyg6"), "RunBack", "IdleStand", SubResource("AnimationNodeStateMachineTransition_msdqt"), "RunRight", "Walk", SubResource("AnimationNodeStateMachineTransition_k0467"), "Walk", "RunRight", SubResource("AnimationNodeStateMachineTransition_tqgv8"), "RunBack", "Walk", SubResource("AnimationNodeStateMachineTransition_gyxy6"), "Walk", "RunBack", SubResource("AnimationNodeStateMachineTransition_uin1t"), "Walk", "RunLeft", SubResource("AnimationNodeStateMachineTransition_2ocgi"), "RunLeft", "Walk", SubResource("AnimationNodeStateMachineTransition_uh8y6"), "RunLeft", "JumpRun", SubResource("AnimationNodeStateMachineTransition_ugevw"), "JumpRun", "RunLeft", SubResource("AnimationNodeStateMachineTransition_goxml"), "RunBack", "JumpRun", SubResource("AnimationNodeStateMachineTransition_qrnqj"), "JumpRun", "RunBack", SubResource("AnimationNodeStateMachineTransition_s6gqg"), "RunRight", "JumpRun", SubResource("AnimationNodeStateMachineTransition_o62va"), "JumpRun", "RunRight", SubResource("AnimationNodeStateMachineTransition_fhgjl"), "IdleStand", "CrouchIdle", SubResource("AnimationNodeStateMachineTransition_c4e0q"), "Walk", "CrouchIdle", SubResource("AnimationNodeStateMachineTransition_uulad"), "CrouchIdle", "IdleStand", SubResource("AnimationNodeStateMachineTransition_h0b7k"), "CrouchIdle", "Walk", SubResource("AnimationNodeStateMachineTransition_ed14b"), "CrouchIdle", "CrouchLeft", SubResource("AnimationNodeStateMachineTransition_7kslw"), "CrouchLeft", "CrouchIdle", SubResource("AnimationNodeStateMachineTransition_vrpj7"), "CrouchIdle", "CrouchFor", SubResource("AnimationNodeStateMachineTransition_5kqck"), "CrouchFor", "CrouchIdle", SubResource("AnimationNodeStateMachineTransition_sofen"), "CrouchIdle", "CrouchBack", SubResource("AnimationNodeStateMachineTransition_5ousx"), "CrouchBack", "CrouchIdle", SubResource("AnimationNodeStateMachineTransition_3g671"), "CrouchIdle", "CrouchRight", SubResource("AnimationNodeStateMachineTransition_bug18"), "CrouchRight", "CrouchIdle", SubResource("AnimationNodeStateMachineTransition_gfyvy"), "CrouchFor", "CrouchLeft", SubResource("AnimationNodeStateMachineTransition_tpsly"), "CrouchLeft", "CrouchFor", SubResource("AnimationNodeStateMachineTransition_rm2g8"), "CrouchFor", "CrouchBack", SubResource("AnimationNodeStateMachineTransition_2j7fl"), "CrouchBack", "CrouchFor", SubResource("AnimationNodeStateMachineTransition_at08j"), "CrouchRight", "CrouchFor", SubResource("AnimationNodeStateMachineTransition_i8osu"), "CrouchFor", "CrouchRight", SubResource("AnimationNodeStateMachineTransition_420qd"), "CrouchRight", "CrouchLeft", SubResource("AnimationNodeStateMachineTransition_bf35e"), "CrouchLeft", "CrouchRight", SubResource("AnimationNodeStateMachineTransition_l2lx2"), "CrouchBack", "CrouchLeft", SubResource("AnimationNodeStateMachineTransition_bnurl"), "CrouchLeft", "CrouchBack", SubResource("AnimationNodeStateMachineTransition_di4q7"), "CrouchBack", "CrouchRight", SubResource("AnimationNodeStateMachineTransition_i8ken"), "CrouchRight", "CrouchBack", SubResource("AnimationNodeStateMachineTransition_p8wyb"), "IdleStand", "PunchLeft", SubResource("AnimationNodeStateMachineTransition_5l57y"), "IdleStand", "PunchRight", SubResource("AnimationNodeStateMachineTransition_4sx7d"), "PunchLeft", "PunchRight", SubResource("AnimationNodeStateMachineTransition_mv5f0"), "PunchRight", "PunchLeft", SubResource("AnimationNodeStateMachineTransition_au0hp"), "PunchLeft", "IdleStand", SubResource("AnimationNodeStateMachineTransition_dsu0t"), "PunchRight", "IdleStand", SubResource("AnimationNodeStateMachineTransition_cbgh0"), "IdleStand", "SlashOverEnt", SubResource("AnimationNodeStateMachineTransition_18r66"), "SlashOverEnt", "IdleStand", SubResource("AnimationNodeStateMachineTransition_gjm4f"), "IdleStand", "SlashUnderEnt", SubResource("AnimationNodeStateMachineTransition_85pav"), "SlashUnderEnt", "IdleStand", SubResource("AnimationNodeStateMachineTransition_1tdi4"), "SlashOverEnt", "SlashUnderEnt", SubResource("AnimationNodeStateMachineTransition_sn3if"), "SlashUnderEnt", "SlashOverEnt", SubResource("AnimationNodeStateMachineTransition_0l56a"), "IdleStand", "Equip", SubResource("AnimationNodeStateMachineTransition_4ioe7"), "Equip", "IdleStand", SubResource("AnimationNodeStateMachineTransition_mvcws"), "IdleStand", "Unequip", SubResource("AnimationNodeStateMachineTransition_sei7g"), "Unequip", "IdleStand", SubResource("AnimationNodeStateMachineTransition_bkxqo"), "Equip", "Unequip", SubResource("AnimationNodeStateMachineTransition_rnfqt"), "Unequip", "Equip", SubResource("AnimationNodeStateMachineTransition_4q221"), "IdleStand", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_tx5g6"), "HitPunchLeft", "IdleStand", SubResource("AnimationNodeStateMachineTransition_pfx6n"), "IdleStand", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_pvrj3"), "HitPunchRight", "IdleStand", SubResource("AnimationNodeStateMachineTransition_0hx8x"), "HitPunchLeft", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_0e3xa"), "HitPunchRight", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_l0ka5"), "Walk", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_cd2ma"), "Walk", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_voba0"), "HitPunchLeft", "Walk", SubResource("AnimationNodeStateMachineTransition_xndbv"), "HitPunchRight", "Walk", SubResource("AnimationNodeStateMachineTransition_xu8yn"), "WalkLeft", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_huduu"), "HitPunchLeft", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_nt4mh"), "WalkBack", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_hyor2"), "HitPunchLeft", "WalkBack", SubResource("AnimationNodeStateMachineTransition_3y0bu"), "WalkLeft", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_7olwo"), "HitPunchRight", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_i10vi"), "WalkBack", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_cq0bt"), "HitPunchRight", "WalkBack", SubResource("AnimationNodeStateMachineTransition_63hjn"), "WalkRight", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_ijjhk"), "HitPunchRight", "WalkRight", SubResource("AnimationNodeStateMachineTransition_ujcya"), "WalkRight", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_wscg8"), "HitPunchLeft", "WalkRight", SubResource("AnimationNodeStateMachineTransition_dma4p"), "RunLeft", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_62m3j"), "HitPunchLeft", "RunLeft", SubResource("AnimationNodeStateMachineTransition_w34o6"), "RunLeft", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_pejfv"), "HitPunchRight", "RunLeft", SubResource("AnimationNodeStateMachineTransition_pmhi7"), "Run", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_ayfap"), "HitPunchLeft", "Run", SubResource("AnimationNodeStateMachineTransition_iqyvn"), "Run", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_f8djq"), "HitPunchRight", "Run", SubResource("AnimationNodeStateMachineTransition_a7qpd"), "RunRight", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_wfwoq"), "HitPunchLeft", "RunRight", SubResource("AnimationNodeStateMachineTransition_eyv16"), "RunRight", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_4hhu0"), "HitPunchRight", "RunRight", SubResource("AnimationNodeStateMachineTransition_tj3ym"), "RunBack", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_16baj"), "HitPunchLeft", "RunBack", SubResource("AnimationNodeStateMachineTransition_hexem"), "RunBack", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_hxe2l"), "HitPunchRight", "RunBack", SubResource("AnimationNodeStateMachineTransition_0jdsb"), "CrouchIdle", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_3ieou"), "CrouchIdle", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_f50j2"), "CrouchLeft", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_dhhuu"), "CrouchLeft", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_rk250"), "CrouchFor", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_quvwh"), "CrouchFor", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_fmhbm"), "CrouchBack", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_y5peo"), "CrouchBack", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_7x2e2"), "CrouchRight", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_rutkk"), "CrouchRight", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_eaqij"), "IdleStand", "Death", SubResource("AnimationNodeStateMachineTransition_8sevg"), "WalkLeft", "Death", SubResource("AnimationNodeStateMachineTransition_3jpp8"), "Walk", "Death", SubResource("AnimationNodeStateMachineTransition_k1hvw"), "WalkBack", "Death", SubResource("AnimationNodeStateMachineTransition_xel70"), "WalkRight", "Death", SubResource("AnimationNodeStateMachineTransition_vejfu"), "RunLeft", "Death", SubResource("AnimationNodeStateMachineTransition_60j0h"), "Run", "Death", SubResource("AnimationNodeStateMachineTransition_w1kgr"), "RunRight", "Death", SubResource("AnimationNodeStateMachineTransition_tst3s"), "RunBack", "Death", SubResource("AnimationNodeStateMachineTransition_gf7bv"), "CrouchIdle", "Death", SubResource("AnimationNodeStateMachineTransition_4sq6q"), "CrouchLeft", "Death", SubResource("AnimationNodeStateMachineTransition_hft8y"), "CrouchBack", "Death", SubResource("AnimationNodeStateMachineTransition_fk7nf"), "CrouchRight", "Death", SubResource("AnimationNodeStateMachineTransition_cdimc"), "CrouchFor", "Death", SubResource("AnimationNodeStateMachineTransition_dfc88"), "WalkLeft", "SlashUnderEnt", SubResource("AnimationNodeStateMachineTransition_htj0e"), "SlashUnderEnt", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_6w4h6"), "WalkLeft", "SlashOverEnt", SubResource("AnimationNodeStateMachineTransition_yv5yo"), "Walk", "SlashOverEnt", SubResource("AnimationNodeStateMachineTransition_i3pt0"), "SlashOverEnt", "Walk", SubResource("AnimationNodeStateMachineTransition_14v36"), "Walk", "SlashUnderEnt", SubResource("AnimationNodeStateMachineTransition_tdrch"), "SlashUnderEnt", "Walk", SubResource("AnimationNodeStateMachineTransition_jj46h"), "WalkBack", "SlashOverEnt", SubResource("AnimationNodeStateMachineTransition_mn3jd"), "WalkBack", "SlashUnderEnt", SubResource("AnimationNodeStateMachineTransition_fc5xa"), "SlashOverEnt", "WalkBack", SubResource("AnimationNodeStateMachineTransition_0o5de"), "SlashUnderEnt", "WalkBack", SubResource("AnimationNodeStateMachineTransition_7p2xs"), "WalkRight", "SlashOverEnt", SubResource("AnimationNodeStateMachineTransition_e51po"), "SlashOverEnt", "WalkRight", SubResource("AnimationNodeStateMachineTransition_62q4f"), "WalkRight", "SlashUnderEnt", SubResource("AnimationNodeStateMachineTransition_kk1g4"), "SlashUnderEnt", "WalkRight", SubResource("AnimationNodeStateMachineTransition_rbupt"), "SlashUnderEnt", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_yfngl"), "SlashUnderEnt", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_xu3gc"), "HitPunchLeft", "SlashUnderEnt", SubResource("AnimationNodeStateMachineTransition_wi1ts"), "HitPunchRight", "SlashUnderEnt", SubResource("AnimationNodeStateMachineTransition_w5ya1"), "SlashOverEnt", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_werw1"), "SlashOverEnt", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_p0yx3"), "HitPunchRight", "SlashOverEnt", SubResource("AnimationNodeStateMachineTransition_v2snu"), "HitPunchLeft", "SlashOverEnt", SubResource("AnimationNodeStateMachineTransition_5ct1w"), "Walk", "CrouchFor", SubResource("AnimationNodeStateMachineTransition_gp83p"), "Walk", "CrouchRight", SubResource("AnimationNodeStateMachineTransition_mrmlr"), "Walk", "CrouchBack", SubResource("AnimationNodeStateMachineTransition_e6c3j"), "Walk", "CrouchLeft", SubResource("AnimationNodeStateMachineTransition_f1riw"), "CrouchLeft", "Walk", SubResource("AnimationNodeStateMachineTransition_wkh7x"), "CrouchBack", "Walk", SubResource("AnimationNodeStateMachineTransition_uvan2"), "CrouchFor", "Walk", SubResource("AnimationNodeStateMachineTransition_4sekx"), "CrouchRight", "Walk", SubResource("AnimationNodeStateMachineTransition_sk7r5"), "WalkBack", "CrouchBack", SubResource("AnimationNodeStateMachineTransition_6mfop"), "CrouchBack", "WalkBack", SubResource("AnimationNodeStateMachineTransition_dxold"), "CrouchRight", "WalkRight", SubResource("AnimationNodeStateMachineTransition_wdkxa"), "WalkRight", "CrouchRight", SubResource("AnimationNodeStateMachineTransition_xtbni"), "CrouchLeft", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_1vkbm"), "WalkLeft", "CrouchLeft", SubResource("AnimationNodeStateMachineTransition_yy2gw"), "PunchLeft", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_r3iyb"), "PunchRight", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_fjy3y"), "PunchLeft", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_v34ji"), "PunchRight", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_6xcfo"), "HitPunchLeft", "PunchLeft", SubResource("AnimationNodeStateMachineTransition_wjw5p"), "HitPunchRight", "PunchLeft", SubResource("AnimationNodeStateMachineTransition_8lcax"), "HitPunchRight", "PunchRight", SubResource("AnimationNodeStateMachineTransition_tntts"), "HitPunchLeft", "PunchRight", SubResource("AnimationNodeStateMachineTransition_01w7n")]
-graph_offset = Vector2(635.28, -314.64)
+transitions = ["Start", "IdleStand", SubResource("AnimationNodeStateMachineTransition_dtnp0"), "IdleStand", "Walk", SubResource("AnimationNodeStateMachineTransition_ba6rb"), "Walk", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_l68le"), "Walk", "WalkBack", SubResource("AnimationNodeStateMachineTransition_nd3fv"), "Walk", "WalkRight", SubResource("AnimationNodeStateMachineTransition_siliw"), "WalkBack", "Walk", SubResource("AnimationNodeStateMachineTransition_djeoc"), "WalkLeft", "Walk", SubResource("AnimationNodeStateMachineTransition_72gjs"), "WalkRight", "Walk", SubResource("AnimationNodeStateMachineTransition_0c2s4"), "Walk", "IdleStand", SubResource("AnimationNodeStateMachineTransition_0kwn4"), "IdleStand", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_for5x"), "IdleStand", "WalkRight", SubResource("AnimationNodeStateMachineTransition_xdfb1"), "WalkRight", "IdleStand", SubResource("AnimationNodeStateMachineTransition_gbqma"), "IdleStand", "WalkBack", SubResource("AnimationNodeStateMachineTransition_jur5l"), "WalkBack", "IdleStand", SubResource("AnimationNodeStateMachineTransition_wsc70"), "WalkLeft", "IdleStand", SubResource("AnimationNodeStateMachineTransition_bw7v1"), "IdleStand", "JumpStand", SubResource("AnimationNodeStateMachineTransition_s7o6p"), "JumpStand", "IdleStand", SubResource("AnimationNodeStateMachineTransition_js1sq"), "Walk", "JumpRun", SubResource("AnimationNodeStateMachineTransition_yfw4f"), "JumpRun", "Walk", SubResource("AnimationNodeStateMachineTransition_m3jbo"), "WalkBack", "JumpRunBack", SubResource("AnimationNodeStateMachineTransition_imc4u"), "JumpRunBack", "WalkBack", SubResource("AnimationNodeStateMachineTransition_3hqdb"), "WalkRight", "JumpRun", SubResource("AnimationNodeStateMachineTransition_srl77"), "JumpRun", "WalkRight", SubResource("AnimationNodeStateMachineTransition_x2is2"), "WalkLeft", "JumpRun", SubResource("AnimationNodeStateMachineTransition_1gufy"), "JumpRun", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_y248v"), "JumpRun", "WalkBack", SubResource("AnimationNodeStateMachineTransition_vbsh6"), "JumpRunBack", "Walk", SubResource("AnimationNodeStateMachineTransition_nyykx"), "JumpRun", "IdleStand", SubResource("AnimationNodeStateMachineTransition_q5xmq"), "JumpRunBack", "IdleStand", SubResource("AnimationNodeStateMachineTransition_kwrmq"), "IdleStand", "Run", SubResource("AnimationNodeStateMachineTransition_aj42p"), "Run", "IdleStand", SubResource("AnimationNodeStateMachineTransition_c7dn5"), "Run", "Walk", SubResource("AnimationNodeStateMachineTransition_iv86x"), "Walk", "Run", SubResource("AnimationNodeStateMachineTransition_q2rj6"), "Run", "JumpRun", SubResource("AnimationNodeStateMachineTransition_f7s2q"), "JumpRun", "Run", SubResource("AnimationNodeStateMachineTransition_kfchk"), "Run", "RunLeft", SubResource("AnimationNodeStateMachineTransition_2jv6f"), "Run", "RunRight", SubResource("AnimationNodeStateMachineTransition_4sbfo"), "Run", "RunBack", SubResource("AnimationNodeStateMachineTransition_jer70"), "RunBack", "Run", SubResource("AnimationNodeStateMachineTransition_xd8sd"), "RunRight", "Run", SubResource("AnimationNodeStateMachineTransition_aerch"), "RunLeft", "Run", SubResource("AnimationNodeStateMachineTransition_v6q6q"), "RunRight", "IdleStand", SubResource("AnimationNodeStateMachineTransition_wce6r"), "RunLeft", "IdleStand", SubResource("AnimationNodeStateMachineTransition_8f3bf"), "IdleStand", "RunLeft", SubResource("AnimationNodeStateMachineTransition_no0lf"), "IdleStand", "RunRight", SubResource("AnimationNodeStateMachineTransition_yhhdt"), "IdleStand", "RunBack", SubResource("AnimationNodeStateMachineTransition_phyg6"), "RunBack", "IdleStand", SubResource("AnimationNodeStateMachineTransition_msdqt"), "RunRight", "Walk", SubResource("AnimationNodeStateMachineTransition_k0467"), "Walk", "RunRight", SubResource("AnimationNodeStateMachineTransition_tqgv8"), "RunBack", "Walk", SubResource("AnimationNodeStateMachineTransition_gyxy6"), "Walk", "RunBack", SubResource("AnimationNodeStateMachineTransition_uin1t"), "Walk", "RunLeft", SubResource("AnimationNodeStateMachineTransition_2ocgi"), "RunLeft", "Walk", SubResource("AnimationNodeStateMachineTransition_uh8y6"), "RunLeft", "JumpRun", SubResource("AnimationNodeStateMachineTransition_ugevw"), "JumpRun", "RunLeft", SubResource("AnimationNodeStateMachineTransition_goxml"), "RunBack", "JumpRun", SubResource("AnimationNodeStateMachineTransition_qrnqj"), "JumpRun", "RunBack", SubResource("AnimationNodeStateMachineTransition_s6gqg"), "RunRight", "JumpRun", SubResource("AnimationNodeStateMachineTransition_o62va"), "JumpRun", "RunRight", SubResource("AnimationNodeStateMachineTransition_fhgjl"), "IdleStand", "CrouchIdle", SubResource("AnimationNodeStateMachineTransition_c4e0q"), "Walk", "CrouchIdle", SubResource("AnimationNodeStateMachineTransition_uulad"), "CrouchIdle", "IdleStand", SubResource("AnimationNodeStateMachineTransition_h0b7k"), "CrouchIdle", "Walk", SubResource("AnimationNodeStateMachineTransition_ed14b"), "CrouchIdle", "CrouchLeft", SubResource("AnimationNodeStateMachineTransition_7kslw"), "CrouchLeft", "CrouchIdle", SubResource("AnimationNodeStateMachineTransition_vrpj7"), "CrouchIdle", "CrouchFor", SubResource("AnimationNodeStateMachineTransition_5kqck"), "CrouchFor", "CrouchIdle", SubResource("AnimationNodeStateMachineTransition_sofen"), "CrouchIdle", "CrouchBack", SubResource("AnimationNodeStateMachineTransition_5ousx"), "CrouchBack", "CrouchIdle", SubResource("AnimationNodeStateMachineTransition_3g671"), "CrouchIdle", "CrouchRight", SubResource("AnimationNodeStateMachineTransition_bug18"), "CrouchRight", "CrouchIdle", SubResource("AnimationNodeStateMachineTransition_gfyvy"), "CrouchFor", "CrouchLeft", SubResource("AnimationNodeStateMachineTransition_tpsly"), "CrouchLeft", "CrouchFor", SubResource("AnimationNodeStateMachineTransition_rm2g8"), "CrouchFor", "CrouchBack", SubResource("AnimationNodeStateMachineTransition_2j7fl"), "CrouchBack", "CrouchFor", SubResource("AnimationNodeStateMachineTransition_at08j"), "CrouchRight", "CrouchFor", SubResource("AnimationNodeStateMachineTransition_i8osu"), "CrouchFor", "CrouchRight", SubResource("AnimationNodeStateMachineTransition_420qd"), "CrouchRight", "CrouchLeft", SubResource("AnimationNodeStateMachineTransition_bf35e"), "CrouchLeft", "CrouchRight", SubResource("AnimationNodeStateMachineTransition_l2lx2"), "CrouchBack", "CrouchLeft", SubResource("AnimationNodeStateMachineTransition_bnurl"), "CrouchLeft", "CrouchBack", SubResource("AnimationNodeStateMachineTransition_di4q7"), "CrouchBack", "CrouchRight", SubResource("AnimationNodeStateMachineTransition_i8ken"), "CrouchRight", "CrouchBack", SubResource("AnimationNodeStateMachineTransition_p8wyb"), "IdleStand", "PunchLeft", SubResource("AnimationNodeStateMachineTransition_5l57y"), "IdleStand", "PunchRight", SubResource("AnimationNodeStateMachineTransition_4sx7d"), "PunchLeft", "PunchRight", SubResource("AnimationNodeStateMachineTransition_mv5f0"), "PunchRight", "PunchLeft", SubResource("AnimationNodeStateMachineTransition_au0hp"), "PunchLeft", "IdleStand", SubResource("AnimationNodeStateMachineTransition_dsu0t"), "PunchRight", "IdleStand", SubResource("AnimationNodeStateMachineTransition_cbgh0"), "IdleStand", "SlashOverEnt", SubResource("AnimationNodeStateMachineTransition_18r66"), "SlashOverEnt", "IdleStand", SubResource("AnimationNodeStateMachineTransition_gjm4f"), "IdleStand", "SlashUnderEnt", SubResource("AnimationNodeStateMachineTransition_85pav"), "SlashUnderEnt", "IdleStand", SubResource("AnimationNodeStateMachineTransition_1tdi4"), "SlashOverEnt", "SlashUnderEnt", SubResource("AnimationNodeStateMachineTransition_sn3if"), "SlashUnderEnt", "SlashOverEnt", SubResource("AnimationNodeStateMachineTransition_0l56a"), "IdleStand", "Equip", SubResource("AnimationNodeStateMachineTransition_4ioe7"), "Equip", "IdleStand", SubResource("AnimationNodeStateMachineTransition_mvcws"), "IdleStand", "Unequip", SubResource("AnimationNodeStateMachineTransition_sei7g"), "Unequip", "IdleStand", SubResource("AnimationNodeStateMachineTransition_bkxqo"), "Equip", "Unequip", SubResource("AnimationNodeStateMachineTransition_rnfqt"), "Unequip", "Equip", SubResource("AnimationNodeStateMachineTransition_4q221"), "IdleStand", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_tx5g6"), "HitPunchLeft", "IdleStand", SubResource("AnimationNodeStateMachineTransition_pfx6n"), "IdleStand", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_pvrj3"), "HitPunchRight", "IdleStand", SubResource("AnimationNodeStateMachineTransition_0hx8x"), "HitPunchLeft", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_0e3xa"), "HitPunchRight", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_l0ka5"), "Walk", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_cd2ma"), "Walk", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_voba0"), "HitPunchLeft", "Walk", SubResource("AnimationNodeStateMachineTransition_xndbv"), "HitPunchRight", "Walk", SubResource("AnimationNodeStateMachineTransition_xu8yn"), "WalkLeft", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_huduu"), "HitPunchLeft", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_nt4mh"), "WalkBack", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_hyor2"), "HitPunchLeft", "WalkBack", SubResource("AnimationNodeStateMachineTransition_3y0bu"), "WalkLeft", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_7olwo"), "HitPunchRight", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_i10vi"), "WalkBack", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_cq0bt"), "HitPunchRight", "WalkBack", SubResource("AnimationNodeStateMachineTransition_63hjn"), "WalkRight", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_ijjhk"), "HitPunchRight", "WalkRight", SubResource("AnimationNodeStateMachineTransition_ujcya"), "WalkRight", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_wscg8"), "HitPunchLeft", "WalkRight", SubResource("AnimationNodeStateMachineTransition_dma4p"), "RunLeft", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_62m3j"), "HitPunchLeft", "RunLeft", SubResource("AnimationNodeStateMachineTransition_w34o6"), "RunLeft", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_pejfv"), "HitPunchRight", "RunLeft", SubResource("AnimationNodeStateMachineTransition_pmhi7"), "Run", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_ayfap"), "HitPunchLeft", "Run", SubResource("AnimationNodeStateMachineTransition_iqyvn"), "Run", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_f8djq"), "HitPunchRight", "Run", SubResource("AnimationNodeStateMachineTransition_a7qpd"), "RunRight", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_wfwoq"), "HitPunchLeft", "RunRight", SubResource("AnimationNodeStateMachineTransition_eyv16"), "RunRight", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_4hhu0"), "HitPunchRight", "RunRight", SubResource("AnimationNodeStateMachineTransition_tj3ym"), "RunBack", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_16baj"), "HitPunchLeft", "RunBack", SubResource("AnimationNodeStateMachineTransition_hexem"), "RunBack", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_hxe2l"), "HitPunchRight", "RunBack", SubResource("AnimationNodeStateMachineTransition_0jdsb"), "CrouchIdle", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_3ieou"), "CrouchIdle", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_f50j2"), "CrouchLeft", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_dhhuu"), "CrouchLeft", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_rk250"), "CrouchFor", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_quvwh"), "CrouchFor", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_fmhbm"), "CrouchBack", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_y5peo"), "CrouchBack", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_7x2e2"), "CrouchRight", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_rutkk"), "CrouchRight", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_eaqij"), "IdleStand", "Death", SubResource("AnimationNodeStateMachineTransition_8sevg"), "WalkLeft", "Death", SubResource("AnimationNodeStateMachineTransition_3jpp8"), "Walk", "Death", SubResource("AnimationNodeStateMachineTransition_k1hvw"), "WalkBack", "Death", SubResource("AnimationNodeStateMachineTransition_xel70"), "WalkRight", "Death", SubResource("AnimationNodeStateMachineTransition_vejfu"), "RunLeft", "Death", SubResource("AnimationNodeStateMachineTransition_60j0h"), "Run", "Death", SubResource("AnimationNodeStateMachineTransition_w1kgr"), "RunRight", "Death", SubResource("AnimationNodeStateMachineTransition_tst3s"), "RunBack", "Death", SubResource("AnimationNodeStateMachineTransition_gf7bv"), "CrouchIdle", "Death", SubResource("AnimationNodeStateMachineTransition_4sq6q"), "CrouchLeft", "Death", SubResource("AnimationNodeStateMachineTransition_hft8y"), "CrouchBack", "Death", SubResource("AnimationNodeStateMachineTransition_fk7nf"), "CrouchRight", "Death", SubResource("AnimationNodeStateMachineTransition_cdimc"), "CrouchFor", "Death", SubResource("AnimationNodeStateMachineTransition_dfc88"), "WalkLeft", "SlashUnderEnt", SubResource("AnimationNodeStateMachineTransition_htj0e"), "SlashUnderEnt", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_6w4h6"), "WalkLeft", "SlashOverEnt", SubResource("AnimationNodeStateMachineTransition_yv5yo"), "Walk", "SlashOverEnt", SubResource("AnimationNodeStateMachineTransition_i3pt0"), "SlashOverEnt", "Walk", SubResource("AnimationNodeStateMachineTransition_14v36"), "Walk", "SlashUnderEnt", SubResource("AnimationNodeStateMachineTransition_tdrch"), "SlashUnderEnt", "Walk", SubResource("AnimationNodeStateMachineTransition_jj46h"), "WalkBack", "SlashOverEnt", SubResource("AnimationNodeStateMachineTransition_mn3jd"), "WalkBack", "SlashUnderEnt", SubResource("AnimationNodeStateMachineTransition_fc5xa"), "SlashOverEnt", "WalkBack", SubResource("AnimationNodeStateMachineTransition_0o5de"), "SlashUnderEnt", "WalkBack", SubResource("AnimationNodeStateMachineTransition_7p2xs"), "WalkRight", "SlashOverEnt", SubResource("AnimationNodeStateMachineTransition_e51po"), "SlashOverEnt", "WalkRight", SubResource("AnimationNodeStateMachineTransition_62q4f"), "WalkRight", "SlashUnderEnt", SubResource("AnimationNodeStateMachineTransition_kk1g4"), "SlashUnderEnt", "WalkRight", SubResource("AnimationNodeStateMachineTransition_rbupt"), "SlashUnderEnt", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_yfngl"), "SlashUnderEnt", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_xu3gc"), "HitPunchLeft", "SlashUnderEnt", SubResource("AnimationNodeStateMachineTransition_wi1ts"), "HitPunchRight", "SlashUnderEnt", SubResource("AnimationNodeStateMachineTransition_w5ya1"), "SlashOverEnt", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_werw1"), "SlashOverEnt", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_p0yx3"), "HitPunchRight", "SlashOverEnt", SubResource("AnimationNodeStateMachineTransition_v2snu"), "HitPunchLeft", "SlashOverEnt", SubResource("AnimationNodeStateMachineTransition_5ct1w"), "Walk", "CrouchFor", SubResource("AnimationNodeStateMachineTransition_gp83p"), "Walk", "CrouchRight", SubResource("AnimationNodeStateMachineTransition_mrmlr"), "Walk", "CrouchBack", SubResource("AnimationNodeStateMachineTransition_e6c3j"), "Walk", "CrouchLeft", SubResource("AnimationNodeStateMachineTransition_f1riw"), "CrouchLeft", "Walk", SubResource("AnimationNodeStateMachineTransition_wkh7x"), "CrouchBack", "Walk", SubResource("AnimationNodeStateMachineTransition_uvan2"), "CrouchFor", "Walk", SubResource("AnimationNodeStateMachineTransition_4sekx"), "CrouchRight", "Walk", SubResource("AnimationNodeStateMachineTransition_sk7r5"), "WalkBack", "CrouchBack", SubResource("AnimationNodeStateMachineTransition_6mfop"), "CrouchBack", "WalkBack", SubResource("AnimationNodeStateMachineTransition_dxold"), "CrouchRight", "WalkRight", SubResource("AnimationNodeStateMachineTransition_wdkxa"), "WalkRight", "CrouchRight", SubResource("AnimationNodeStateMachineTransition_xtbni"), "CrouchLeft", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_1vkbm"), "WalkLeft", "CrouchLeft", SubResource("AnimationNodeStateMachineTransition_yy2gw"), "PunchLeft", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_r3iyb"), "PunchRight", "HitPunchLeft", SubResource("AnimationNodeStateMachineTransition_fjy3y"), "PunchLeft", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_v34ji"), "PunchRight", "HitPunchRight", SubResource("AnimationNodeStateMachineTransition_6xcfo"), "HitPunchLeft", "PunchLeft", SubResource("AnimationNodeStateMachineTransition_wjw5p"), "HitPunchRight", "PunchLeft", SubResource("AnimationNodeStateMachineTransition_8lcax"), "HitPunchRight", "PunchRight", SubResource("AnimationNodeStateMachineTransition_tntts"), "HitPunchLeft", "PunchRight", SubResource("AnimationNodeStateMachineTransition_01w7n"), "Walk", "PunchLeft", SubResource("AnimationNodeStateMachineTransition_gpx0l"), "Walk", "PunchRight", SubResource("AnimationNodeStateMachineTransition_8ak4f"), "PunchLeft", "Walk", SubResource("AnimationNodeStateMachineTransition_h0x6f"), "PunchRight", "Walk", SubResource("AnimationNodeStateMachineTransition_5i7lp"), "PunchLeft", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_wavp5"), "PunchRight", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_ity2d"), "WalkLeft", "PunchLeft", SubResource("AnimationNodeStateMachineTransition_n5prw"), "WalkLeft", "PunchRight", SubResource("AnimationNodeStateMachineTransition_e31aj"), "WalkRight", "PunchLeft", SubResource("AnimationNodeStateMachineTransition_8ecey"), "WalkRight", "PunchRight", SubResource("AnimationNodeStateMachineTransition_62iv1"), "PunchLeft", "WalkRight", SubResource("AnimationNodeStateMachineTransition_ig3gr"), "PunchRight", "WalkRight", SubResource("AnimationNodeStateMachineTransition_nbjn2"), "WalkBack", "PunchLeft", SubResource("AnimationNodeStateMachineTransition_o0tv6"), "WalkBack", "PunchRight", SubResource("AnimationNodeStateMachineTransition_kb5pc"), "PunchLeft", "WalkBack", SubResource("AnimationNodeStateMachineTransition_luv4u"), "PunchRight", "WalkBack", SubResource("AnimationNodeStateMachineTransition_ni2xr")]
+graph_offset = Vector2(65.28, 89.36)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hwtnw"]
 size = Vector3(1.44342, 3.78871, 1.47075)
@@ -15360,43 +15424,43 @@ bones/0/name = "mixamorig_Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 1.14441e-05, -4.03245, -174.565)
 bones/0/enabled = true
-bones/0/position = Vector3(0.373252, 0.308432, -173.363)
-bones/0/rotation = Quaternion(-0.728281, -0.0532399, 0.0119515, 0.683103)
+bones/0/position = Vector3(-0.629004, 1.6809, -173.439)
+bones/0/rotation = Quaternion(-0.730883, -0.0481881, 0.0146403, 0.680642)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "mixamorig_Spine"
 bones/1/parent = 0
 bones/1/rest = Transform3D(1, 0, 0, 0, 0.999765, 0.0216623, 0, -0.0216623, 0.999765, 0, 20.6103, -0.446571)
 bones/1/enabled = true
 bones/1/position = Vector3(0, 20.6103, -0.446571)
-bones/1/rotation = Quaternion(0.0183929, 0.0125826, 0.0225803, 0.999497)
+bones/1/rotation = Quaternion(0.0141815, 0.0144153, 0.0242546, 0.999501)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "mixamorig_Spine1"
 bones/2/parent = 1
 bones/2/rest = Transform3D(1, 0, 0, 0, 1, -5.58794e-09, 0, 5.58794e-09, 1, 9.09495e-13, 24.0509, 4.76837e-07)
 bones/2/enabled = true
 bones/2/position = Vector3(9.09495e-13, 24.0509, 4.76837e-07)
-bones/2/rotation = Quaternion(0.0101528, 0.00256523, 0.0136912, 0.999851)
+bones/2/rotation = Quaternion(0.00934304, 0.00347963, 0.0143663, 0.999847)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "mixamorig_Spine2"
 bones/3/parent = 2
 bones/3/rest = Transform3D(1, 0, 0, 0, 1, -2.79397e-09, 0, 2.79397e-09, 1, 9.09495e-13, 27.4868, -8.9407e-08)
 bones/3/enabled = true
 bones/3/position = Vector3(9.09495e-13, 27.4868, -8.9407e-08)
-bones/3/rotation = Quaternion(0.00992136, 0.00275671, 0.0137194, 0.999853)
+bones/3/rotation = Quaternion(0.00862496, 0.00353353, 0.01434, 0.999854)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "mixamorig_Neck"
 bones/4/parent = 3
 bones/4/rest = Transform3D(1, 0, 0, 0, 0.999765, -0.0216623, 0, 0.0216623, 0.999765, 9.09495e-13, 30.9226, 5.96046e-07)
 bones/4/enabled = true
 bones/4/position = Vector3(9.09495e-13, 30.9226, 5.96046e-07)
-bones/4/rotation = Quaternion(0.0599217, -0.00100098, 0.00402149, 0.998195)
+bones/4/rotation = Quaternion(0.0562105, -0.00185712, 0.00519336, 0.998404)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "mixamorig_Head"
 bones/5/parent = 4
 bones/5/rest = Transform3D(1, 0, 0, 0, 1, -1.56808e-09, 0, 1.56808e-09, 1, 9.09495e-13, 25.0057, 1.30047)
 bones/5/enabled = true
 bones/5/position = Vector3(9.09495e-13, 25.0057, 1.30047)
-bones/5/rotation = Quaternion(-0.0659983, 0.0118777, -0.00148373, 0.997748)
+bones/5/rotation = Quaternion(-0.0648527, 0.0109401, -0.00248148, 0.997832)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "mixamorig_HeadTop_End"
 bones/6/parent = 5
@@ -15410,28 +15474,28 @@ bones/7/parent = 3
 bones/7/rest = Transform3D(-0.00556493, 0.807429, -0.589938, -3.45111e-05, -0.589948, -0.807441, -0.999985, -0.00447294, 0.00331086, 9.23943, 24.1563, -0.0522527)
 bones/7/enabled = true
 bones/7/position = Vector3(9.23943, 24.1563, -0.0522527)
-bones/7/rotation = Quaternion(-0.722558, -0.270321, 0.529042, -0.353485)
+bones/7/rotation = Quaternion(-0.717587, -0.276845, 0.531339, -0.355113)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/name = "mixamorig_LeftArm"
 bones/8/parent = 7
 bones/8/rest = Transform3D(0.999218, 0.0383457, -0.00966648, -0.0395453, 0.968906, -0.244246, 1.27126e-07, 0.244437, 0.969665, 4.91738e-07, 22.7094, 2.45869e-07)
 bones/8/enabled = true
 bones/8/position = Vector3(4.91738e-07, 22.7094, 2.45869e-07)
-bones/8/rotation = Quaternion(0.389784, 0.143938, 0.0802329, 0.906043)
+bones/8/rotation = Quaternion(0.399433, 0.143682, 0.0805657, 0.901841)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "mixamorig_LeftForeArm"
 bones/9/parent = 8
 bones/9/rest = Transform3D(0.999796, -0.0194882, 0.00531821, 0.0202008, 0.964524, -0.263221, 1.70432e-07, 0.263275, 0.964721, -6.85453e-07, 35.2943, -2.30223e-05)
 bones/9/enabled = true
 bones/9/position = Vector3(2.04962e-06, 35.2942, 6.79231e-06)
-bones/9/rotation = Quaternion(0.000366124, 0.00135329, 0.0127903, 0.999917)
+bones/9/rotation = Quaternion(0.000405437, 0.00135327, 0.0141677, 0.999899)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/name = "mixamorig_LeftHand"
 bones/10/parent = 9
 bones/10/rest = Transform3D(0.999981, 0.0061779, 4.5048e-05, -0.00617807, 0.999954, 0.00725883, -2.01664e-07, -0.00725897, 0.999973, 4.76837e-07, 58.1041, -5.21541e-06)
 bones/10/enabled = true
 bones/10/position = Vector3(4.76837e-07, 58.1041, -5.21541e-06)
-bones/10/rotation = Quaternion(0.0491971, -0.284864, 0.0255553, 0.956963)
+bones/10/rotation = Quaternion(0.0546545, -0.277121, 0.022859, 0.959007)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/name = "mixamorig_LeftHandIndex1"
 bones/11/parent = 10
@@ -15466,28 +15530,28 @@ bones/15/parent = 3
 bones/15/rest = Transform3D(-0.026095, -0.807429, 0.589387, -1.29938e-05, -0.589587, -0.807705, 0.99966, -0.0210847, 0.0153748, -9.23943, 24.1604, -0.240874)
 bones/15/enabled = true
 bones/15/position = Vector3(-9.23943, 24.1604, -0.240874)
-bones/15/rotation = Quaternion(0.7144, -0.270821, 0.554433, 0.329988)
+bones/15/rotation = Quaternion(0.712663, -0.272733, 0.555943, 0.329629)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/name = "mixamorig_RightArm"
 bones/16/parent = 15
 bones/16/rest = Transform3D(0.999989, -0.00459609, 0.00116268, 0.00474087, 0.969451, -0.245238, -2.6077e-08, 0.245241, 0.969462, -8.9407e-08, 22.7094, -3.10391e-05)
 bones/16/enabled = true
 bones/16/position = Vector3(-3.99585e-06, 22.7095, -1.55988e-05)
-bones/16/rotation = Quaternion(0.315493, -0.240103, -0.0966632, 0.912946)
+bones/16/rotation = Quaternion(0.312303, -0.242838, -0.0963973, 0.913348)
 bones/16/scale = Vector3(1, 1, 1)
 bones/17/name = "mixamorig_RightForeArm"
 bones/17/parent = 16
 bones/17/rest = Transform3D(0.999991, -0.00410016, 0.00111612, 0.00424936, 0.964883, -0.262647, -3.00351e-08, 0.262649, 0.964891, 0, 35.2835, 7.77841e-06)
 bones/17/enabled = true
 bones/17/position = Vector3(0, 35.2835, 7.77841e-06)
-bones/17/rotation = Quaternion(0.00208584, 0.000283574, -0.058339, 0.998295)
+bones/17/rotation = Quaternion(0.00204955, 0.000283581, -0.0573265, 0.998353)
 bones/17/scale = Vector3(1, 1, 1)
 bones/18/name = "mixamorig_RightHand"
 bones/18/parent = 17
 bones/18/rest = Transform3D(0.999991, -0.00432202, -4.04958e-05, 0.00432221, 0.999946, 0.00941074, -1.79803e-07, -0.00941083, 0.999956, -4.76837e-07, 58.104, -1.56611e-05)
 bones/18/enabled = true
 bones/18/position = Vector3(-2.10275e-07, 58.104, 1.34215e-06)
-bones/18/rotation = Quaternion(0.0589741, 0.175108, -0.00375055, 0.982774)
+bones/18/rotation = Quaternion(0.0547064, 0.174028, -0.00190889, 0.983218)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/name = "mixamorig_RightHandIndex1"
 bones/19/parent = 18
@@ -15522,21 +15586,21 @@ bones/23/parent = 0
 bones/23/rest = Transform3D(-0.999864, 0.0164904, -5.14774e-08, -0.01649, -0.999836, -0.00744323, -0.000122794, -0.00744222, 0.999972, 14.0148, -11.4495, -0.88022)
 bones/23/enabled = true
 bones/23/position = Vector3(14.0148, -11.4495, -0.88022)
-bones/23/rotation = Quaternion(0.136908, 0.064115, 0.985466, -0.0774707)
+bones/23/rotation = Quaternion(0.13671, 0.0509693, 0.986499, -0.0743843)
 bones/23/scale = Vector3(1, 1, 1)
 bones/24/name = "mixamorig_LeftLeg"
 bones/24/parent = 23
 bones/24/rest = Transform3D(0.999877, 0.0156713, 8.27711e-05, -0.0156715, 0.999863, 0.00524094, -6.27384e-07, -0.0052416, 0.999986, -1.84681e-06, 79.3338, 7.86328e-07)
 bones/24/enabled = true
 bones/24/position = Vector3(-1.84681e-06, 79.3338, 7.86328e-07)
-bones/24/rotation = Quaternion(-0.114985, -0.0136142, 0.0303307, 0.992811)
+bones/24/rotation = Quaternion(-0.103835, -0.0126657, 0.030822, 0.994036)
 bones/24/scale = Vector3(1, 1, 1)
 bones/25/name = "mixamorig_LeftFoot"
 bones/25/parent = 24
 bones/25/rest = Transform3D(0.999965, 0.00744144, 0.00379355, -8.3819e-09, 0.454177, -0.890911, -0.00835261, 0.89088, 0.454161, -6.6272e-07, 66.0729, -3.23151e-07)
 bones/25/enabled = true
 bones/25/position = Vector3(-6.6272e-07, 66.0729, -3.23151e-07)
-bones/25/rotation = Quaternion(0.528018, -0.0316037, -0.0507145, 0.847128)
+bones/25/rotation = Quaternion(0.525332, -0.0329719, -0.0526919, 0.848624)
 bones/25/scale = Vector3(1, 1, 1)
 bones/26/name = "mixamorig_LeftToeBase"
 bones/26/parent = 25
@@ -15557,28 +15621,28 @@ bones/28/parent = 0
 bones/28/rest = Transform3D(-0.999864, -0.0164908, 6.69534e-08, 0.0164906, -0.999855, -0.00420449, 6.94023e-05, -0.00420392, 0.999991, -14.0148, -11.4495, -0.868144)
 bones/28/enabled = true
 bones/28/position = Vector3(-14.0148, -11.4495, -0.868144)
-bones/28/rotation = Quaternion(-0.0904927, -0.0215866, 0.995289, -0.0272785)
+bones/28/rotation = Quaternion(-0.0934407, -0.0291103, 0.994929, -0.0231686)
 bones/28/scale = Vector3(1, 1, 1)
 bones/29/name = "mixamorig_RightLeg"
 bones/29/parent = 28
 bones/29/rest = Transform3D(0.999877, -0.0156709, -0.000168945, 0.0156718, 0.999821, 0.0106139, 2.58489e-06, -0.0106152, 0.999944, 2.60273e-06, 79.3324, -2.9434e-07)
 bones/29/enabled = true
 bones/29/position = Vector3(2.60273e-06, 79.3324, -2.9434e-07)
-bones/29/rotation = Quaternion(-0.0667923, 0.0836354, -0.0248895, 0.993944)
+bones/29/rotation = Quaternion(-0.0689399, 0.0837091, -0.0253333, 0.99378)
 bones/29/scale = Vector3(1, 1, 1)
 bones/30/name = "mixamorig_RightFoot"
 bones/30/parent = 29
 bones/30/rest = Transform3D(0.999965, -0.00746419, -0.00379975, 4.37722e-08, 0.453669, -0.89117, 0.00837569, 0.891139, 0.453653, -9.59917e-08, 66.0748, 3.99305e-08)
 bones/30/enabled = true
 bones/30/position = Vector3(-9.59917e-08, 66.0748, 3.99305e-08)
-bones/30/rotation = Quaternion(0.559573, 0.020346, 0.016195, 0.828373)
+bones/30/rotation = Quaternion(0.565275, 0.0198759, 0.016346, 0.824501)
 bones/30/scale = Vector3(1, 1, 1)
 bones/31/name = "mixamorig_RightToeBase"
 bones/31/parent = 30
 bones/31/rest = Transform3D(0.997971, 0.029622, 0.0563649, -6.70552e-08, 0.885202, -0.465207, -0.0636747, 0.464263, 0.883406, 1.00874e-06, 36.9438, -6.18398e-07)
 bones/31/enabled = true
 bones/31/position = Vector3(1.00874e-06, 36.9438, -6.18398e-07)
-bones/31/rotation = Quaternion(0.300373, 0.030843, -0.00583048, 0.953305)
+bones/31/rotation = Quaternion(0.297907, 0.0308488, -0.00590441, 0.954078)
 bones/31/scale = Vector3(1, 1, 1)
 bones/32/name = "mixamorig_RightToe_End"
 bones/32/parent = 31
@@ -15593,7 +15657,7 @@ mesh = SubResource("ArrayMesh_agpr5")
 skin = SubResource("Skin_bd2vp")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(0.36304, 0.0234533, 0.931478, 0.92921, 0.0649941, -0.363792, -0.0690727, 0.99761, 0.00180231, -35.7051, 8.08036, -161.628)
+transform = Transform3D(0.374375, 0.0197871, 0.927066, 0.923361, 0.0838352, -0.374668, -0.0851344, 0.996283, 0.0131151, -37.2068, 10.2541, -161.449)
 bone_name = "mixamorig_RightHand"
 bone_idx = 18
 
@@ -15610,7 +15674,7 @@ transform = Transform3D(0.999403, -0.018632, 0.0291096, 0.0188092, 0.999806, -0.
 shape = SubResource("CylinderShape3D_xd4ja")
 
 [node name="BoneAttachment3D2" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(0.36304, 0.0234533, 0.931478, 0.92921, 0.0649941, -0.363792, -0.0690727, 0.99761, 0.00180231, -35.7051, 8.08036, -161.628)
+transform = Transform3D(0.374375, 0.0197871, 0.927066, 0.923361, 0.0838352, -0.374668, -0.0851344, 0.996283, 0.0131151, -37.2068, 10.2541, -161.449)
 bone_name = "mixamorig_RightHand"
 bone_idx = 18
 
@@ -15622,7 +15686,7 @@ transform = Transform3D(1.99881, -0.0372652, 0.0582176, 0.0376184, 1.99961, -0.0
 shape = SubResource("SphereShape3D_naxqc")
 
 [node name="BoneAttachment3D3" type="BoneAttachment3D" parent="Armature/Skeleton3D"]
-transform = Transform3D(0.117346, 0.00808399, -0.993058, -0.990665, 0.0708048, -0.116487, 0.0693717, 0.997458, 0.0163173, 39.0327, 9.4264, -164.396)
+transform = Transform3D(0.109158, 0.00869565, -0.993986, -0.991292, 0.0750472, -0.108205, 0.0736549, 0.997142, 0.0168119, 38.0442, 10.012, -165.361)
 bone_name = "mixamorig_LeftHand"
 bone_idx = 10
 

@@ -49,7 +49,7 @@
 [ext_resource type="PackedScene" uid="uid://d1plc8ddh0ybl" path="res://TutoPlayer.tscn" id="45_bo71b"]
 [ext_resource type="Script" path="res://scripts/Sword.gd" id="46_wk8wj"]
 
-[sub_resource type="Shader" id="Shader_84j1x"]
+[sub_resource type="Shader" id="Shader_0pevc"]
 code = "
 // NOTE: Shader automatically converted from Godot Engine 4.2.1.stable.mono's ProceduralSkyMaterial.
 
@@ -144,7 +144,7 @@ void sky() {
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_fknuo"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6xkap"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6rua2"]
 width = 1024
 height = 1024
 seamless = true
@@ -152,14 +152,14 @@ noise = SubResource("FastNoiseLite_fknuo")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_qufmb"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jmin0"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6xn0u"]
 width = 1024
 height = 1024
 seamless = true
 noise = SubResource("FastNoiseLite_qufmb")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ykmx0"]
-shader = SubResource("Shader_84j1x")
+shader = SubResource("Shader_0pevc")
 shader_parameter/sky_top_color = Color(0.145098, 0.52549, 0.6, 1)
 shader_parameter/sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 shader_parameter/sky_curve = 0.15
@@ -177,16 +177,16 @@ shader_parameter/cloud_scale = Vector2(0.05, 0.05)
 shader_parameter/cloud_distance = -0.185
 shader_parameter/cloud_speed = 0.006
 shader_parameter/cloud_speed2 = 0.002
-shader_parameter/cloud_texture = SubResource("NoiseTexture2D_6xkap")
-shader_parameter/cloud_texture2 = SubResource("NoiseTexture2D_jmin0")
+shader_parameter/cloud_texture = SubResource("NoiseTexture2D_6rua2")
+shader_parameter/cloud_texture2 = SubResource("NoiseTexture2D_6xn0u")
 
-[sub_resource type="Sky" id="Sky_7vsln"]
+[sub_resource type="Sky" id="Sky_oufpp"]
 sky_material = SubResource("ShaderMaterial_ykmx0")
 process_mode = 1
 
 [sub_resource type="Environment" id="Environment_lgdfh"]
 background_mode = 2
-sky = SubResource("Sky_7vsln")
+sky = SubResource("Sky_oufpp")
 tonemap_mode = 2
 glow_enabled = true
 
@@ -542,7 +542,6 @@ light_volumetric_fog_energy = 0.0
 omni_range = 7.68686
 
 [node name="Trees" type="Node3D" parent="NavigationRegion3D/Node3D"]
-visible = false
 
 [node name="Tree" type="Node3D" parent="NavigationRegion3D/Node3D/Trees"]
 transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 9.5, 0, -25.5)
@@ -1346,7 +1345,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, -1, -43)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5, -1, 5)
 
 [node name="Pillars" type="Node3D" parent="NavigationRegion3D/Node3D"]
-visible = false
 
 [node name="pillar_40" type="Node3D" parent="NavigationRegion3D/Node3D/Pillars"]
 transform = Transform3D(-0.351493, 0.914542, 0.200163, -0.0613454, 0.190847, -0.979701, -0.934178, -0.356637, -0.0109784, 2.05953, -0.792845, -21.1598)
@@ -2864,7 +2862,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16, 0
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.75, 0, -4.75)
 
 [node name="Lamps" type="Node3D" parent="NavigationRegion3D/Node3D"]
-visible = false
 
 [node name="Lamp_Top" parent="NavigationRegion3D/Node3D/Lamps" instance=ExtResource("38_pf310")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9277, 4.5, -10.9955)
@@ -2942,7 +2939,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.498
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.49848, 8.40072, -56.9116)
 
 [node name="Rocks" type="Node3D" parent="NavigationRegion3D/Node3D"]
-visible = false
 
 [node name="Rock_Small_01" parent="NavigationRegion3D/Node3D/Rocks" instance=ExtResource("31_611h7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.258543, 6, -72.9382)
@@ -3259,7 +3255,6 @@ transform = Transform3D(-1.29205, 2.13575, 4.33234, 3.34483, 3.63099, -0.792464,
 [node name="Rock_Small_Scene" parent="NavigationRegion3D/Node3D/Rocks" instance=ExtResource("19_g1imf")]
 
 [node name="Walls" type="Node3D" parent="NavigationRegion3D/Node3D"]
-visible = false
 
 [node name="Wall_2x06x18" parent="NavigationRegion3D/Node3D/Walls" instance=ExtResource("4_dpgu3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 3, -90.5)
@@ -3757,7 +3752,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, -2, 5)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, -2.3, -19)
 
 [node name="Particles" type="Node3D" parent="NavigationRegion3D/Node3D"]
-visible = false
 
 [node name="Leave_particle" parent="NavigationRegion3D/Node3D/Particles" instance=ExtResource("29_kqguj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.37815, 2.98772, -22.6383)
@@ -3817,7 +3811,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030219, 9.33644, -74.9234)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291738, 13.8523, -99.2311)
 
 [node name="Leaves" type="Node3D" parent="NavigationRegion3D/Node3D"]
-visible = false
 
 [node name="GroundLeave_02" parent="NavigationRegion3D/Node3D/Leaves" instance=ExtResource("27_5830b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -24)
@@ -4059,7 +4052,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2902, -2.1891e-06, -23.113
 [node name="GRASS_scene" parent="NavigationRegion3D/Node3D/Leaves" instance=ExtResource("26_q08a0")]
 
 [node name="Stairs" type="Node3D" parent="NavigationRegion3D/Node3D"]
-visible = false
 
 [node name="Stairs_short" parent="NavigationRegion3D/Node3D/Stairs" instance=ExtResource("2_y1wt5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16, 0, -24)
@@ -4084,43 +4076,50 @@ unique_name_in_owner = true
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
 
 [node name="Skeleton3D" parent="TestTuto/Armature" index="0"]
-bones/0/position = Vector3(-1.2324, 2.01095, -173.283)
-bones/0/rotation = Quaternion(-0.732786, -0.0467937, 0.0111702, 0.678756)
-bones/1/rotation = Quaternion(0.0203056, 0.0163895, 0.0246858, 0.999355)
-bones/2/rotation = Quaternion(0.0103031, 0.00384431, 0.0144764, 0.999835)
-bones/3/rotation = Quaternion(0.00973148, 0.00380835, 0.0144033, 0.999842)
-bones/4/rotation = Quaternion(0.0628153, -0.00246212, 0.0036618, 0.998015)
-bones/5/rotation = Quaternion(-0.0720334, 0.00635179, -0.0014554, 0.997381)
-bones/7/rotation = Quaternion(-0.721956, -0.270805, 0.530129, -0.352714)
-bones/8/rotation = Quaternion(0.392314, 0.139792, 0.0836711, 0.905288)
-bones/9/rotation = Quaternion(0.000396585, 0.00135327, 0.0138576, 0.999903)
-bones/10/rotation = Quaternion(0.0473247, -0.284164, 0.0255438, 0.957266)
+bones/0/position = Vector3(0.5185, 0.110715, -173.369)
+bones/0/rotation = Quaternion(-0.729248, -0.0529284, 0.0123929, 0.682087)
+bones/1/rotation = Quaternion(0.0186339, 0.0127062, 0.0227943, 0.999486)
+bones/2/rotation = Quaternion(0.0102817, 0.00263711, 0.0138035, 0.999848)
+bones/3/rotation = Quaternion(0.0100328, 0.00282151, 0.0138231, 0.99985)
+bones/4/rotation = Quaternion(0.0599843, -0.00115882, 0.00423484, 0.99819)
+bones/5/rotation = Quaternion(-0.0660817, 0.0117626, -0.00146377, 0.997744)
+bones/7/rotation = Quaternion(-0.722316, -0.270707, 0.528989, -0.353763)
+bones/8/rotation = Quaternion(0.390419, 0.143726, 0.0804498, 0.905784)
+bones/9/rotation = Quaternion(0.0003697, 0.00135332, 0.0129168, 0.999916)
+bones/10/rotation = Quaternion(0.0495755, -0.284834, 0.0256661, 0.95695)
 bones/11/rotation = Quaternion(0.0664184, 0.00104282, 0.00664867, 0.997769)
 bones/12/rotation = Quaternion(0.127648, 0.00153064, -0.0265614, 0.991463)
 bones/13/rotation = Quaternion(0.00572311, 0.00713913, -0.0609304, 0.9981)
-bones/15/rotation = Quaternion(0.717272, -0.267336, 0.552585, 0.329701)
-bones/16/rotation = Quaternion(0.315537, -0.240151, -0.0913833, 0.913462)
-bones/17/rotation = Quaternion(0.00205739, 0.00028358, -0.0575459, 0.998341)
+bones/15/rotation = Quaternion(0.714485, -0.270818, 0.55416, 0.330265)
+bones/16/rotation = Quaternion(0.315577, -0.239884, -0.0968213, 0.912958)
+bones/17/rotation = Quaternion(0.00208546, 0.00028358, -0.0583291, 0.998295)
 bones/18/position = Vector3(-2.10275e-07, 58.104, 1.34215e-06)
-bones/18/rotation = Quaternion(0.0555065, 0.176418, -0.00207808, 0.982747)
+bones/18/rotation = Quaternion(0.0580131, 0.175042, -0.00347533, 0.982844)
 bones/19/position = Vector3(4.89121e-07, 14.6156, -1.02503e-06)
 bones/19/rotation = Quaternion(0.0598661, -0.00148809, -0.00885655, 0.998166)
 bones/21/rotation = Quaternion(0.0145624, -0.010832, 0.125795, 0.99189)
-bones/23/rotation = Quaternion(0.140054, 0.0528532, 0.985598, -0.0786655)
-bones/24/rotation = Quaternion(-0.114405, -0.0044558, 0.030559, 0.992954)
-bones/25/rotation = Quaternion(0.529127, -0.0331707, -0.0527591, 0.846251)
+bones/23/rotation = Quaternion(0.136249, 0.0625719, 0.985743, -0.0763677)
+bones/24/rotation = Quaternion(-0.113718, -0.0144333, 0.0304912, 0.99294)
+bones/25/rotation = Quaternion(0.527442, -0.0314919, -0.0505706, 0.847499)
 bones/26/position = Vector3(-5.44172e-06, 37.0536, -1.33766e-06)
 bones/26/rotation = Quaternion(0.280196, -0.0315164, 0.00651209, 0.959403)
-bones/28/rotation = Quaternion(-0.0931381, -0.030643, 0.99483, -0.0264489)
-bones/29/rotation = Quaternion(-0.0753287, 0.0836031, -0.0263816, 0.993298)
-bones/30/rotation = Quaternion(0.570396, 0.0229566, 0.0142264, 0.820926)
-bones/31/rotation = Quaternion(0.298357, 0.0308477, -0.00589089, 0.953938)
+bones/28/rotation = Quaternion(-0.0911157, -0.0215174, 0.995271, -0.0258881)
+bones/29/rotation = Quaternion(-0.0677412, 0.0836233, -0.0250262, 0.993877)
+bones/30/rotation = Quaternion(0.55948, 0.0202775, 0.0167409, 0.828427)
+bones/31/rotation = Quaternion(0.300025, 0.0308438, -0.00584093, 0.953415)
 
 [node name="BoneAttachment3D" parent="TestTuto/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.383523, 0.0315447, 0.922993, 0.920615, 0.0663074, -0.384801, -0.0733397, 0.997301, -0.00361015, -36.5131, 10.1555, -160.944)
+transform = Transform3D(0.363828, 0.0232994, 0.931175, 0.928693, 0.0680129, -0.36456, -0.0718259, 0.997413, 0.00310706, -35.51, 7.95814, -161.593)
 
 [node name="Sword" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D" index="0"]
 transform = Transform3D(-23.1219, 49.007, -9.41749, 10.4524, -5.39307, -53.7277, -48.7968, -24.3768, -7.04625, -50.6289, 20.7265, 24.3065)
 script = ExtResource("46_wk8wj")
 
+[node name="BoneAttachment3D2" parent="TestTuto/Armature/Skeleton3D" index="2"]
+transform = Transform3D(0.363828, 0.0232994, 0.931175, 0.928693, 0.0680129, -0.36456, -0.0718259, 0.997413, 0.00310706, -35.51, 7.95814, -161.593)
+
+[node name="BoneAttachment3D3" parent="TestTuto/Armature/Skeleton3D" index="3"]
+transform = Transform3D(0.11656, 0.00858151, -0.993147, -0.990615, 0.0728783, -0.115634, 0.0713865, 0.997304, 0.0169956, 39.2003, 9.20076, -164.501)
+
+[editable path="NavigationRegion3D/Node3D/Stairs/Stairs_short2"]
 [editable path="TestTuto"]
