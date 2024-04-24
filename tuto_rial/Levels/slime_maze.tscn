@@ -164,56 +164,56 @@ unique_name_in_owner = true
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0.623827, 0, -5.84686)
 
 [node name="Skeleton3D" parent="TestTuto/Armature" index="0"]
-bones/0/position = Vector3(-0.576769, 1.68928, -173.449)
-bones/0/rotation = Quaternion(-0.730995, -0.0483994, 0.0147862, 0.680503)
-bones/1/rotation = Quaternion(0.0135286, 0.0143286, 0.0240149, 0.999517)
-bones/2/rotation = Quaternion(0.0094296, 0.00347276, 0.0143585, 0.999847)
-bones/3/rotation = Quaternion(0.00856541, 0.00347461, 0.0142895, 0.999855)
-bones/4/rotation = Quaternion(0.0558187, -0.00182531, 0.00516125, 0.998426)
-bones/5/rotation = Quaternion(-0.0646822, 0.0110767, -0.00247713, 0.997841)
-bones/7/rotation = Quaternion(-0.717535, -0.276851, 0.531518, -0.354944)
-bones/8/rotation = Quaternion(0.399779, 0.144163, 0.0797772, 0.901682)
-bones/9/rotation = Quaternion(0.000406734, 0.00135327, 0.0142129, 0.999898)
-bones/10/rotation = Quaternion(0.0544357, -0.276891, 0.0227545, 0.959088)
+bones/0/position = Vector3(-1.13416, 1.89791, -173.27)
+bones/0/rotation = Quaternion(-0.732485, -0.0469425, 0.0106284, 0.679079)
+bones/1/rotation = Quaternion(0.0209147, 0.0166587, 0.0245943, 0.99934)
+bones/2/rotation = Quaternion(0.0103818, 0.00389459, 0.0144425, 0.999834)
+bones/3/rotation = Quaternion(0.00980943, 0.00384341, 0.0143676, 0.999841)
+bones/4/rotation = Quaternion(0.0624725, -0.00239681, 0.00317186, 0.998039)
+bones/5/rotation = Quaternion(-0.0739773, 0.00677462, -0.00190703, 0.997235)
+bones/7/rotation = Quaternion(-0.723159, -0.26905, 0.529984, -0.351809)
+bones/8/rotation = Quaternion(0.389727, 0.139071, 0.0840402, 0.906482)
+bones/9/rotation = Quaternion(0.000394946, 0.00135328, 0.0138002, 0.999904)
+bones/10/rotation = Quaternion(0.0471439, -0.284275, 0.0257491, 0.957237)
 bones/11/rotation = Quaternion(0.0664184, 0.00104282, 0.00664867, 0.997769)
 bones/12/rotation = Quaternion(0.127648, 0.00153064, -0.0265614, 0.991463)
 bones/13/rotation = Quaternion(0.00572311, 0.00713913, -0.0609304, 0.9981)
-bones/15/rotation = Quaternion(0.712248, -0.273063, 0.556571, 0.329192)
-bones/16/rotation = Quaternion(0.311835, -0.243546, -0.095923, 0.913369)
-bones/17/rotation = Quaternion(0.00204837, 0.00028358, -0.0572946, 0.998355)
+bones/15/rotation = Quaternion(0.71756, -0.266952, 0.552468, 0.32958)
+bones/16/rotation = Quaternion(0.315358, -0.24045, -0.0917185, 0.913412)
+bones/17/rotation = Quaternion(0.00205885, 0.000283579, -0.0575865, 0.998338)
 bones/18/position = Vector3(-2.10275e-07, 58.104, 1.34215e-06)
-bones/18/rotation = Quaternion(0.0548753, 0.174186, -0.00196784, 0.983181)
+bones/18/rotation = Quaternion(0.0555758, 0.17655, -0.00175612, 0.98272)
 bones/19/position = Vector3(4.89121e-07, 14.6156, -1.02503e-06)
 bones/19/rotation = Quaternion(0.0598661, -0.00148809, -0.00885655, 0.998166)
 bones/21/rotation = Quaternion(0.0145624, -0.010832, 0.125795, 0.99189)
-bones/23/rotation = Quaternion(0.136584, 0.0511818, 0.986497, -0.0744923)
-bones/24/rotation = Quaternion(-0.103432, -0.0132178, 0.0309002, 0.994069)
-bones/25/rotation = Quaternion(0.52548, -0.0330037, -0.0527321, 0.848529)
+bones/23/rotation = Quaternion(0.140188, 0.0544769, 0.985465, -0.0789822)
+bones/24/rotation = Quaternion(-0.115479, -0.00377837, 0.0303017, 0.99284)
+bones/25/rotation = Quaternion(0.529282, -0.0330884, -0.0526377, 0.846165)
 bones/26/position = Vector3(-5.44172e-06, 37.0536, -1.33766e-06)
 bones/26/rotation = Quaternion(0.280196, -0.0315164, 0.00651209, 0.959403)
-bones/28/rotation = Quaternion(-0.0935081, -0.0297273, 0.994906, -0.0231419)
-bones/29/rotation = Quaternion(-0.067572, 0.083726, -0.0252811, 0.993874)
-bones/30/rotation = Quaternion(0.56462, 0.0196189, 0.0164813, 0.824953)
-bones/31/rotation = Quaternion(0.297842, 0.0308489, -0.00590638, 0.954098)
+bones/28/rotation = Quaternion(-0.0929704, -0.0296602, 0.994866, -0.0268185)
+bones/29/rotation = Quaternion(-0.0755377, 0.0835955, -0.0264616, 0.99328)
+bones/30/rotation = Quaternion(0.570068, 0.0232705, 0.0142336, 0.821145)
+bones/31/rotation = Quaternion(0.29844, 0.0308475, -0.00588839, 0.953912)
 
 [node name="Tuto" parent="TestTuto/Armature/Skeleton3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -129.918)
 
 [node name="BoneAttachment3D" parent="TestTuto/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.372634, 0.0179894, 0.927804, 0.92412, 0.0838816, -0.372781, -0.0845319, 0.996313, 0.0146327, -37.3158, 10.0957, -161.495)
+transform = Transform3D(0.385813, 0.0310029, 0.922056, 0.919865, 0.0636531, -0.387037, -0.0706909, 0.99749, -0.00396022, -36.3368, 10.0817, -160.937)
 
 [node name="Sword" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D" index="0"]
 transform = Transform3D(-24.137, 48.5387, -9.2951, 10.6712, -4.9816, -53.7244, -48.2549, -25.3807, -7.23139, -40.0717, -109.277, 25.0862)
 script = ExtResource("5_dp5v1")
 
 [node name="BoneAttachment3D2" parent="TestTuto/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.372634, 0.0179894, 0.927804, 0.92412, 0.0838816, -0.372781, -0.0845319, 0.996313, 0.0146327, -37.3158, 10.0957, -161.495)
+transform = Transform3D(0.385813, 0.0310029, 0.922056, 0.919865, 0.0636531, -0.387037, -0.0706909, 0.99749, -0.00396022, -36.3368, 10.0817, -160.937)
 
 [node name="CollisionShape3D" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D2/RightHandArea" index="0"]
 transform = Transform3D(1.99707, -0.0459552, 0.0980371, 0.0472503, 1.99928, -0.025342, -0.0974206, 0.0276207, 1.99744, 9.34705, -124.652, 1.63843)
 
 [node name="BoneAttachment3D3" parent="TestTuto/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.109909, 0.00827084, -0.993907, -0.991243, 0.0745473, -0.108994, 0.0731916, 0.997183, 0.0163918, 38.0562, 9.8868, -165.338)
+transform = Transform3D(0.0898999, 0.0160487, -0.995821, -0.992065, 0.0896765, -0.0881157, 0.0878878, 0.995842, 0.0239833, 37.1394, 10.918, -164.69)
 
 [node name="CollisionShape3D" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D3/LeftHandArea" index="0"]
 transform = Transform3D(1.99855, -0.038206, 0.0660159, 0.038539, 1.9996, -0.00946526, -0.0658217, 0.0107304, 1.99889, -9.6001, -124.413, 0.00572968)
