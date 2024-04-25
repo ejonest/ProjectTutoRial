@@ -1,6 +1,6 @@
 extends Node
 
-@onready var enemy_scene = load("res://slime.tscn")
+@onready var enemy_scene = load("res://Enemies/slime.tscn")
 var enemyArray : Array
 
 func _ready():
@@ -25,7 +25,7 @@ func _process(delta):
 		i += 1
 	pass
 
-func spawnenemy():
+func spawnenemy(pos : Vector3, health : int, speed : float, canTakeDamage : bool):
 	#enemy = enemy_scene.instantiate()
 	#add_child(enemy)
 	#print("spawn!")

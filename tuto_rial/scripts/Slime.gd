@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 1.5
+#const SPEED = 1.5
 var player : Node3D
 @onready var visual : Node3D = $Slime
 #@onready var playerScript = load("res://scripts/TestTuto.gd").new()
@@ -9,10 +9,10 @@ var player : Node3D
 #var direction: Vector3
 var stopDistance : float = 1
 
-var health = 20
+var speed_ = 1.5
+var health_ = 20
 var maxHealth = 20
 var lookat
-var lastLookAtDirection : Vector3
 var takingDamage = false
 var JUMP_VELOCITY = 5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -24,12 +24,14 @@ var move = false
 var rng = RandomNumberGenerator.new()
 var shouldLerp = true
 var whereToGo
+var canTakeDamage_ = true
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 	player.attack.connect(_on_test_tuto_attack)
 	lookat = player.get_node("LookAt")
-	$SubViewport/healthbar.value = health
+	look_at(Vector3(lookat.global_position.x, global_position.y, lookat.global_position.z))
+	$SubViewport/healthbar.value = health_
 	$SubViewport/healthbar.max_value = maxHealth
 
 func _physics_process(delta):
@@ -38,30 +40,30 @@ func _physics_process(delta):
 	currDistance = distance(lookat.global_position, global_position)
 	if move:
 		look_at(Vector3(lookat.global_position.x, global_position.y, lookat.global_position.z))
-	if currDistance < 12 && knockback == 0 && health > 0:
+	if currDistance < 12 && knockback == 0 && health_ > 0:
 		move = true
 	else:
 		move = false
 		#print("not moving")
 	if knockback != 0:
-		velocity.x = -whereToGo.x * SPEED * 2
-		velocity.z = -whereToGo.z * SPEED * 2
+		velocity.x = -whereToGo.x * speed_ * 2
+		velocity.z = -whereToGo.z * speed_ * 2
 	elif !move:
 		velocity.x = 0
 		velocity.z = 0
 	else:
 		whereToGo = Vector3((lookat.global_position.x - global_position.x), global_position.y,
 			(lookat.global_position.z - global_position.z)).normalized()
-		velocity.x = whereToGo.x * SPEED 
-		velocity.z = whereToGo.z * SPEED
+		velocity.x = whereToGo.x * speed_ 
+		velocity.z = whereToGo.z * speed_
 		
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
-	$AnimationTree.set("parameters/conditions/Idle", !move && !takingDamage && health > 0)
-	$AnimationTree.set("parameters/conditions/Walk", move && !takingDamage && health > 0)
-	$AnimationTree.set("parameters/conditions/Damage", takingDamage && health > 0)
-	$AnimationTree.set("parameters/conditions/Death", health <= 0)
+	$AnimationTree.set("parameters/conditions/Idle", !move && !takingDamage && health_ > 0)
+	$AnimationTree.set("parameters/conditions/Walk", move && !takingDamage && health_ > 0)
+	$AnimationTree.set("parameters/conditions/Damage", takingDamage && health_ > 0)
+	$AnimationTree.set("parameters/conditions/Death", health_ <= 0)
 	takingDamage = false
 	
 	move_and_slide()
@@ -72,29 +74,32 @@ func distance(a, b):
 	return dist
 	
 func jump():
-	if health > 0:
+	if health_ > 0:
 		velocity.y = 3
 	
 func hit(attackType):
-	if attackType == 'sword':
-		health -= 2;
+	if attackType == 'sword' && canTakeDamage_:
+		health_ -= 2;
 		$SubViewport/healthbar.value -= 2;
-	elif attackType == 'fist':
-		health -= 1;
+	elif attackType == 'fist' && canTakeDamage_:
+		health_ -= 1;
 		$SubViewport/healthbar.value -= 1;
 	else:
 		push_error("Attack occured but it was not with sword or fist")
 	takingDamage = true
 	knockback = 2
-	print(health)
+	print(health_)
 	await get_tree().create_timer(.5).timeout
 	knockback = 0
 
 func setPos(x, y, z):
 	global_position = Vector3(x, y, z)
-	
 func getHealth():
-	return health
+	return health_
+func setHealth(health):
+	health_ = health
+func takeDamage(canTakeDamage):
+	canTakeDamage = canTakeDamage
 
 func _on_test_tuto_attack(attackType):
 	if attackPossible:

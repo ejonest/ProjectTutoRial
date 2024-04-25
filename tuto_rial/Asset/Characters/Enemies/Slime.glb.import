@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bu13ru1fkji8v"
-path="res://.godot/imported/Slime.glb-fcd1b715ce9201d0c72a89b078f1dc4f.scn"
+path="res://.godot/imported/Slime.glb-5847399a6a25d808372aec711faecd6d.scn"
 
 [deps]
 
-source_file="res://Slime.glb"
-dest_files=["res://.godot/imported/Slime.glb-fcd1b715ce9201d0c72a89b078f1dc4f.scn"]
+source_file="res://Asset/Characters/Enemies/Slime.glb"
+dest_files=["res://.godot/imported/Slime.glb-5847399a6a25d808372aec711faecd6d.scn"]
 
 [params]
 
