@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://be88vc16o0dli"]
+
+[ext_resource type="AudioStream" uid="uid://pltalk7w7gvq" path="res://puzzling.wav" id="1_cr8l0"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_cr8l0")
+autoplay = true

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkcpxluioj8s3"]
+
+[ext_resource type="AudioStream" uid="uid://bqo3fbqqh0luf" path="res://enchanting.wav" id="1_4m4o8"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_4m4o8")
