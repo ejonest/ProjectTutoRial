@@ -21,7 +21,7 @@ func _input(event):
 		var tempRot = rotation.x - event.relative.y / 1000 * v_sensitivity
 		rotation.y -= event.relative.x / 1000 * h_sensitivity
 # Bind the vertical camera rotation between 0 and .25 to not go over or under bounds
-		tempRot = clamp(tempRot, -1, -.25)
+		tempRot = clamp(tempRot, -.75, .5)
 		rotation.x = tempRot
 		
 	if event is InputEventJoypadMotion:

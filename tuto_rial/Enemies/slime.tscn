@@ -243,7 +243,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3im8m")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_fpujj"]
-height = 0.390346
+height = 0.686437
 radius = 0.588111
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_h8fd3"]
@@ -280,7 +280,7 @@ skeleton = NodePath("")
 [node name="Hitbox" type="Area3D" parent="." groups=["Enemy"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.180879, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.314699, 0)
 shape = SubResource("CylinderShape3D_fpujj")
 
 [node name="SubViewport" type="SubViewport" parent="."]

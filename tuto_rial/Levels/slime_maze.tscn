@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://lgig8u201wdk"]
+[gd_scene load_steps=18 format=3 uid="uid://lgig8u201wdk"]
 
 [ext_resource type="PackedScene" uid="uid://bsjyu0fp5fq4g" path="res://Asset/Environment/Scene/floor.tscn" id="1_dh3g6"]
+[ext_resource type="Script" path="res://Levels/slime_maze.gd" id="1_ql7qn"]
 [ext_resource type="PackedScene" uid="uid://c5mhdn1r3s2b4" path="res://Asset/Environment/Scene/wall.tscn" id="2_f7w2e"]
 [ext_resource type="PackedScene" uid="uid://fvsjrcdrpbmh" path="res://Asset/Environment/Scene/pillar_45.tscn" id="3_ky1ia"]
 [ext_resource type="PackedScene" uid="uid://d1plc8ddh0ybl" path="res://TutoPlayer.tscn" id="4_2gpl1"]
-[ext_resource type="Script" path="res://scripts/Sword.gd" id="5_dp5v1"]
 [ext_resource type="Script" path="res://scripts/CameraController.gd" id="6_gi1f8"]
 [ext_resource type="PackedScene" uid="uid://be88vc16o0dli" path="res://puzzling.tscn" id="7_dpei8"]
+[ext_resource type="PackedScene" uid="uid://w44wi1bbti8" path="res://Asset/Environment/Scene/wallDoor.tscn" id="8_mhnt1"]
 
 [sub_resource type="Shader" id="Shader_84j1x"]
 code = "
@@ -149,7 +150,10 @@ sky = SubResource("Sky_7vsln")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vn033"]
+
 [node name="SlimeMaze" type="Node3D"]
+script = ExtResource("1_ql7qn")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e8fuu")
@@ -161,60 +165,7 @@ light_energy = 4.06
 shadow_enabled = true
 
 [node name="TestTuto" parent="." instance=ExtResource("4_2gpl1")]
-unique_name_in_owner = true
-transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0.623827, 0, -5.84686)
-
-[node name="Skeleton3D" parent="TestTuto/Armature" index="0"]
-bones/0/position = Vector3(-0.601647, 1.69158, -173.446)
-bones/0/rotation = Quaternion(-0.730979, -0.0482917, 0.0147631, 0.680529)
-bones/1/rotation = Quaternion(0.0138853, 0.014376, 0.0241459, 0.999509)
-bones/2/rotation = Quaternion(0.00938231, 0.00347652, 0.0143628, 0.999847)
-bones/3/rotation = Quaternion(0.00850096, 0.00350902, 0.0143169, 0.999855)
-bones/4/rotation = Quaternion(0.0560328, -0.00184269, 0.00517879, 0.998414)
-bones/5/rotation = Quaternion(-0.0644701, 0.011029, -0.00251037, 0.997856)
-bones/7/rotation = Quaternion(-0.717479, -0.276957, 0.531463, -0.355059)
-bones/8/rotation = Quaternion(0.399667, 0.143864, 0.0802068, 0.901741)
-bones/9/rotation = Quaternion(0.000406033, 0.00135327, 0.0141882, 0.999898)
-bones/10/rotation = Quaternion(0.0546648, -0.276919, 0.0227147, 0.959068)
-bones/15/rotation = Quaternion(0.712359, -0.273002, 0.556347, 0.329383)
-bones/16/rotation = Quaternion(0.312091, -0.243159, -0.0961821, 0.913357)
-bones/17/rotation = Quaternion(0.00204902, 0.000283581, -0.057312, 0.998354)
-bones/18/rotation = Quaternion(0.0547831, 0.1741, -0.00193563, 0.983201)
-bones/23/rotation = Quaternion(0.136653, 0.0510658, 0.986498, -0.0744333)
-bones/24/rotation = Quaternion(-0.103652, -0.0129162, 0.0308575, 0.994051)
-bones/25/rotation = Quaternion(0.525399, -0.0329863, -0.0527101, 0.848581)
-bones/28/rotation = Quaternion(-0.0934713, -0.0293902, 0.994919, -0.0231565)
-bones/29/rotation = Quaternion(-0.0683323, 0.0837085, -0.0253742, 0.993821)
-bones/30/rotation = Quaternion(0.564974, 0.0197306, 0.0164458, 0.824709)
-bones/31/rotation = Quaternion(0.297878, 0.0308488, -0.0059053, 0.954087)
-
-[node name="Tuto" parent="TestTuto/Armature/Skeleton3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -129.918)
-
-[node name="BoneAttachment3D" parent="TestTuto/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.373136, 0.018894, 0.927584, 0.923868, 0.0841111, -0.373355, -0.085074, 0.996277, 0.0139293, -37.2687, 10.1839, -161.475)
-
-[node name="Sword" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D" index="0"]
-transform = Transform3D(-24.137, 48.5387, -9.2951, 10.6712, -4.9816, -53.7244, -48.2549, -25.3807, -7.23139, -40.0717, -109.277, 25.0862)
-script = ExtResource("5_dp5v1")
-
-[node name="BoneAttachment3D2" parent="TestTuto/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.373136, 0.018894, 0.927584, 0.923868, 0.0841111, -0.373355, -0.085074, 0.996277, 0.0139293, -37.2687, 10.1839, -161.475)
-
-[node name="CollisionShape3D" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D2/RightHandArea" index="0"]
-transform = Transform3D(1.99707, -0.0459552, 0.0980371, 0.0472503, 1.99928, -0.025342, -0.0974206, 0.0276207, 1.99744, 9.34705, -124.652, 1.63843)
-
-[node name="BoneAttachment3D3" parent="TestTuto/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.109492, 0.0084805, -0.993951, -0.991268, 0.0748565, -0.108557, 0.0734831, 0.997158, 0.0166025, 38.061, 9.97293, -165.363)
-
-[node name="CollisionShape3D" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D3/LeftHandArea" index="0"]
-transform = Transform3D(1.99855, -0.038206, 0.0660159, 0.038539, 1.9996, -0.00946526, -0.0658217, 0.0107304, 1.99889, -9.6001, -124.413, 0.00572968)
-
-[node name="CollisionShape3D" parent="TestTuto" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.19748, 0)
-
-[node name="CollisionShape3D" parent="TestTuto/Hitbox" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00485885, 3.17463, -0.0291948)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.585, -6)
 
 [node name="CameraController" type="Node3D" parent="." groups=["CameraController"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.72701)
@@ -223,7 +174,7 @@ script = ExtResource("6_gi1f8")
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraController"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.71441, -0.887852)
 collision_mask = 2
-spring_length = 5.0
+spring_length = 3.0
 margin = 0.05
 
 [node name="Camera3D" type="Camera3D" parent="CameraController/SpringArm3D"]
@@ -328,8 +279,11 @@ transform = Transform3D(2, 0, 0, 0, 0.75, 0, 0, 0, 1, -24, 0, -10)
 [node name="Wall_2x06x4_low" parent="Walls/FrontWall/wall/Wall_2x06x4_low2/RootNode" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0.77951, 0)
 
+[node name="Wall_2x06x4_low" parent="Walls/FrontWall/wall/Wall_2x06x4_low3/RootNode" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0.585, 0)
+
 [node name="CollisionShape3D" parent="Walls/FrontWall/wall" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.982849, 4.74551, 0.349136)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.997977, 4.80664, 0.282027)
 
 [node name="wall2" parent="Walls/FrontWall" instance=ExtResource("2_f7w2e")]
 transform = Transform3D(2, 0, 0, 0, 0.75, 0, 0, 0, 1, -20, 0.584633, -10)
@@ -356,7 +310,7 @@ transform = Transform3D(2, 0, 0, 0, 0.75, 0, 0, 0, 1, 12, 0.584633, -10)
 transform = Transform3D(2, 0, 0, 0, 0.75, 0, 0, 0, 1, 16, 0.584633, -10)
 
 [node name="wall10" parent="Walls/FrontWall" instance=ExtResource("2_f7w2e")]
-transform = Transform3D(2, 0, 0, 0, 0.75, 0, 0, 0, 1, 20, 0.584633, -10)
+transform = Transform3D(2, 0, 0, 0, 0.75, 0, 0, 0, 1, 20.5, 0.585, -10)
 
 [node name="wall11" parent="Walls/FrontWall" instance=ExtResource("2_f7w2e")]
 transform = Transform3D(2, 0, 0, 0, 0.75, 0, 0, 0, 1, 24, 0.584633, -10)
@@ -1261,5 +1215,67 @@ transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 3.16696, 0.616265, -85.48)
 [node name="Level Theme" parent="." instance=ExtResource("7_dpei8")]
 volume_db = -10.0
 
-[editable path="TestTuto"]
+[node name="Areas" type="Node" parent="."]
+
+[node name="SlimeArea1" type="Area3D" parent="Areas"]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -21.5, 2.5, -16)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/SlimeArea1"]
+shape = SubResource("BoxShape3D_vn033")
+
+[node name="SlimeArea2" type="Area3D" parent="Areas"]
+transform = Transform3D(7, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 24, 2.5, -30.8429)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/SlimeArea2"]
+shape = SubResource("BoxShape3D_vn033")
+
+[node name="SlimeArea3" type="Area3D" parent="Areas"]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -21.5, 2.5, -47)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/SlimeArea3"]
+shape = SubResource("BoxShape3D_vn033")
+
+[node name="SlimeArea4" type="Area3D" parent="Areas"]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 14.1505, 2.5, -51.488)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/SlimeArea4"]
+shape = SubResource("BoxShape3D_vn033")
+
+[node name="SlimeArea5" type="Area3D" parent="Areas"]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 5, 2.5, -63.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/SlimeArea5"]
+shape = SubResource("BoxShape3D_vn033")
+
+[node name="SlimeArea6" type="Area3D" parent="Areas"]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 5, 2.5, -59.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/SlimeArea6"]
+shape = SubResource("BoxShape3D_vn033")
+
+[node name="SlimeArea7" type="Area3D" parent="Areas"]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -22, 2.5, -76)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/SlimeArea7"]
+shape = SubResource("BoxShape3D_vn033")
+
+[node name="SlimeArea8" type="Area3D" parent="Areas"]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 21.9016, 2.5, -75.7906)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/SlimeArea8"]
+shape = SubResource("BoxShape3D_vn033")
+
+[node name="Wall_2x06x4" parent="." instance=ExtResource("8_mhnt1")]
+transform = Transform3D(2, 0, 0, 0, 0.75, 0, 0, 0, 1, 20.5, 0.585, -62)
+
+[connection signal="area_entered" from="Areas/SlimeArea1" to="." method="_on_slime_area_1_area_entered"]
+[connection signal="area_entered" from="Areas/SlimeArea2" to="." method="_on_slime_area_2_area_entered"]
+[connection signal="area_entered" from="Areas/SlimeArea3" to="." method="_on_slime_area_3_area_entered"]
+[connection signal="area_entered" from="Areas/SlimeArea4" to="." method="_on_slime_area_4_area_entered"]
+[connection signal="area_entered" from="Areas/SlimeArea5" to="." method="_on_slime_area_5_area_entered"]
+[connection signal="area_entered" from="Areas/SlimeArea6" to="." method="_on_slime_area_6_area_entered"]
+[connection signal="area_entered" from="Areas/SlimeArea7" to="." method="_on_slime_area_7_area_entered"]
+[connection signal="area_entered" from="Areas/SlimeArea8" to="." method="_on_slime_area_8_area_entered"]
+
+[editable path="Flooring/floor1x2"]
 [editable path="Walls/FrontWall/wall"]

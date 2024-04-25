@@ -52,7 +52,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5uwqs")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m8uof"]
-size = Vector3(2.00525, 7.82751, 0.672943)
+size = Vector3(2.14902, 7.82751, 1.51311)
 
 [node name="Wall_2x06x4" type="StaticBody3D"]
 transform = Transform3D(2, 0, 0, 0, 0.75, 0, 0, 0, 1, 0, 0, 0)

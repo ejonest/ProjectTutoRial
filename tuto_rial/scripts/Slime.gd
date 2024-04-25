@@ -25,6 +25,7 @@ var rng = RandomNumberGenerator.new()
 var shouldLerp = true
 var whereToGo
 var canTakeDamage_ = true
+var JustStarted = true
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
@@ -60,11 +61,12 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
-	$AnimationTree.set("parameters/conditions/Idle", !move && !takingDamage && health_ > 0)
+	$AnimationTree.set("parameters/conditions/Idle", JustStarted or (!move && !takingDamage && health_ > 0))
 	$AnimationTree.set("parameters/conditions/Walk", move && !takingDamage && health_ > 0)
 	$AnimationTree.set("parameters/conditions/Damage", takingDamage && health_ > 0)
 	$AnimationTree.set("parameters/conditions/Death", health_ <= 0)
 	takingDamage = false
+	JustStarted = false
 	
 	move_and_slide()
 	
