@@ -1,7 +1,8 @@
 extends Node3D
 
 var player
-@export var sensitivity := 2
+@export var h_sensitivity := 2
+@export var v_sensitivity := 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
@@ -17,12 +18,21 @@ func _process(delta):
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		var tempRot = rotation.x - event.relative.y / 1000 * sensitivity
-		rotation.y -= event.relative.x / 1000 * sensitivity
+		var tempRot = rotation.x - event.relative.y / 1000 * v_sensitivity
+		rotation.y -= event.relative.x / 1000 * h_sensitivity
 # Bind the vertical camera rotation between 0 and .25 to not go over or under bounds
 		tempRot = clamp(tempRot, -1, -.25)
 		rotation.x = tempRot
+		
+	if event is InputEventJoypadMotion:
+		var tempRot = rotation.x - Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y) / 100 * v_sensitivity
+		rotation.y -= Input.get_joy_axis(0, JOY_AXIS_RIGHT_X) / 100 * h_sensitivity
+# Bind the vertical camera rotation between 0 and .25 to not go over or under bounds
+		tempRot = clamp(tempRot, -1, -.25)
+		rotation.x = tempRot
+		
 	if Input.is_action_just_pressed("esc") && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			
 	elif Input.is_action_just_pressed("esc"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
