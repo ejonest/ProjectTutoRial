@@ -315,7 +315,7 @@ parameters/conditions/Idle = false
 parameters/conditions/Walk = false
 
 [node name="InnerSkin" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.366, 0, 0, 0, 0.281803, 0, 0, 0, 1.366, 0, 0.00541108, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_tbh7i")
 skeleton = NodePath("")
 

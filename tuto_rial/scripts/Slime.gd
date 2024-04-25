@@ -32,7 +32,7 @@ func _ready():
 	lookat = player.get_node("LookAt")
 	look_at(Vector3(lookat.global_position.x, global_position.y, lookat.global_position.z))
 	$SubViewport/healthbar.value = health_
-	$SubViewport/healthbar.max_value = maxHealth
+	$SubViewport/healthbar.max_value = health_
 
 func _physics_process(delta):
 	var input_dir
@@ -98,8 +98,10 @@ func getHealth():
 	return health_
 func setHealth(health):
 	health_ = health
+func setSpeed(speed):
+	speed_ = speed
 func takeDamage(canTakeDamage):
-	canTakeDamage = canTakeDamage
+	canTakeDamage_ = canTakeDamage
 
 func _on_test_tuto_attack(attackType):
 	if attackPossible:

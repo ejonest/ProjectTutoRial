@@ -1,19 +1,18 @@
 extends Node
 
-@onready var enemy_scene = load("res://Enemies/slime.tscn")
+@onready var slimePlain = load("res://Enemies/slime.tscn")
+@onready var slimeTeal = load("res://Enemies/slimeTeal.tscn")
+@onready var slimeWhite = load("res://Enemies/slimeWhite.tscn")
+@onready var slimeRock = load("res://Enemies/slimeRock.tscn")
 var enemyArray : Array
 
 func _ready():
-	var enemy = enemy_scene.instantiate()
-	enemy.position = Vector3(-5, 1, -12)
-	enemy.scale = Vector3(5, 5, 5)
-	add_child(enemy)
-	var children = get_children()
-	print("Size A: ", enemyArray.size())
-	for n in children:
-		if n.is_in_group("Enemy"):
-			enemyArray.append(n)
-	print("Size B: ", enemyArray.size())
+# To spawn an enemy you need to pass it a location(vector3), a scaling(vector3), 
+# health(int), speed(float), if they can take damage(bool), and the type of slime
+	spawnenemy(Vector3(-5, 1, -12), Vector3(5, 5, 5), 30, 1.5, true, slimePlain)
+	spawnenemy(Vector3(5, 1, -12), Vector3(5, 5, 5), 10, 1.5, true, slimeTeal)
+	spawnenemy(Vector3(-3, 5, -40), Vector3(5, 5, 5), 30, 1.5, true, slimeWhite)
+	spawnenemy(Vector3(3, 5, -40), Vector3(5, 5, 5), 10, 1.5, true, slimeRock)
 	pass
 
 func _process(delta):
@@ -25,10 +24,20 @@ func _process(delta):
 		i += 1
 	pass
 
-func spawnenemy(pos : Vector3, health : int, speed : float, canTakeDamage : bool):
-	#enemy = enemy_scene.instantiate()
-	#add_child(enemy)
-	#print("spawn!")
+func spawnenemy(pos : Vector3, scale : Vector3, health : int, speed : float, canTakeDamage : bool, Type):
+	var enemy = Type.instantiate()
+	enemy.position = pos
+	enemy.scale = scale
+	enemy.setHealth(health)
+	enemy.setSpeed(speed)
+	enemy.takeDamage(canTakeDamage)
+	add_child(enemy)
+	var children = get_children()
+	print("Size A: ", enemyArray.size())
+	for n in children:
+		if n.is_in_group("Enemy"):
+			enemyArray.append(n)
+	print("Size B: ", enemyArray.size())
 	pass
 
 func removeenemy():
