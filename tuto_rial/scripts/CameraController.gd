@@ -3,17 +3,29 @@ extends Node3D
 var player
 @export var h_sensitivity := 2
 @export var v_sensitivity := 1
+var cam_speed := 0.1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	global_position = player.global_position
 	$SpringArm3D/Camera3D.look_at(player.get_node("LookAt").global_position)
+	
+	if Input.is_action_pressed("controller_right"):
+		rotate_y(Input.get_action_strength("controller_right") * -cam_speed)
+	elif Input.is_action_pressed("controller_left"):
+		rotate_y(Input.get_action_strength("controller_left") * cam_speed)
+	elif Input.is_action_pressed("controller_up"):
+		rotate_x(Input.get_action_strength("controller_up") * cam_speed)
+		rotation.x = clamp(rotation.x, -0.25, 0.25)
+	elif Input.is_action_pressed("controller_down"):
+		rotate_x(Input.get_action_strength("controller_down") * -cam_speed)
+		rotation.x = clamp(rotation.x, -0.25, 0.25)
+	
 	pass
 
 func _input(event):
@@ -22,13 +34,6 @@ func _input(event):
 		rotation.y -= event.relative.x / 1000 * h_sensitivity
 # Bind the vertical camera rotation between 0 and .25 to not go over or under bounds
 		tempRot = clamp(tempRot, -.75, .5)
-		rotation.x = tempRot
-		
-	if event is InputEventJoypadMotion:
-		var tempRot = rotation.x - Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y) / 100 * v_sensitivity
-		rotation.y -= Input.get_joy_axis(0, JOY_AXIS_RIGHT_X) / 100 * h_sensitivity
-# Bind the vertical camera rotation between 0 and .25 to not go over or under bounds
-		tempRot = clamp(tempRot, -1, -.25)
 		rotation.x = tempRot
 		
 	if Input.is_action_just_pressed("esc") && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
