@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://lgig8u201wdk"]
+[gd_scene load_steps=26 format=3 uid="uid://lgig8u201wdk"]
 
 [ext_resource type="PackedScene" uid="uid://bsjyu0fp5fq4g" path="res://Asset/Environment/Scene/floor.tscn" id="1_dh3g6"]
 [ext_resource type="Script" path="res://Levels/slime_maze.gd" id="1_ql7qn"]
@@ -10,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://w44wi1bbti8" path="res://Asset/Environment/Scene/wallDoor.tscn" id="8_mhnt1"]
 [ext_resource type="PackedScene" uid="uid://85isfhc13f3v" path="res://Asset/Environment/Scene/rock.tscn" id="9_cmuq5"]
 [ext_resource type="PackedScene" uid="uid://bj8v5o040vyyn" path="res://Asset/Environment/Scene/portal.tscn" id="10_dr2jn"]
+[ext_resource type="PackedScene" uid="uid://c8340arsybqqc" path="res://hud.tscn" id="11_jr8x7"]
+[ext_resource type="Script" path="res://hud.gd" id="12_p2ai1"]
+[ext_resource type="Texture2D" uid="uid://cadh5fpt8bemd" path="res://health_canister.png" id="13_4jd7t"]
+[ext_resource type="Texture2D" uid="uid://n4bomb8wvy8a" path="res://health_filling.png" id="14_ututa"]
+[ext_resource type="Script" path="res://health_bar.gd" id="15_ftomu"]
 
 [sub_resource type="Shader" id="Shader_84j1x"]
 code = "
@@ -170,6 +175,7 @@ light_energy = 4.06
 shadow_enabled = true
 
 [node name="TestTuto" parent="." instance=ExtResource("4_2gpl1")]
+unique_name_in_owner = true
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.585, 0.715567)
 
 [node name="CameraController" type="Node3D" parent="." groups=["CameraController"]]
@@ -1428,6 +1434,25 @@ theme_override_font_sizes/font_size = 48
 text = "Objective: Reach the exit with the key"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="HUD_stuff" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="HUD_stuff" instance=ExtResource("11_jr8x7")]
+script = ExtResource("12_p2ai1")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD_stuff"]
+z_index = 2
+offset_left = 136.0
+offset_top = -56.0
+offset_right = 392.0
+offset_bottom = 200.0
+rotation = 0.242415
+scale = Vector2(0.486413, 0.486413)
+pivot_offset = Vector2(128, 128)
+fill_mode = 3
+texture_under = ExtResource("13_4jd7t")
+texture_progress = ExtResource("14_ututa")
+script = ExtResource("15_ftomu")
 
 [connection signal="area_entered" from="Areas/SlimeArea1" to="." method="_on_slime_area_1_area_entered"]
 [connection signal="area_entered" from="Areas/SlimeArea2" to="." method="_on_slime_area_2_area_entered"]
