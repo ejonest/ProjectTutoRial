@@ -5,8 +5,11 @@ var enemyArray : Array
 var exitPortal
 var canFlipLights = true
 var slimesHaveSpawned = false
+var player
+var reloadingScene = false
 
 func _ready():
+	player = get_tree().get_nodes_in_group("Player")[0]
 	spawnenemy(Vector3(-24, 29, -20), Vector3(3, 3, 3), 10, 1.5, true, slimeTeal)
 	spawnenemy(Vector3(-18, 29, -5), Vector3(2, 2, 2), 6, 1.5, true, slimeTeal)
 	spawnenemy(Vector3(-18, 29, 14), Vector3(2, 2, 2), 6, 1.5, true, slimeTeal)
@@ -24,7 +27,18 @@ func _process(delta):
 			n.queue_free()
 			enemyArray.pop_at(i)
 		i += 1
+	if player.playerHealth == 0:
+		ReloadScene()
+	pass
 
+func ReloadScene():
+	if !reloadingScene:
+		reloadingScene = true
+		print("reloading")
+		await get_tree().create_timer(5).timeout
+		get_tree().change_scene_to_file.bind("res://Levels/ForestScene.tscn").call_deferred()
+		pass
+		
 func ReturnHome():
 	print("exiting")
 	await get_tree().create_timer(1).timeout

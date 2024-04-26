@@ -32,8 +32,11 @@ var gotPos = false
 var pos : Vector3
 var pickedUpKey = false
 var portalExt
+var player
+var reloadingScene = false
 
 func _ready():
+	player = get_tree().get_nodes_in_group("Player")[0]
 	var exitGate = gate.instantiate()
 	exitGate.position = Vector3(-2.73, 0, -85.5)
 	add_child(exitGate)
@@ -76,9 +79,18 @@ func _process(delta):
 	if slowExit && exitAngle <= 3.14/2:
 		exitAngle += 3.14/2/100
 		exitArray[0].rotation = Vector3(0, exitAngle, 0)
-		
+	if player.playerHealth == 0:
+		ReloadScene()
 	pass
 
+func ReloadScene():
+	if !reloadingScene:
+		reloadingScene = true
+		print("reloading")
+		await get_tree().create_timer(5).timeout
+		get_tree().change_scene_to_file.bind("res://Levels/slime_maze.tscn").call_deferred()
+		pass
+		
 func destoryEnemy():
 	await get_tree().create_timer(1.52).timeout
 	destoryable = true
@@ -166,7 +178,7 @@ func _on_slime_area_4_area_entered(area):
 		var wallDoor = wall.instantiate()
 		wallDoor.position = Vector3(8, .585, -54)
 		add_child(wallDoor)
-		spawnenemy(Vector3(14, 3, -48), Vector3(2, 2, 2), 2, 1.5, true, slimeRock)
+		spawnenemy(Vector3(14, 3, -48), Vector3(2, 2, 2), 30, 1.5, true, slimeRock)
 		wallDoor = wall.instantiate()
 		wallDoor.position = Vector3(24, .585, -54)
 		add_child(wallDoor)
@@ -183,7 +195,7 @@ func _on_slime_area_5_area_entered(area):
 		wallDoor.position = Vector3(20.5, .585, -62)
 		wallDoor.rotation = Vector3(0, 3*3.14/2, 0)
 		add_child(wallDoor)
-		spawnenemy(Vector3(-1.5, 3, -67), Vector3(2, 2, 2), 2, 1.5, true, slimeRock)
+		spawnenemy(Vector3(-1.5, 3, -67), Vector3(2, 2, 2), 30, 1.5, true, slimeRock)
 		var children = get_children()
 		for n in children:
 			if n.is_in_group("Doors"):

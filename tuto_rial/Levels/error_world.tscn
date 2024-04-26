@@ -106,49 +106,40 @@ unique_name_in_owner = true
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 4.26623, 0)
 
 [node name="Skeleton3D" parent="TestTuto/Armature" index="0"]
-bones/0/position = Vector3(0.229006, 0.678092, -173.388)
-bones/0/rotation = Quaternion(-0.727064, -0.056013, 0.0141617, 0.684135)
-bones/1/rotation = Quaternion(0.018006, 0.0116391, 0.0219131, 0.99953)
-bones/2/rotation = Quaternion(0.0101811, 0.0028669, 0.0136849, 0.999851)
-bones/3/rotation = Quaternion(0.0100478, 0.00312391, 0.0137737, 0.99985)
-bones/4/rotation = Quaternion(0.0591249, -0.000996706, 0.00433901, 0.998241)
-bones/5/rotation = Quaternion(-0.0658851, 0.010942, -0.00119227, 0.997767)
-bones/7/rotation = Quaternion(-0.722468, -0.270597, 0.528677, -0.354003)
-bones/8/rotation = Quaternion(0.390531, 0.14719, 0.0792813, 0.905282)
-bones/9/rotation = Quaternion(0.000368762, 0.00135328, 0.0128824, 0.999916)
-bones/10/rotation = Quaternion(0.0503806, -0.283396, 0.0231131, 0.9574)
-bones/11/rotation = Quaternion(0.0664184, 0.00104282, 0.00664867, 0.997769)
-bones/12/rotation = Quaternion(0.127648, 0.00153064, -0.0265614, 0.991463)
-bones/13/rotation = Quaternion(0.00572311, 0.00713913, -0.0609304, 0.9981)
-bones/15/rotation = Quaternion(0.713583, -0.272013, 0.554515, 0.330638)
-bones/16/rotation = Quaternion(0.314042, -0.241469, -0.0969269, 0.913059)
-bones/17/rotation = Quaternion(0.00208214, 0.000283573, -0.0582358, 0.998301)
-bones/18/position = Vector3(-2.10275e-07, 58.104, 1.34215e-06)
-bones/18/rotation = Quaternion(0.0596342, 0.174359, -0.00369977, 0.982868)
-bones/19/position = Vector3(4.89121e-07, 14.6156, -1.02503e-06)
-bones/19/rotation = Quaternion(0.0598661, -0.00148809, -0.00885655, 0.998166)
-bones/21/rotation = Quaternion(0.0145624, -0.010832, 0.125795, 0.99189)
-bones/23/rotation = Quaternion(0.137926, 0.0648654, 0.985162, -0.0788929)
-bones/24/rotation = Quaternion(-0.11609, -0.0161545, 0.0306035, 0.992636)
-bones/25/rotation = Quaternion(0.529356, -0.0321021, -0.0513491, 0.846236)
-bones/26/position = Vector3(-5.44172e-06, 37.0536, -1.33766e-06)
-bones/26/rotation = Quaternion(0.280196, -0.0315164, 0.00651209, 0.959403)
-bones/28/rotation = Quaternion(-0.0901621, -0.0228006, 0.99527, -0.0280961)
-bones/29/rotation = Quaternion(-0.0622755, 0.0839052, -0.0243907, 0.994227)
-bones/30/rotation = Quaternion(0.55817, 0.0177505, 0.0170859, 0.829361)
-bones/31/rotation = Quaternion(0.300016, 0.0308439, -0.00584111, 0.953417)
+bones/0/position = Vector3(-0.228408, 1.35965, -173.385)
+bones/0/rotation = Quaternion(-0.727571, -0.053644, 0.0139915, 0.683788)
+bones/1/rotation = Quaternion(0.01989, 0.0153248, 0.0231021, 0.999418)
+bones/2/rotation = Quaternion(0.0104769, 0.00370124, 0.0138513, 0.999842)
+bones/3/rotation = Quaternion(0.0104595, 0.00403626, 0.0140118, 0.999839)
+bones/4/rotation = Quaternion(0.0598128, -0.00190248, 0.00403409, 0.9982)
+bones/5/rotation = Quaternion(-0.0721428, 0.00854945, -0.00137687, 0.997357)
+bones/7/rotation = Quaternion(-0.721959, -0.270698, 0.530384, -0.352406)
+bones/8/rotation = Quaternion(0.389572, 0.140301, 0.0834546, 0.906413)
+bones/9/rotation = Quaternion(0.000378746, 0.00135328, 0.0132321, 0.999912)
+bones/10/rotation = Quaternion(0.0474412, -0.28288, 0.0258858, 0.957632)
+bones/15/rotation = Quaternion(0.716068, -0.268324, 0.554386, 0.328488)
+bones/16/rotation = Quaternion(0.315848, -0.23926, -0.0935884, 0.913365)
+bones/17/rotation = Quaternion(0.00207328, 0.000283575, -0.0579884, 0.998315)
+bones/18/rotation = Quaternion(0.05736, 0.177444, -0.00300811, 0.982453)
+bones/23/rotation = Quaternion(0.139483, 0.061348, 0.985196, -0.0785455)
+bones/24/rotation = Quaternion(-0.114565, -0.0126061, 0.03009, 0.99288)
+bones/25/rotation = Quaternion(0.528834, -0.0324117, -0.0517786, 0.846524)
+bones/28/rotation = Quaternion(-0.0907651, -0.0254048, 0.995168, -0.0275307)
+bones/29/rotation = Quaternion(-0.0635594, 0.0838085, -0.024895, 0.994141)
+bones/30/rotation = Quaternion(0.561214, 0.0180056, 0.0171913, 0.827296)
+bones/31/rotation = Quaternion(0.299264, 0.0308456, -0.00586362, 0.953654)
 
 [node name="BoneAttachment3D" parent="TestTuto/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.359073, 0.016726, 0.933159, 0.931127, 0.0619144, -0.359401, -0.0637874, 0.997941, 0.00665762, -36.5063, 8.14782, -161.804)
+transform = Transform3D(0.362645, 0.0286589, 0.931487, 0.929927, 0.054328, -0.363709, -0.0610293, 0.998112, -0.00694896, -35.6421, 8.75266, -161.249)
 
 [node name="Sword" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D" index="0"]
 script = ExtResource("4_8aff3")
 
 [node name="BoneAttachment3D2" parent="TestTuto/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.359073, 0.016726, 0.933159, 0.931127, 0.0619144, -0.359401, -0.0637874, 0.997941, 0.00665762, -36.5063, 8.14782, -161.804)
+transform = Transform3D(0.362645, 0.0286589, 0.931487, 0.929927, 0.054328, -0.363709, -0.0610293, 0.998112, -0.00694896, -35.6421, 8.75266, -161.249)
 
 [node name="BoneAttachment3D3" parent="TestTuto/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.132763, 0.00711415, -0.991122, -0.98954, 0.0578763, -0.132136, 0.0564225, 0.998298, 0.0147236, 38.9346, 9.68161, -164.356)
+transform = Transform3D(0.108589, 0.0109747, -0.994026, -0.991417, 0.074427, -0.107482, 0.0728028, 0.997166, 0.0189624, 38.1823, 10.6232, -164.478)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="TestTuto"]
 transform = Transform3D(2.22222, 0, 0, 0, 2.22222, 0, 0, 0, 2.22222, 0, 2.00406, 0)
@@ -457,41 +448,58 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -110)
 [node name="Lights" type="Node" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights" groups=["Lights"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 9.928, -141)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 12.6417, -141)
+light_color = Color(0.192157, 0.901961, 0.894118, 1)
 light_energy = 10.0
-omni_range = 20.0
+omni_range = 40.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lights" groups=["Lights"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 2.004, -31.072)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 2.52743, -31.072)
+light_color = Color(0.792157, 0.839216, 0.262745, 1)
 light_energy = 5.0
+omni_range = 30.0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lights" groups=["Lights"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 2.004, -42.712)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 2.52743, -42.712)
+light_color = Color(0.792157, 0.839216, 0.262745, 1)
 light_energy = 5.0
+omni_range = 30.0
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Lights" groups=["Lights"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 2.004, -55.265)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 2.52743, -55.265)
+light_color = Color(0.792157, 0.839216, 0.262745, 1)
 light_energy = 5.0
+omni_range = 30.0
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Lights" groups=["Lights"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 2.004, -67.73)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 2.52743, -67.73)
+light_color = Color(0.792157, 0.839216, 0.262745, 1)
 light_energy = 5.0
+omni_range = 30.0
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="Lights" groups=["Lights"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 2.004, -79.058)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 2.52743, -79.058)
+light_color = Color(0.792157, 0.839216, 0.262745, 1)
 light_energy = 5.0
+omni_range = 30.0
 
 [node name="OmniLight3D7" type="OmniLight3D" parent="Lights" groups=["Lights"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 2.004, -89.132)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 2.52743, -89.132)
+light_color = Color(0.792157, 0.839216, 0.262745, 1)
 light_energy = 5.0
+omni_range = 30.0
 
 [node name="OmniLight3D8" type="OmniLight3D" parent="Lights" groups=["Lights"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 2.004, -99.295)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 2.52743, -99.295)
+light_color = Color(0.792157, 0.839216, 0.262745, 1)
 light_energy = 5.0
+omni_range = 30.0
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="Lights" groups=["Lights"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 2.004, -111.562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 2.52743, -111.562)
+light_color = Color(0.792157, 0.839216, 0.262745, 1)
 light_energy = 5.0
+omni_range = 30.0
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 10

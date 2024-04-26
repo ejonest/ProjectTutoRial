@@ -4,8 +4,11 @@ extends Node
 var enemyArray : Array
 var exitPortal
 var canFlipLights = true
+var player
+var reloadingScene = false
 
 func _ready():
+	player = get_tree().get_nodes_in_group("Player")[0]
 	spawnenemy(Vector3(4, 0, -110), Vector3(5, 5, 5), 30, 2, false, slimeWhite)
 	spawnenemy(Vector3(4, 0, -90), Vector3(5, 5, 5), 30, 2, false, slimeWhite)
 	spawnenemy(Vector3(4, 0, -70), Vector3(5, 5, 5), 30, 2, false, slimeWhite)
@@ -26,8 +29,19 @@ func _process(delta):
 		i += 1
 	if Input.is_action_just_pressed("path") && canFlipLights:
 		flipLights()
+	if player.playerHealth == 0:
+		ReloadScene()
+	pass
 	pass
 
+func ReloadScene():
+	if !reloadingScene:
+		reloadingScene = true
+		print("reloading")
+		await get_tree().create_timer(5).timeout
+		get_tree().change_scene_to_file.bind("res://Levels/error_world.tscn").call_deferred()
+		pass
+		
 func ReturnHome():
 	print("exiting")
 	await get_tree().create_timer(1).timeout

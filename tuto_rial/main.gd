@@ -8,10 +8,14 @@ var enemyArray : Array
 var forestPortal
 var errorPortal
 var mazePortal
+signal levelName
+var player
+var reloadingScene = false
 
 func _ready():
 # To spawn an enemy you need to pass it a location(vector3), a scaling(vector3), 
 # health(int), speed(float), if they can take damage(bool), and the type of slime
+	player = get_tree().get_nodes_in_group("Player")[0]
 	spawnenemy(Vector3(-5, 1, -12), Vector3(5, 5, 5), 10, 1.5, true, slimePlain)
 	spawnenemy(Vector3(5, 1, -12), Vector3(5, 5, 5), 10, 1.5, true, slimeTeal)
 	spawnenemy(Vector3(-3, 5, -40), Vector3(5, 5, 5), 30, 1.5, true, slimeWhite)
@@ -22,6 +26,7 @@ func _ready():
 	errorPortal.changeScene.connect(ErrorScene)
 	mazePortal = get_tree().get_nodes_in_group("Portal")[2]
 	mazePortal.changeScene.connect(MazeScene)
+	levelName.emit("res:://main.tscn")
 	pass
 
 func _process(delta):
@@ -32,6 +37,8 @@ func _process(delta):
 				n.queue_free()
 				enemyArray.pop_at(i)
 			i += 1
+	if player.playerHealth == 0:
+		ReloadScene()
 	pass
 
 func ForestScene():
@@ -54,6 +61,14 @@ func MazeScene():
 	get_tree().change_scene_to_file.bind("res://Levels/slime_maze.tscn").call_deferred()
 	print("should have exited")
 	pass
+	
+func ReloadScene():
+	if !reloadingScene:
+		reloadingScene = true
+		print("reloading")
+		await get_tree().create_timer(5).timeout
+		get_tree().change_scene_to_file.bind("res://main.tscn").call_deferred()
+		pass
 	
 func spawnenemy(pos : Vector3, scale : Vector3, health : int, speed : float, canTakeDamage : bool, Type):
 	var enemy = Type.instantiate()
