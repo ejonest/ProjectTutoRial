@@ -6,10 +6,13 @@ extends Node3D
 @onready var slimeRock = load("res://Enemies/slimeRock.tscn")
 
 @onready var wall = load("res://Asset/Environment/Scene/wallDoor.tscn")
+@onready var gate = load("res://Asset/Environment/Scene/Exit_Gate.tscn")
+
 #-11.5, .585, -14
 var enemyArray : Array
 var doorArray : Array
-var gotKey = false
+var exitArray : Array
+var gotKey = true
 var hasEnemies = 0
 var slime1Spawned = false
 var slime2Spawned = false
@@ -20,9 +23,20 @@ var slime7Spawned = false
 var slime8Spawned = false
 var destoryable = false
 var j = 2
+var Exit_Gate
+var slowExit = false
+var exitAngle = 0
 
 
 func _ready():
+	var exitGate = gate.instantiate()
+	exitGate.position = Vector3(-2.73, 0, -85.5)
+	add_child(exitGate)
+	var children = get_children()
+	for n in children:
+		if n.is_in_group("ExitGate"):
+			exitArray.append(n)
+	exitArray[0].MayOpen.connect(openExit)
 	pass
 
 func _process(delta):
@@ -41,17 +55,22 @@ func _process(delta):
 	i = 0
 	if doorArray.size() > 0 && enemyArray.size() == 0:
 		for n in doorArray:
+			print("Size of doorArray: ", doorArray.size())
 			n.queue_free()
 			doorArray.pop_at(i)
 			i += 1
 		if slime5Spawned:
 			gotKey = true
+	if slowExit && exitAngle <= 3.14/2:
+		exitAngle += 3.14/2/100
+		exitArray[0].rotation = Vector3(0, exitAngle, 0)
 	pass
 
 func destoryEnemy():
 	await get_tree().create_timer(1.52).timeout
 	destoryable = true
 	pass
+	
 func spawnenemy(pos : Vector3, scale : Vector3, health : int, speed : float, canTakeDamage : bool, Type):
 	var enemy = Type.instantiate()
 	enemy.position = pos
@@ -66,6 +85,15 @@ func spawnenemy(pos : Vector3, scale : Vector3, health : int, speed : float, can
 		if n.is_in_group("Enemy"):
 			enemyArray.append(n)
 	print("Size B: ", enemyArray.size())
+	pass
+
+func openExit():
+	if gotKey:
+		print("Opening Gate")
+		#exitArray[0].rotation = Vector3(0, 3.14/2, 0)
+		slowExit = true
+	else:
+		print("Can not open gate. You need a key")
 	pass
 	
 #Slime Encounter Areas
@@ -164,7 +192,7 @@ func _on_slime_area_6_area_entered(area):
 			#i += 1
 
 func _on_slime_area_7_area_entered(area):
-	if area.is_in_group("LeftHand") && !slime1Spawned:
+	if area.is_in_group("LeftHand") && !slime7Spawned:
 		var wallDoor = wall.instantiate()
 		wallDoor.position = Vector3(-20, .585, -50)
 		add_child(wallDoor)
@@ -176,7 +204,7 @@ func _on_slime_area_7_area_entered(area):
 		slime7Spawned = true
 
 func _on_slime_area_8_area_entered(area):
-	if area.is_in_group("LeftHand") && !slime1Spawned:
+	if area.is_in_group("LeftHand") && !slime8Spawned:
 		var wallDoor = wall.instantiate()
 		wallDoor.position = Vector3(16.5, .585, -74)
 		add_child(wallDoor)
