@@ -327,7 +327,7 @@ transform = Transform3D(2, 0, 0, 0, 0.75, 0, 0, 0, 1, 12, 0.584633, -10)
 transform = Transform3D(2, 0, 0, 0, 0.75, 0, 0, 0, 1, 16, 0.584633, -10)
 
 [node name="wall10" parent="Walls/FrontWall" instance=ExtResource("2_f7w2e")]
-transform = Transform3D(2, 0, 0, 0, 0.75, 0, 0, 0, 1, 20.5, 0.585, -10)
+transform = Transform3D(2, 0, 0, 0, 0.75, 0, 0, 0, 1, 20, 0.585, -10)
 
 [node name="wall11" parent="Walls/FrontWall" instance=ExtResource("2_f7w2e")]
 transform = Transform3D(2, 0, 0, 0, 0.75, 0, 0, 0, 1, 24, 0.584633, -10)
@@ -1412,6 +1412,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.68388, 0, 0.915768)
 
 [node name="PortalExit" parent="." instance=ExtResource("10_dr2jn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66038, 0, -97.2099)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 305.0
+offset_top = 2.0
+offset_right = -310.0
+offset_bottom = 242.0
+grow_horizontal = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 48
+text = "Objective: Reach the exit with the key"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [connection signal="area_entered" from="Areas/SlimeArea1" to="." method="_on_slime_area_1_area_entered"]
 [connection signal="area_entered" from="Areas/SlimeArea2" to="." method="_on_slime_area_2_area_entered"]

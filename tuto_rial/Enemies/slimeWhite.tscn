@@ -245,9 +245,11 @@ disable_3d = true
 transparent_bg = true
 
 [node name="healthbar" parent="SubViewport" instance=ExtResource("2_j5elv")]
+visible = false
 
 [node name="healthSprite" type="Sprite3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.609344, 0)
+visible = false
 billboard = 1
 texture = SubResource("ViewportTexture_h8fd3")
 
