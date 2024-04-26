@@ -163,7 +163,7 @@ script = ExtResource("1_ql7qn")
 environment = SubResource("Environment_e8fuu")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.0646322, -0.466287, -0.882269, -0.863609, -0.469124, 0.184671, -0.500003, 0.75, -0.43301, 0, 0.584633, 0)
+transform = Transform3D(-0.127453, -0.55828, -0.819804, -0.856594, -0.354716, 0.374732, -0.500003, 0.75, -0.43301, 0, 0.584633, 0)
 light_color = Color(0.92549, 0.556863, 0.129412, 1)
 light_energy = 4.06
 shadow_enabled = true
@@ -1402,6 +1402,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boundaries/BackWall"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.543854, 12.1568, 2.77258)
 shape = SubResource("BoxShape3D_8t4rh")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1721, 0.585, -63.5777)
 
 [connection signal="area_entered" from="Areas/SlimeArea1" to="." method="_on_slime_area_1_area_entered"]
 [connection signal="area_entered" from="Areas/SlimeArea2" to="." method="_on_slime_area_2_area_entered"]

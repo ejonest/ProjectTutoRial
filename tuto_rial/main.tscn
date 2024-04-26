@@ -4087,39 +4087,30 @@ bones/7/rotation = Quaternion(-0.718781, -0.275063, 0.531367, -0.354039)
 bones/8/rotation = Quaternion(0.394825, 0.14249, 0.0823994, 0.903892)
 bones/9/rotation = Quaternion(0.000414215, 0.00135327, 0.0144751, 0.999894)
 bones/10/rotation = Quaternion(0.048953, -0.2794, 0.0247703, 0.958606)
-bones/11/rotation = Quaternion(0.0664184, 0.00104282, 0.00664867, 0.997769)
-bones/12/rotation = Quaternion(0.127648, 0.00153064, -0.0265614, 0.991463)
-bones/13/rotation = Quaternion(0.00572311, 0.00713913, -0.0609304, 0.9981)
 bones/15/rotation = Quaternion(0.714339, -0.270377, 0.555588, 0.328539)
 bones/16/rotation = Quaternion(0.313803, -0.24303, -0.0940918, 0.913023)
 bones/17/rotation = Quaternion(0.00206342, 0.00028361, -0.0577146, 0.998331)
-bones/18/position = Vector3(-2.10275e-07, 58.104, 1.34215e-06)
 bones/18/rotation = Quaternion(0.0554614, 0.174849, -0.00237064, 0.983029)
-bones/19/position = Vector3(4.89121e-07, 14.6156, -1.02503e-06)
-bones/19/rotation = Quaternion(0.0598661, -0.00148809, -0.00885655, 0.998166)
-bones/21/rotation = Quaternion(0.0145624, -0.010832, 0.125795, 0.99189)
 bones/23/rotation = Quaternion(0.137299, 0.054376, 0.986086, -0.0763384)
 bones/24/rotation = Quaternion(-0.107956, -0.0133418, 0.0313526, 0.993572)
 bones/25/rotation = Quaternion(0.526874, -0.0332975, -0.0530881, 0.84763)
-bones/26/position = Vector3(-5.44172e-06, 37.0536, -1.33766e-06)
-bones/26/rotation = Quaternion(0.280196, -0.0315164, 0.00651209, 0.959403)
 bones/28/rotation = Quaternion(-0.0924874, -0.0280663, 0.994992, -0.0254817)
 bones/29/rotation = Quaternion(-0.0665523, 0.0838238, -0.0252191, 0.993936)
 bones/30/rotation = Quaternion(0.564893, 0.0185793, 0.0164432, 0.824791)
 bones/31/rotation = Quaternion(0.29807, 0.0308484, -0.00589965, 0.954027)
 
 [node name="BoneAttachment3D" parent="TestTuto/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.368145, 0.0229568, 0.929485, 0.92704, 0.0674624, -0.368843, -0.0711727, 0.997458, 0.00355415, -36.8423, 9.41786, -161.289)
+transform = Transform3D(0.368145, 0.0229558, 0.929485, 0.92704, 0.0674619, -0.368843, -0.0711718, 0.997458, 0.00355481, -36.8423, 9.41781, -161.288)
 
 [node name="Sword" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D" index="0"]
 transform = Transform3D(-23.1219, 49.007, -9.41749, 10.4524, -5.39307, -53.7277, -48.7968, -24.3768, -7.04625, -50.6289, 20.7265, 24.3065)
 script = ExtResource("46_wk8wj")
 
 [node name="BoneAttachment3D2" parent="TestTuto/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.368145, 0.0229568, 0.929485, 0.92704, 0.0674624, -0.368843, -0.0711727, 0.997458, 0.00355415, -36.8423, 9.41786, -161.289)
+transform = Transform3D(0.368145, 0.0229558, 0.929485, 0.92704, 0.0674619, -0.368843, -0.0711718, 0.997458, 0.00355481, -36.8423, 9.41781, -161.288)
 
 [node name="BoneAttachment3D3" parent="TestTuto/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.113592, 0.0142874, -0.993425, -0.99052, 0.0793752, -0.112118, 0.0772512, 0.996742, 0.0231684, 37.852, 10.8574, -165.01)
+transform = Transform3D(0.113589, 0.0142887, -0.993425, -0.99052, 0.0793757, -0.112116, 0.0772519, 0.996742, 0.0231695, 37.8522, 10.8574, -165.01)
 
 [editable path="NavigationRegion3D/Node3D/Stairs/Stairs_short2"]
 [editable path="TestTuto"]

@@ -7,12 +7,14 @@ extends Node3D
 
 @onready var wall = load("res://Asset/Environment/Scene/wallDoor.tscn")
 @onready var gate = load("res://Asset/Environment/Scene/Exit_Gate.tscn")
+@onready var key = load("res://Asset/Environment/Scene/key.tscn")
 
 #-11.5, .585, -14
 var enemyArray : Array
 var doorArray : Array
 var exitArray : Array
-var gotKey = true
+var keyNode
+var gotKey = false
 var hasEnemies = 0
 var slime1Spawned = false
 var slime2Spawned = false
@@ -26,7 +28,9 @@ var j = 2
 var Exit_Gate
 var slowExit = false
 var exitAngle = 0
-
+var gotPos = false
+var pos : Vector3
+var pickedUpKey = false
 
 func _ready():
 	var exitGate = gate.instantiate()
@@ -37,6 +41,11 @@ func _ready():
 		if n.is_in_group("ExitGate"):
 			exitArray.append(n)
 	exitArray[0].MayOpen.connect(openExit)
+	keyNode = key.instantiate()
+	keyNode.position = Vector3(-1.5, .585, -67)
+	add_child(keyNode)
+	keyNode.PickUp.connect(pickUp)
+	print(keyNode.position)
 	pass
 
 func _process(delta):
@@ -64,13 +73,19 @@ func _process(delta):
 	if slowExit && exitAngle <= 3.14/2:
 		exitAngle += 3.14/2/100
 		exitArray[0].rotation = Vector3(0, exitAngle, 0)
+		
 	pass
 
 func destoryEnemy():
 	await get_tree().create_timer(1.52).timeout
 	destoryable = true
 	pass
-	
+
+func pickUp():
+	print("You picked up the key")
+	keyNode.queue_free()
+	keyNode = null
+	pass
 func spawnenemy(pos : Vector3, scale : Vector3, health : int, speed : float, canTakeDamage : bool, Type):
 	var enemy = Type.instantiate()
 	enemy.position = pos
@@ -135,13 +150,12 @@ func _on_slime_area_3_area_entered(area):
 				doorArray.append(n)
 		slime3Spawned = true
 
-
 func _on_slime_area_4_area_entered(area):
 	if area.is_in_group("LeftHand") && gotKey && !slime4Spawned:
 		var wallDoor = wall.instantiate()
 		wallDoor.position = Vector3(8, .585, -54)
 		add_child(wallDoor)
-		spawnenemy(Vector3(14, 3, -48), Vector3(2, 2, 2), 30, 1.5, true, slimeRock)
+		spawnenemy(Vector3(14, 3, -48), Vector3(2, 2, 2), 2, 1.5, true, slimeRock)
 		wallDoor = wall.instantiate()
 		wallDoor.position = Vector3(24, .585, -54)
 		add_child(wallDoor)
@@ -153,12 +167,12 @@ func _on_slime_area_4_area_entered(area):
 
 func _on_slime_area_5_area_entered(area):
 	if area.is_in_group("LeftHand") && !gotKey && !slime5Spawned:
-		gotKey = true
+		#gotKey = true
 		var wallDoor = wall.instantiate()
 		wallDoor.position = Vector3(20.5, .585, -62)
 		wallDoor.rotation = Vector3(0, 3*3.14/2, 0)
 		add_child(wallDoor)
-		spawnenemy(Vector3(-1.5, 3, -67), Vector3(2, 2, 2), 30, 1.5, true, slimeRock)
+		spawnenemy(Vector3(-1.5, 3, -67), Vector3(2, 2, 2), 2, 1.5, true, slimeRock)
 		var children = get_children()
 		for n in children:
 			if n.is_in_group("Doors"):
@@ -173,7 +187,7 @@ func _on_slime_area_5_area_entered(area):
 
 func _on_slime_area_6_area_entered(area):
 	if area.is_in_group("LeftHand") && gotKey && !slime5Spawned:
-		gotKey = true
+		#gotKey = true
 		var wallDoor = wall.instantiate()
 		wallDoor.position = Vector3(20.5, .585, -62)
 		wallDoor.rotation = Vector3(0, 3*3.14/2, 0)
