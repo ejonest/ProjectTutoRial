@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://lgig8u201wdk"]
+[gd_scene load_steps=21 format=3 uid="uid://lgig8u201wdk"]
 
 [ext_resource type="PackedScene" uid="uid://bsjyu0fp5fq4g" path="res://Asset/Environment/Scene/floor.tscn" id="1_dh3g6"]
 [ext_resource type="Script" path="res://Levels/slime_maze.gd" id="1_ql7qn"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://be88vc16o0dli" path="res://puzzling.tscn" id="7_dpei8"]
 [ext_resource type="PackedScene" uid="uid://w44wi1bbti8" path="res://Asset/Environment/Scene/wallDoor.tscn" id="8_mhnt1"]
 [ext_resource type="PackedScene" uid="uid://85isfhc13f3v" path="res://Asset/Environment/Scene/rock.tscn" id="9_cmuq5"]
+[ext_resource type="PackedScene" uid="uid://bj8v5o040vyyn" path="res://Asset/Environment/Scene/portal.tscn" id="10_dr2jn"]
 
 [sub_resource type="Shader" id="Shader_84j1x"]
 code = "
@@ -169,7 +170,7 @@ light_energy = 4.06
 shadow_enabled = true
 
 [node name="TestTuto" parent="." instance=ExtResource("4_2gpl1")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.585, -6)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.585, 0.715567)
 
 [node name="CameraController" type="Node3D" parent="." groups=["CameraController"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.72701)
@@ -1405,6 +1406,12 @@ shape = SubResource("BoxShape3D_8t4rh")
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1721, 0.585, -63.5777)
+
+[node name="PortalEnt" parent="." instance=ExtResource("10_dr2jn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.68388, 0, 0.915768)
+
+[node name="PortalExit" parent="." instance=ExtResource("10_dr2jn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66038, 0, -97.2099)
 
 [connection signal="area_entered" from="Areas/SlimeArea1" to="." method="_on_slime_area_1_area_entered"]
 [connection signal="area_entered" from="Areas/SlimeArea2" to="." method="_on_slime_area_2_area_entered"]

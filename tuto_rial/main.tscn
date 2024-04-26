@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://clid1fxm6rbk7"]
+[gd_scene load_steps=80 format=3 uid="uid://clid1fxm6rbk7"]
 
 [ext_resource type="PackedScene" uid="uid://bsjyu0fp5fq4g" path="res://Asset/Environment/Scene/floor.tscn" id="1_lm25w"]
 [ext_resource type="Script" path="res://main.gd" id="1_uy32c"]
@@ -48,6 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://cl44jwsxbxe66" path="res://Asset/Environment/Scene/pillar_lamp.tscn" id="39_r05ug"]
 [ext_resource type="PackedScene" uid="uid://d1plc8ddh0ybl" path="res://TutoPlayer.tscn" id="45_bo71b"]
 [ext_resource type="Script" path="res://scripts/Sword.gd" id="46_wk8wj"]
+[ext_resource type="PackedScene" uid="uid://bj8v5o040vyyn" path="res://Asset/Environment/Scene/portal.tscn" id="49_8cprb"]
 
 [sub_resource type="Shader" id="Shader_0pevc"]
 code = "
@@ -4076,41 +4077,50 @@ unique_name_in_owner = true
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
 
 [node name="Skeleton3D" parent="TestTuto/Armature" index="0"]
-bones/0/position = Vector3(-0.765579, 1.83879, -173.404)
-bones/0/rotation = Quaternion(-0.729274, -0.0504867, 0.0148021, 0.682196)
-bones/1/rotation = Quaternion(0.0166738, 0.0136112, 0.023253, 0.999498)
-bones/2/rotation = Quaternion(0.00993179, 0.00343291, 0.0143128, 0.999842)
-bones/3/rotation = Quaternion(0.0093237, 0.0031075, 0.0139986, 0.999854)
-bones/4/rotation = Quaternion(0.0581057, -0.00151413, 0.00486112, 0.998298)
-bones/5/rotation = Quaternion(-0.0674023, 0.0109827, -0.00133778, 0.997665)
-bones/7/rotation = Quaternion(-0.718781, -0.275063, 0.531367, -0.354039)
-bones/8/rotation = Quaternion(0.394825, 0.14249, 0.0823994, 0.903892)
-bones/9/rotation = Quaternion(0.000414215, 0.00135327, 0.0144751, 0.999894)
-bones/10/rotation = Quaternion(0.048953, -0.2794, 0.0247703, 0.958606)
-bones/15/rotation = Quaternion(0.714339, -0.270377, 0.555588, 0.328539)
-bones/16/rotation = Quaternion(0.313803, -0.24303, -0.0940918, 0.913023)
-bones/17/rotation = Quaternion(0.00206342, 0.00028361, -0.0577146, 0.998331)
-bones/18/rotation = Quaternion(0.0554614, 0.174849, -0.00237064, 0.983029)
-bones/23/rotation = Quaternion(0.137299, 0.054376, 0.986086, -0.0763384)
-bones/24/rotation = Quaternion(-0.107956, -0.0133418, 0.0313526, 0.993572)
-bones/25/rotation = Quaternion(0.526874, -0.0332975, -0.0530881, 0.84763)
-bones/28/rotation = Quaternion(-0.0924874, -0.0280663, 0.994992, -0.0254817)
-bones/29/rotation = Quaternion(-0.0665523, 0.0838238, -0.0252191, 0.993936)
-bones/30/rotation = Quaternion(0.564893, 0.0185793, 0.0164432, 0.824791)
-bones/31/rotation = Quaternion(0.29807, 0.0308484, -0.00589965, 0.954027)
+bones/0/position = Vector3(0.207087, 0.529088, -173.357)
+bones/0/rotation = Quaternion(-0.727654, -0.054002, 0.0124332, 0.683703)
+bones/1/rotation = Quaternion(0.0180258, 0.0121606, 0.0223141, 0.999515)
+bones/2/rotation = Quaternion(0.0101126, 0.00261098, 0.0136487, 0.999852)
+bones/3/rotation = Quaternion(0.0099109, 0.00282065, 0.0136946, 0.999853)
+bones/4/rotation = Quaternion(0.0597089, -0.00094247, 0.00401949, 0.998207)
+bones/5/rotation = Quaternion(-0.0658953, 0.0116947, -0.00142526, 0.997757)
+bones/7/rotation = Quaternion(-0.722661, -0.270284, 0.528735, -0.353762)
+bones/8/rotation = Quaternion(0.389771, 0.144756, 0.0799593, 0.905942)
+bones/9/rotation = Quaternion(0.000365453, 0.00135328, 0.0127662, 0.999918)
+bones/10/rotation = Quaternion(0.0491954, -0.28471, 0.0250599, 0.957023)
+bones/15/rotation = Quaternion(0.714298, -0.271073, 0.554225, 0.330352)
+bones/16/rotation = Quaternion(0.315096, -0.240473, -0.0966035, 0.912992)
+bones/17/rotation = Quaternion(0.00208509, 0.000283571, -0.058318, 0.998296)
+bones/18/rotation = Quaternion(0.059354, 0.17462, -0.00379274, 0.982838)
+bones/23/rotation = Quaternion(0.137557, 0.0646791, 0.985266, -0.0783932)
+bones/24/rotation = Quaternion(-0.11582, -0.0137843, 0.0304871, 0.992707)
+bones/25/rotation = Quaternion(0.528901, -0.0319161, -0.0511126, 0.846542)
+bones/28/rotation = Quaternion(-0.0903108, -0.0221608, 0.995276, -0.0278929)
+bones/29/rotation = Quaternion(-0.0655387, 0.0835901, -0.0247988, 0.994033)
+bones/30/rotation = Quaternion(0.559484, 0.0198719, 0.0161864, 0.828445)
+bones/31/rotation = Quaternion(0.300474, 0.0308428, -0.00582746, 0.953273)
 
 [node name="BoneAttachment3D" parent="TestTuto/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.368145, 0.0229558, 0.929485, 0.92704, 0.0674619, -0.368843, -0.0711718, 0.997458, 0.00355481, -36.8423, 9.41781, -161.288)
+transform = Transform3D(0.362685, 0.0212056, 0.93167, 0.92949, 0.0638029, -0.363288, -0.067147, 0.997737, 0.00343005, -36.0992, 8.23969, -161.688)
 
 [node name="Sword" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D" index="0"]
 transform = Transform3D(-23.1219, 49.007, -9.41749, 10.4524, -5.39307, -53.7277, -48.7968, -24.3768, -7.04625, -50.6289, 20.7265, 24.3065)
 script = ExtResource("46_wk8wj")
 
 [node name="BoneAttachment3D2" parent="TestTuto/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.368145, 0.0229558, 0.929485, 0.92704, 0.0674619, -0.368843, -0.0711718, 0.997458, 0.00355481, -36.8423, 9.41781, -161.288)
+transform = Transform3D(0.362685, 0.0212056, 0.93167, 0.92949, 0.0638029, -0.363288, -0.067147, 0.997737, 0.00343005, -36.0992, 8.23969, -161.688)
 
 [node name="BoneAttachment3D3" parent="TestTuto/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.113589, 0.0142887, -0.993425, -0.99052, 0.0793757, -0.112116, 0.0772519, 0.996742, 0.0231695, 37.8522, 10.8574, -165.01)
+transform = Transform3D(0.121883, 0.00819986, -0.992511, -0.990314, 0.0679992, -0.121052, 0.0664974, 0.997652, 0.0164084, 38.8957, 9.69456, -164.361)
+
+[node name="ForestPortal" parent="." instance=ExtResource("49_8cprb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11, 6, -72)
+
+[node name="ErrorPortal" parent="." instance=ExtResource("49_8cprb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.2006, -98.4911)
+
+[node name="MazePortal" parent="." instance=ExtResource("49_8cprb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, 6, -75)
 
 [editable path="NavigationRegion3D/Node3D/Stairs/Stairs_short2"]
 [editable path="TestTuto"]

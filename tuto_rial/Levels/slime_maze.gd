@@ -9,7 +9,7 @@ extends Node3D
 @onready var gate = load("res://Asset/Environment/Scene/Exit_Gate.tscn")
 @onready var key = load("res://Asset/Environment/Scene/key.tscn")
 
-#-11.5, .585, -14
+var simultaneous_scene = preload("res://main.tscn").instantiate()
 var enemyArray : Array
 var doorArray : Array
 var exitArray : Array
@@ -31,6 +31,7 @@ var exitAngle = 0
 var gotPos = false
 var pos : Vector3
 var pickedUpKey = false
+var portalExt
 
 func _ready():
 	var exitGate = gate.instantiate()
@@ -46,6 +47,8 @@ func _ready():
 	add_child(keyNode)
 	keyNode.PickUp.connect(pickUp)
 	print(keyNode.position)
+	portalExt = get_tree().get_nodes_in_group("Portal")[1]
+	portalExt.changeScene.connect(exitScene)
 	pass
 
 func _process(delta):
@@ -86,6 +89,14 @@ func pickUp():
 	keyNode.queue_free()
 	keyNode = null
 	pass
+	
+func exitScene():
+	print("exiting")
+	await get_tree().create_timer(1).timeout
+	get_tree().change_scene_to_file.bind("res://main.tscn").call_deferred()
+	print("should have exited")
+	pass
+
 func spawnenemy(pos : Vector3, scale : Vector3, health : int, speed : float, canTakeDamage : bool, Type):
 	var enemy = Type.instantiate()
 	enemy.position = pos

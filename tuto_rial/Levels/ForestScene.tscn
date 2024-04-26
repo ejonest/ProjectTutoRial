@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://b68t87m0jk2pr"]
+[gd_scene load_steps=89 format=3 uid="uid://b68t87m0jk2pr"]
 
 [ext_resource type="PackedScene" uid="uid://bsjyu0fp5fq4g" path="res://Asset/Environment/Scene/floor.tscn" id="1_tlauk"]
 [ext_resource type="Material" uid="uid://dq73u2h2afxdq" path="res://Asset/Environment/Material/tree.tres" id="2_o6xgt"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://b5tk5pfb7kvmm" path="res://Asset/Environment/Scene/rock_small_01.tscn" id="23_ejhba"]
 [ext_resource type="PackedScene" uid="uid://bd6d6kp6oyfbu" path="res://Asset/Environment/Scene/rock_small_03.tscn" id="24_8n8w8"]
 [ext_resource type="Texture2D" uid="uid://bnp3eg57tvluf" path="res://Asset/Environment/Texture/Statue/PillarLamp_02_DefaultMaterial_AlbedoTransparency.png" id="25_dtuq1"]
-[ext_resource type="Script" path="res://scripts/Portal.gd" id="25_jktr0"]
 [ext_resource type="PackedScene" uid="uid://cgeihpcsmw7mj" path="res://Asset/Environment/Scene/rock_small_02.tscn" id="25_wm6nd"]
 [ext_resource type="PackedScene" uid="uid://wr0l26gvxntu" path="res://Asset/Environment/Scene/rock_small_scene.tscn" id="26_s34h1"]
 [ext_resource type="Texture2D" uid="uid://n8sgj507ckjk" path="res://Asset/Environment/Texture/Statue/PillarLamp_02_DefaultMaterial_Normal.png" id="27_jwgc1"]
@@ -6080,7 +6079,6 @@ transform = Transform3D(0.936797, -1.73257, 0.347296, 1.7593, 0.951248, -6.97574
 
 [node name="Portal" parent="Level2" instance=ExtResource("42_leba1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7556, 34.5715, -48.9421)
-script = ExtResource("25_jktr0")
 
 [node name="Portal2" parent="Level2/Portal" instance=ExtResource("42_leba1")]
 transform = Transform3D(-1, 3.48787e-16, 8.74228e-08, 3.48787e-16, 1, -3.48787e-16, -8.74228e-08, -3.48787e-16, -1, 2.99952, 0, 0)
@@ -6114,7 +6112,6 @@ shape = SubResource("BoxShape3D_v5a5e")
 
 [node name="TreePortal2" parent="Level2" instance=ExtResource("42_leba1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.857, 3.932, -35.786)
-script = ExtResource("25_jktr0")
 
 [node name="Portal2" parent="Level2/TreePortal2" instance=ExtResource("42_leba1")]
 transform = Transform3D(-1, 3.48787e-16, 8.74228e-08, 3.48787e-16, 1, -3.48787e-16, -8.74228e-08, -3.48787e-16, -1, 2.99952, 0, 0)

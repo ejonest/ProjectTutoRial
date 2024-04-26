@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://bj8v5o040vyyn"]
+[gd_scene load_steps=19 format=3 uid="uid://bj8v5o040vyyn"]
 
 [ext_resource type="PackedScene" uid="uid://b57rrcmx13nyw" path="res://Asset/Environment/Scene/pillar_35.tscn" id="1_4ugal"]
+[ext_resource type="Script" path="res://scripts/Portal.gd" id="1_byqq7"]
 [ext_resource type="PackedScene" uid="uid://cf0kcm5cdcchl" path="res://Asset/Environment/Scene/arc_mid.tscn" id="2_2lsuo"]
 [ext_resource type="Shader" uid="uid://6xt7fxdknll4" path="res://Asset/Environment/Material/portal.tres" id="3_4uf2l"]
 
@@ -73,8 +74,12 @@ turbulence_noise_strength = 0.2
 
 [sub_resource type="QuadMesh" id="QuadMesh_70cce"]
 
-[node name="Portal" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_td2ls"]
+size = Vector3(2.63379, 4.35846, 1.07568)
+
+[node name="Portal" type="Node3D" groups=["Portal"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.5)
+script = ExtResource("1_byqq7")
 
 [node name="pillar_35" parent="." instance=ExtResource("1_4ugal")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
@@ -110,3 +115,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.5, 2.5)
 light_color = Color(0.945098, 0.333333, 0, 1)
 light_specular = 0.0
 omni_range = 1.0
+
+[node name="PortalEnt" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalEnt"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51133, 2.22031, 0.0378418)
+shape = SubResource("BoxShape3D_td2ls")
+
+[connection signal="area_entered" from="PortalEnt" to="." method="_on_portal_ent_area_entered"]
