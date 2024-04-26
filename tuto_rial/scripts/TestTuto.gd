@@ -17,6 +17,7 @@ var beingTouched = false
 var damageAni = false
 var attacking = false
 var moveOn = 1
+var canHeal = true
 
 signal attack
 signal healthChange
@@ -60,9 +61,7 @@ func _physics_process(delta):
 		weaponNode.visible = !weaponNode.visible
 		
 	if Input.is_action_just_pressed("heal"):
-		if playerHealth < maxPlayerHealth:
-			playerHealth += 10
-			healthChange.emit()
+		heal()
 	
 	#var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var input_dir = Vector2(0, 0)
@@ -154,6 +153,14 @@ func _physics_process(delta):
 	#print(playerHealth)
 	move_and_slide()
 
+func heal():
+	if canHeal:
+		canHeal = false
+		playerHealth += 10
+		healthChange.emit()
+		await get_tree().create_timer(10.0).timeout
+		canHeal = true
+	
 func hit():
 	hitLeft = !hitLeft
 	print(playerHealth)
