@@ -11,15 +11,19 @@ var mazePortal
 signal levelName
 var player
 var reloadingScene = false
+var spawnArray : Array
+var k = 0
 
 func _ready():
 # To spawn an enemy you need to pass it a location(vector3), a scaling(vector3), 
 # health(int), speed(float), if they can take damage(bool), and the type of slime
 	player = get_tree().get_nodes_in_group("Player")[0]
-	spawnenemy(Vector3(-5, 1, -12), Vector3(5, 5, 5), 10, 1.5, true, slimePlain)
-	spawnenemy(Vector3(5, 1, -12), Vector3(5, 5, 5), 10, 1.5, true, slimeTeal)
-	spawnenemy(Vector3(-3, 5, -40), Vector3(5, 5, 5), 30, 1.5, true, slimeWhite)
-	spawnenemy(Vector3(3, 5, -40), Vector3(5, 5, 5), 10, 1.5, true, slimeRock)
+	spawnArray = [Vector3(-5, 1, -12), Vector3(5, 5, 5), 10, 1.5, true, slimePlain, 
+		Vector3(5, 1, -12), Vector3(5, 5, 5), 10, 1.5, true, slimeTeal, 
+		Vector3(3, 5, -40), Vector3(5, 5, 5), 10, 1.5, true, slimeRock,
+		Vector3(-3, 5, -40), Vector3(5, 5, 5), 30, 1.5, false, slimeWhite]
+	spawnenemy(spawnArray[k+0], spawnArray[k+1], spawnArray[k+2], spawnArray[k+3], spawnArray[k+4], spawnArray[k+5])
+	k += 6
 	forestPortal = get_tree().get_nodes_in_group("Portal")[0]
 	forestPortal.changeScene.connect(ForestScene)
 	errorPortal = get_tree().get_nodes_in_group("Portal")[1]
@@ -37,11 +41,17 @@ func _process(delta):
 				n.queue_free()
 				enemyArray.pop_at(i)
 			i += 1
+	if enemyArray.size() == 0 && k < 19:
+		spawnenemy(spawnArray[k+0], spawnArray[k+1], spawnArray[k+2], spawnArray[k+3], spawnArray[k+4], spawnArray[k+5])
+		k += 6
+	if enemyArray.size() < 0:
+		print("ERROR: There is less than zero enemies")
 	if player.playerHealth == 0:
 		ReloadScene()
 	pass
 
 func ForestScene():
+	player.moveOn = 0
 	print("exiting")
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file.bind("res://Levels/ForestScene.tscn").call_deferred()
@@ -49,6 +59,7 @@ func ForestScene():
 	pass
 	
 func ErrorScene():
+	player.moveOn = 0
 	print("exiting")
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file.bind("res://Levels/error_world.tscn").call_deferred()
@@ -56,6 +67,7 @@ func ErrorScene():
 	pass
 	
 func MazeScene():
+	player.moveOn = 0
 	print("exiting")
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file.bind("res://Levels/slime_maze.tscn").call_deferred()
@@ -64,6 +76,7 @@ func MazeScene():
 	
 func ReloadScene():
 	if !reloadingScene:
+		player.moveOn = 0
 		reloadingScene = true
 		print("reloading")
 		await get_tree().create_timer(5).timeout

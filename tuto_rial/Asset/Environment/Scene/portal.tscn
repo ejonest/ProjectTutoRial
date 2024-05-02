@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bj8v5o040vyyn"]
+[gd_scene load_steps=23 format=3 uid="uid://bj8v5o040vyyn"]
 
 [ext_resource type="PackedScene" uid="uid://b57rrcmx13nyw" path="res://Asset/Environment/Scene/pillar_35.tscn" id="1_4ugal"]
 [ext_resource type="Script" path="res://scripts/Portal.gd" id="1_byqq7"]
@@ -75,23 +75,35 @@ turbulence_noise_strength = 0.2
 [sub_resource type="QuadMesh" id="QuadMesh_70cce"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_td2ls"]
-size = Vector3(2.63379, 4.35846, 1.07568)
+size = Vector3(2.63379, 4.35846, 0.234875)
 
-[node name="Portal" type="Node3D" groups=["Portal"]]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ufd5l"]
+size = Vector3(1.00146, 2.92239, 1.34546)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2el06"]
+size = Vector3(1.48746, 0.537964, 2.0473)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8y6pp"]
+size = Vector3(4.0116, 1.92328, 1.20508)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sf0qq"]
+size = Vector3(4.2807, 5.45691, 0.328613)
+
+[node name="Portal" type="StaticBody3D" groups=["Portal"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.5)
 script = ExtResource("1_byqq7")
 
 [node name="pillar_35" parent="." instance=ExtResource("1_4ugal")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -2.26494e-07, 0, 1, 0, 1.50996e-07, 0, -1.5, -0.183559, 0, 0)
 
 [node name="pillar_36" parent="." instance=ExtResource("1_4ugal")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 0, 0)
+transform = Transform3D(-1, 0, -2.26494e-07, 0, 1, 0, 1.50996e-07, 0, -1.5, 3.16298, 0, 0)
 
 [node name="Arc_mid" parent="." instance=ExtResource("2_2lsuo")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1, 3, 0.5)
+transform = Transform3D(-8.74228e-08, 0, 1, 0, 1, 0, -2, 0, -4.37114e-08, -1, 3, 0.924072)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Arc_mid"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.7, -1, 2.5)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.377035, -0.480099, 2.5)
 material_override = SubResource("ShaderMaterial_g2rwl")
 mesh = SubResource("QuadMesh_dfuwy")
 skeleton = NodePath("../..")
@@ -119,7 +131,31 @@ omni_range = 1.0
 [node name="PortalEnt" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PortalEnt"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51133, 2.22031, 0.0378418)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51133, 2.22031, -0.600256)
 shape = SubResource("BoxShape3D_td2ls")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.164307, 2.0421, -0.0765381)
+shape = SubResource("BoxShape3D_ufd5l")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.20257, 1.76501, 0)
+shape = SubResource("BoxShape3D_ufd5l")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.168509, 0.296814, -0.0467224)
+shape = SubResource("BoxShape3D_2el06")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.14518, 0.296814, -0.0467224)
+shape = SubResource("BoxShape3D_2el06")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49133, 4.48962, -0.0666084)
+shape = SubResource("BoxShape3D_8y6pp")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49327, 2.76481, -0.744025)
+shape = SubResource("BoxShape3D_sf0qq")
 
 [connection signal="area_entered" from="PortalEnt" to="." method="_on_portal_ent_area_entered"]

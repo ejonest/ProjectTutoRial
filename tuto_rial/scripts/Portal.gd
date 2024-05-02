@@ -18,6 +18,6 @@ func _ready():
 
 func _on_portal_ent_area_entered(area):
 	if area.is_in_group("LeftHand") || area.is_in_group("RightHand"):
-		print("I am a portal and I have been entered by tuto")
+		#print("I am a portal and I have been entered by tuto")
 		changeScene.emit()
 	pass # Replace with function body.

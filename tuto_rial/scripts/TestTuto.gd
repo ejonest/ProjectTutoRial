@@ -73,11 +73,14 @@ func _physics_process(delta):
 		input_dir.y += 1
 	if Input.is_action_pressed("forward"):
 		input_dir.y += -1
+	if moveOn == 0:
+		input_dir = Vector2(0, 0)
 	
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		var lerpDirection = lerp(lastLookAtDirection, Vector3(lookat.global_position.x, 
-			global_position.y, lookat.global_position.z), .05)
+		var lerpDirection = lerp(Vector3(lastLookAtDirection.x, global_position.y, 
+			lastLookAtDirection.z), Vector3(lookat.global_position.x, global_position.y, 
+			lookat.global_position.z), .05)
 		if moveOn == 1:
 			look_at(lerpDirection)
 			pass
@@ -92,57 +95,57 @@ func _physics_process(delta):
 		&& !crouching)
 #WALK
 	$AnimationTree.set("parameters/conditions/walk", input_dir.x == 0 && input_dir.y == -1 
-		&& is_on_floor() && SPEED == 5.0 && !crouching)
+		&& is_on_floor() && SPEED == 5.0 && !crouching && moveOn != 0)
 	$AnimationTree.set("parameters/conditions/back", input_dir.x == 0 && input_dir.y == 1 
-		&& is_on_floor() && SPEED == 5.0 && !crouching)
+		&& is_on_floor() && SPEED == 5.0 && !crouching && moveOn != 0)
 	$AnimationTree.set("parameters/conditions/left", input_dir.x == -1 && is_on_floor()
-		&& SPEED == 5.0 && !crouching)
+		&& SPEED == 5.0 && !crouching && moveOn != 0)
 	$AnimationTree.set("parameters/conditions/right", input_dir.x == 1 && is_on_floor()
-		&& SPEED == 5.0 && !crouching)
+		&& SPEED == 5.0 && !crouching && moveOn != 0)
 #SPRINT
 	$AnimationTree.set("parameters/conditions/sprint", input_dir.x == 0 && input_dir.y == -1 
-		&& is_on_floor() && SPEED == 8.0)
+		&& is_on_floor() && SPEED == 8.0 && moveOn != 0)
 	$AnimationTree.set("parameters/conditions/sprintBack", input_dir.x == 0 && input_dir.y == 1 
-		&& is_on_floor() && SPEED == 8.0)
+		&& is_on_floor() && SPEED == 8.0 && moveOn != 0)
 	$AnimationTree.set("parameters/conditions/sprintLeft", input_dir.x == -1 && is_on_floor() 
-		&& SPEED == 8.0)
+		&& SPEED == 8.0 && moveOn != 0)
 	$AnimationTree.set("parameters/conditions/sprintRight", input_dir.x == 1 && is_on_floor()
-		&& SPEED == 8.0)
+		&& SPEED == 8.0 && moveOn != 0)
 #JUMP
-	$AnimationTree.set("parameters/conditions/jump", Input.is_action_pressed("jump"))
+	$AnimationTree.set("parameters/conditions/jump", Input.is_action_pressed("jump") && moveOn != 0)
 #CROUCH IDLE
 	$AnimationTree.set("parameters/conditions/crouch", input_dir == Vector2.ZERO && is_on_floor() 
-		&& crouching)
+		&& crouching && moveOn != 0)
 #CROUCH WALK
 	$AnimationTree.set("parameters/conditions/crouchWalk", input_dir.x == 0 && input_dir.y == -1 
-		&& is_on_floor() && crouching)
+		&& is_on_floor() && crouching && moveOn != 0)
 	$AnimationTree.set("parameters/conditions/crouchBack", input_dir.x == 0 && input_dir.y == 1 
-		&& is_on_floor() && crouching)
+		&& is_on_floor() && crouching && moveOn != 0)
 	$AnimationTree.set("parameters/conditions/crouchLeft", input_dir.x == -1 && is_on_floor()
-		&& crouching)
+		&& crouching && moveOn != 0)
 	$AnimationTree.set("parameters/conditions/crouchRight", input_dir.x == 1 && is_on_floor()
-		&& crouching)
+		&& crouching && moveOn != 0)
 #Equip
 	$AnimationTree.set("parameters/conditions/equip", input_dir == Vector2.ZERO 
-		&& is_on_floor() && !crouching && !sword && Input.is_action_pressed("equip"))
+		&& is_on_floor() && !crouching && !sword && Input.is_action_pressed("equip") && moveOn != 0)
 	$AnimationTree.set("parameters/conditions/unequip", input_dir == Vector2.ZERO 
-		&& is_on_floor() && !crouching && sword && Input.is_action_pressed("equip"))
+		&& is_on_floor() && !crouching && sword && Input.is_action_pressed("equip") && moveOn != 0)
 #Combat
 	$AnimationTree.set("parameters/conditions/punchLeft", input_dir == Vector2.ZERO 
 		&& is_on_floor() && !crouching && !sword && meleeOne 
-		&& Input.is_action_pressed("attack"))
+		&& Input.is_action_pressed("attack") && moveOn != 0)
 	$AnimationTree.set("parameters/conditions/punchRight", input_dir == Vector2.ZERO 
 		&& is_on_floor() && !crouching && !sword && !meleeOne
-		&& Input.is_action_pressed("attack"))
+		&& Input.is_action_pressed("attack") && moveOn != 0)
 	$AnimationTree.set("parameters/conditions/slashUnder", input_dir == Vector2.ZERO 
 		&& is_on_floor() && !crouching && sword && meleeOne 
-		&& Input.is_action_pressed("attack"))
+		&& Input.is_action_pressed("attack") && moveOn != 0)
 	$AnimationTree.set("parameters/conditions/slashOver", input_dir == Vector2.ZERO 
 		&& is_on_floor() && !crouching && sword && !meleeOne
-		&& Input.is_action_pressed("attack"))
+		&& Input.is_action_pressed("attack") && moveOn != 0)
 	$AnimationTree.set("parameters/conditions/slashOver", input_dir == Vector2.ZERO 
 		&& is_on_floor() && !crouching && sword && !meleeOne
-		&& Input.is_action_pressed("attack"))
+		&& Input.is_action_pressed("attack") && moveOn != 0)
 # DAMAGE
 	$AnimationTree.set("parameters/conditions/hitLeft", damageAni && hitLeft 
 		&& playerHealth > 0)

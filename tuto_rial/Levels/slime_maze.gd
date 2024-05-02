@@ -85,6 +85,7 @@ func _process(delta):
 
 func ReloadScene():
 	if !reloadingScene:
+		player.moveOn = 0
 		reloadingScene = true
 		print("reloading")
 		await get_tree().create_timer(5).timeout
@@ -103,6 +104,7 @@ func pickUp():
 	pass
 	
 func exitScene():
+	player.moveOn = 0
 	print("exiting")
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file.bind("res://main.tscn").call_deferred()

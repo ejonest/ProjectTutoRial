@@ -1414,7 +1414,7 @@ shape = SubResource("BoxShape3D_8t4rh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1721, 0.585, -63.5777)
 
 [node name="PortalEnt" parent="." instance=ExtResource("10_dr2jn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.68388, 0, 0.915768)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 0, 0.916)
 
 [node name="PortalExit" parent="." instance=ExtResource("10_dr2jn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66038, 0, -97.2099)

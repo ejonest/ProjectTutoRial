@@ -14,7 +14,7 @@ func _ready():
 	spawnenemy(Vector3(-18, 29, -5), Vector3(2, 2, 2), 6, 1.5, true, slimeTeal)
 	spawnenemy(Vector3(-18, 29, 14), Vector3(2, 2, 2), 6, 1.5, true, slimeTeal)
 	spawnenemy(Vector3(38, 29, -20), Vector3(4, 4, 4), 30, 1, true, slimeTeal)
-	exitPortal = get_tree().get_nodes_in_group("Portal")[2]
+	exitPortal = get_tree().get_nodes_in_group("Portal")[1]
 	exitPortal.changeScene.connect(ReturnHome)
 	for n in get_tree().get_nodes_in_group("Lights"):
 				n.visible = false
@@ -33,6 +33,7 @@ func _process(delta):
 
 func ReloadScene():
 	if !reloadingScene:
+		player.moveOn = 0
 		reloadingScene = true
 		print("reloading")
 		await get_tree().create_timer(5).timeout
@@ -40,6 +41,7 @@ func ReloadScene():
 		pass
 		
 func ReturnHome():
+	player.moveOn = 0
 	print("exiting")
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file.bind("res://main.tscn").call_deferred()

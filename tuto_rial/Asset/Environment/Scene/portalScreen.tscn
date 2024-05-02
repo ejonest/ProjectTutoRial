@@ -1,0 +1,109 @@
+[gd_scene load_steps=18 format=3 uid="uid://cp6tf8bjkpawa"]
+
+[ext_resource type="Script" path="res://scripts/Portal.gd" id="1_7q0sq"]
+[ext_resource type="Shader" uid="uid://6xt7fxdknll4" path="res://Asset/Environment/Material/portal.tres" id="4_ijvgh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_td2ls"]
+size = Vector3(2.63379, 4.35846, 0.234875)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sf0qq"]
+size = Vector3(4.2807, 5.45691, 0.531006)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_u2v2p"]
+frequency = 0.0017
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lysv3"]
+seamless = true
+seamless_blend_skirt = 0.276
+noise = SubResource("FastNoiseLite_u2v2p")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_737o6"]
+noise_type = 5
+fractal_type = 2
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u7nhn"]
+seamless = true
+noise = SubResource("FastNoiseLite_737o6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g2rwl"]
+render_priority = 0
+shader = ExtResource("4_ijvgh")
+shader_parameter/ColorParameter = null
+shader_parameter/ColorEdge = Color(0, 1, 0.25098, 1)
+shader_parameter/Color_A = Color(0.0666667, 0.192157, 0.12549, 1)
+shader_parameter/Color_B = Color(0.631373, 0.313726, 0.176471, 1)
+shader_parameter/Texture2DParameter = SubResource("NoiseTexture2D_lysv3")
+shader_parameter/Texture2DParameter2 = SubResource("NoiseTexture2D_u7nhn")
+
+[sub_resource type="QuadMesh" id="QuadMesh_dfuwy"]
+size = Vector2(3.5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x30v7"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.501961, 1, 0, 1)
+emission_energy_multiplier = 3.0
+disable_receive_shadows = true
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="Gradient" id="Gradient_0owcg"]
+offsets = PackedFloat32Array(0, 0.343137)
+colors = PackedColorArray(0, 0.90625, 6.48201e-07, 1, 1, 0.351563, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4e50s"]
+gradient = SubResource("Gradient_0owcg")
+
+[sub_resource type="Curve" id="Curve_8ao3u"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dmc2e"]
+curve = SubResource("Curve_8ao3u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l5oe5"]
+emission_shape = 3
+emission_box_extents = Vector3(1, 2.5, 1)
+gravity = Vector3(0, 0, 10)
+damping_min = 1.0
+damping_max = 2.0
+scale_min = 0.1
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_dmc2e")
+color_ramp = SubResource("GradientTexture1D_4e50s")
+turbulence_enabled = true
+turbulence_noise_strength = 0.2
+
+[sub_resource type="QuadMesh" id="QuadMesh_70cce"]
+
+[node name="Portal" type="StaticBody3D" groups=["Portal"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.5)
+script = ExtResource("1_7q0sq")
+
+[node name="PortalEnt" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.520186)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PortalEnt"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51133, 2.22031, -0.600256)
+shape = SubResource("BoxShape3D_td2ls")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49327, 2.76481, -1.51996)
+shape = SubResource("BoxShape3D_sf0qq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 4.37114e-08, 0, 1, 0, 4.37114e-08, 0, 2, 1.5, 2.5199, 0.0155201)
+material_override = SubResource("ShaderMaterial_g2rwl")
+mesh = SubResource("QuadMesh_dfuwy")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_x30v7")
+cast_shadow = 0
+amount = 20
+lifetime = 1.5
+process_material = SubResource("ParticleProcessMaterial_l5oe5")
+draw_pass_1 = SubResource("QuadMesh_70cce")
+
+[connection signal="area_entered" from="PortalEnt" to="." method="_on_portal_ent_area_entered"]
