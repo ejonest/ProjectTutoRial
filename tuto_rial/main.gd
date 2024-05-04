@@ -4,6 +4,7 @@ extends Node
 @onready var slimeTeal = load("res://Enemies/slimeTeal.tscn")
 @onready var slimeWhite = load("res://Enemies/slimeWhite.tscn")
 @onready var slimeRock = load("res://Enemies/slimeRock.tscn")
+var paused = false
 var enemyArray : Array
 var forestPortal
 var errorPortal
@@ -31,6 +32,7 @@ func _ready():
 	mazePortal = get_tree().get_nodes_in_group("Portal")[2]
 	mazePortal.changeScene.connect(MazeScene)
 	levelName.emit("res:://main.tscn")
+	Engine.time_scale = 1
 	pass
 
 func _process(delta):
@@ -41,13 +43,20 @@ func _process(delta):
 				n.queue_free()
 				enemyArray.pop_at(i)
 			i += 1
+
 	if enemyArray.size() == 0 && k < 19:
 		spawnenemy(spawnArray[k+0], spawnArray[k+1], spawnArray[k+2], spawnArray[k+3], spawnArray[k+4], spawnArray[k+5])
 		k += 6
+
 	if enemyArray.size() < 0:
 		print("ERROR: There is less than zero enemies")
+
 	if player.playerHealth == 0:
 		ReloadScene()
+
+	if Input.is_action_just_pressed("esc"):
+		pauseMenu()
+		
 	pass
 
 func ForestScene():
@@ -105,3 +114,13 @@ func removeenemy():
 		#enemy.queue_free()
 	#spawnenemy()
 	pass
+	
+func pauseMenu():
+	if paused:
+		$CameraController/SpringArm3D/Camera3D/PauseMenu.hide()
+		Engine.time_scale = 1
+	else:
+		$CameraController/SpringArm3D/Camera3D/PauseMenu.show()
+		Engine.time_scale = 0
+		
+	paused = !paused

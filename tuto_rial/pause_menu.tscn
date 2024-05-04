@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctac0wyiqimxb"]
+
+[ext_resource type="Texture2D" uid="uid://o3iq5syr6cbn" path="res://pause_menu.png" id="1_1sb6b"]
+[ext_resource type="Script" path="res://pause_menu.gd" id="1_pxxds"]
+[ext_resource type="Texture2D" uid="uid://h22k1g4xltxp" path="res://level_select_button.png" id="3_v41rb"]
+[ext_resource type="Texture2D" uid="uid://bam3tuylmnfdi" path="res://quit_button.png" id="4_pd5px"]
+
+[node name="Control" type="Control"]
+process_priority = 5
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(1, 0.990713)
+pivot_offset = Vector2(576, 320)
+mouse_filter = 2
+script = ExtResource("1_pxxds")
+
+[node name="PauseMenu" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_1sb6b")
+metadata/_edit_lock_ = true
+
+[node name="LevelSelect" type="Button" parent="."]
+z_index = 3
+offset_left = 456.0
+offset_top = 223.1
+offset_right = 1064.0
+offset_bottom = 451.1
+scale = Vector2(0.397167, 0.421131)
+icon = ExtResource("3_v41rb")
+metadata/_edit_lock_ = true
+
+[node name="Quit" type="Button" parent="."]
+z_index = 3
+offset_left = 456.0
+offset_top = 376.525
+offset_right = 1064.0
+offset_bottom = 604.525
+scale = Vector2(0.397167, 0.421131)
+icon = ExtResource("4_pd5px")
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="LevelSelect" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

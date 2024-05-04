@@ -14,18 +14,6 @@ func _ready():
 func _process(delta):
 	global_position = player.global_position
 	$SpringArm3D/Camera3D.look_at(player.get_node("LookAt").global_position)
-	
-	if Input.is_action_pressed("controller_right"):
-		rotate_y(Input.get_action_strength("controller_right") * -cam_speed)
-	elif Input.is_action_pressed("controller_left"):
-		rotate_y(Input.get_action_strength("controller_left") * cam_speed)
-	elif Input.is_action_pressed("controller_up"):
-		rotate_x(Input.get_action_strength("controller_up") * cam_speed)
-		rotation.x = clamp(rotation.x, -0.25, 0.25)
-	elif Input.is_action_pressed("controller_down"):
-		rotate_x(Input.get_action_strength("controller_down") * -cam_speed)
-		rotation.x = clamp(rotation.x, -0.25, 0.25)
-	
 	pass
 
 func _input(event):

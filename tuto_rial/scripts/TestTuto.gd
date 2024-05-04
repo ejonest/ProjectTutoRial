@@ -63,6 +63,12 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("heal"):
 		heal()
 	
+	if Input.is_action_just_pressed("minus"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		
+	if Input.is_action_just_pressed("equal"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 	#var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var input_dir = Vector2(0, 0)
 	if Input.is_action_pressed("left"):

@@ -1,10 +1,11 @@
-[gd_scene load_steps=36 format=3 uid="uid://db3oad4lkcb4h"]
+[gd_scene load_steps=38 format=3 uid="uid://db3oad4lkcb4h"]
 
 [ext_resource type="Texture2D" uid="uid://bgw7er3outh2d" path="res://space.png" id="1_ghltb"]
 [ext_resource type="Script" path="res://Levels/error_world.gd" id="1_lvkdx"]
 [ext_resource type="Script" path="res://scripts/CameraController.gd" id="2_sosll"]
 [ext_resource type="PackedScene" uid="uid://d1plc8ddh0ybl" path="res://TutoPlayer.tscn" id="3_jdpjj"]
 [ext_resource type="Script" path="res://scripts/Sword.gd" id="4_8aff3"]
+[ext_resource type="PackedScene" uid="uid://ctac0wyiqimxb" path="res://pause_menu.tscn" id="4_e3xnt"]
 [ext_resource type="Texture2D" uid="uid://bek1s4j81n52f" path="res://dark_grass (1).png" id="5_2xbrv"]
 [ext_resource type="PackedScene" uid="uid://d6i6iaht7uvw" path="res://ancient_spoops.tscn" id="6_x30pi"]
 [ext_resource type="PackedScene" uid="uid://c8340arsybqqc" path="res://hud.tscn" id="7_lbhen"]
@@ -23,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://c7blevslnb03r" path="res://monster.glb" id="20_xqohk"]
 [ext_resource type="PackedScene" uid="uid://dpfqm1lyxgks5" path="res://Asset/Environment/Scene/red_grass_scene.tscn" id="21_ab8pt"]
 [ext_resource type="PackedScene" uid="uid://bj8v5o040vyyn" path="res://Asset/Environment/Scene/portal.tscn" id="22_oke0t"]
+[ext_resource type="FontFile" uid="uid://ckrrvcbu53esy" path="res://PixelifySans-Regular.ttf" id="25_w5jdk"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kufgg"]
 panorama = ExtResource("1_ghltb")
@@ -98,6 +100,10 @@ margin = 0.05
 [node name="Camera3D" type="Camera3D" parent="CameraController/SpringArm3D"]
 transform = Transform3D(1, -4.23684e-16, 3.4065e-16, 3.4065e-16, 0.976672, 0.214735, -4.23684e-16, -0.214735, 0.976672, 0.0318664, 2.28447, 1.35409)
 
+[node name="PauseMenu" parent="CameraController/SpringArm3D/Camera3D" instance=ExtResource("4_e3xnt")]
+visible = false
+z_index = 5
+
 [node name="LookAt" type="Node3D" parent="CameraController"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218803, 2.41586, -4.98026)
 
@@ -106,40 +112,49 @@ unique_name_in_owner = true
 transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 4.26623, 0)
 
 [node name="Skeleton3D" parent="TestTuto/Armature" index="0"]
-bones/0/position = Vector3(-0.228408, 1.35965, -173.385)
-bones/0/rotation = Quaternion(-0.727571, -0.053644, 0.0139915, 0.683788)
-bones/1/rotation = Quaternion(0.01989, 0.0153248, 0.0231021, 0.999418)
-bones/2/rotation = Quaternion(0.0104769, 0.00370124, 0.0138513, 0.999842)
-bones/3/rotation = Quaternion(0.0104595, 0.00403626, 0.0140118, 0.999839)
-bones/4/rotation = Quaternion(0.0598128, -0.00190248, 0.00403409, 0.9982)
-bones/5/rotation = Quaternion(-0.0721428, 0.00854945, -0.00137687, 0.997357)
-bones/7/rotation = Quaternion(-0.721959, -0.270698, 0.530384, -0.352406)
-bones/8/rotation = Quaternion(0.389572, 0.140301, 0.0834546, 0.906413)
-bones/9/rotation = Quaternion(0.000378746, 0.00135328, 0.0132321, 0.999912)
-bones/10/rotation = Quaternion(0.0474412, -0.28288, 0.0258858, 0.957632)
-bones/15/rotation = Quaternion(0.716068, -0.268324, 0.554386, 0.328488)
-bones/16/rotation = Quaternion(0.315848, -0.23926, -0.0935884, 0.913365)
-bones/17/rotation = Quaternion(0.00207328, 0.000283575, -0.0579884, 0.998315)
-bones/18/rotation = Quaternion(0.05736, 0.177444, -0.00300811, 0.982453)
-bones/23/rotation = Quaternion(0.139483, 0.061348, 0.985196, -0.0785455)
-bones/24/rotation = Quaternion(-0.114565, -0.0126061, 0.03009, 0.99288)
-bones/25/rotation = Quaternion(0.528834, -0.0324117, -0.0517786, 0.846524)
-bones/28/rotation = Quaternion(-0.0907651, -0.0254048, 0.995168, -0.0275307)
-bones/29/rotation = Quaternion(-0.0635594, 0.0838085, -0.024895, 0.994141)
-bones/30/rotation = Quaternion(0.561214, 0.0180056, 0.0171913, 0.827296)
-bones/31/rotation = Quaternion(0.299264, 0.0308456, -0.00586362, 0.953654)
+bones/0/position = Vector3(-0.870156, 1.48748, -173.265)
+bones/0/rotation = Quaternion(-0.730928, -0.0503529, 0.0131279, 0.680468)
+bones/1/rotation = Quaternion(0.0269832, 0.0164039, 0.0266402, 0.999146)
+bones/2/rotation = Quaternion(0.0120405, 0.00403114, 0.0147774, 0.99981)
+bones/3/rotation = Quaternion(0.0117803, 0.00419292, 0.0147764, 0.999813)
+bones/4/rotation = Quaternion(0.0657867, -0.00214027, 0.0033028, 0.997826)
+bones/5/rotation = Quaternion(-0.0740947, 0.00726348, 0.000284649, 0.997225)
+bones/7/rotation = Quaternion(-0.726503, -0.265366, 0.526477, -0.352983)
+bones/8/rotation = Quaternion(0.387933, 0.139848, 0.0883803, 0.906719)
+bones/9/rotation = Quaternion(0.000414615, 0.00135345, 0.0144933, 0.999894)
+bones/10/rotation = Quaternion(0.0412531, -0.291264, 0.0335195, 0.955165)
+bones/11/rotation = Quaternion(0.0664184, 0.00104282, 0.00664867, 0.997769)
+bones/12/rotation = Quaternion(0.127648, 0.00153064, -0.0265614, 0.991463)
+bones/13/rotation = Quaternion(0.00572311, 0.00713913, -0.0609304, 0.9981)
+bones/15/rotation = Quaternion(0.718649, -0.266097, 0.55069, 0.330873)
+bones/16/rotation = Quaternion(0.314295, -0.236983, -0.091759, 0.914679)
+bones/17/rotation = Quaternion(0.00208384, 0.000283608, -0.0582837, 0.998298)
+bones/18/position = Vector3(-2.10275e-07, 58.104, 1.34215e-06)
+bones/18/rotation = Quaternion(0.051249, 0.177166, -0.00365661, 0.982839)
+bones/19/position = Vector3(4.89121e-07, 14.6156, -1.02503e-06)
+bones/19/rotation = Quaternion(0.0598661, -0.00148809, -0.00885655, 0.998166)
+bones/21/rotation = Quaternion(0.0145624, -0.010832, 0.125795, 0.99189)
+bones/23/rotation = Quaternion(0.141297, 0.0568684, 0.985208, -0.0785257)
+bones/24/rotation = Quaternion(-0.115048, -0.00710692, 0.0308595, 0.992855)
+bones/25/rotation = Quaternion(0.529691, -0.0331015, -0.0525601, 0.845913)
+bones/26/position = Vector3(-5.44172e-06, 37.0536, -1.33766e-06)
+bones/26/rotation = Quaternion(0.280196, -0.0315164, 0.00651209, 0.959403)
+bones/28/rotation = Quaternion(-0.0923885, -0.0247251, 0.99506, -0.026611)
+bones/29/rotation = Quaternion(-0.0778578, 0.0834792, -0.0263927, 0.993113)
+bones/30/rotation = Quaternion(0.56933, 0.0200148, 0.0161867, 0.821706)
+bones/31/rotation = Quaternion(0.299433, 0.0308453, -0.00585891, 0.953601)
 
 [node name="BoneAttachment3D" parent="TestTuto/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.362645, 0.0286589, 0.931487, 0.929927, 0.054328, -0.363709, -0.0610293, 0.998112, -0.00694896, -35.6421, 8.75266, -161.249)
+transform = Transform3D(0.376171, 0.030089, 0.926062, 0.924413, 0.0556559, -0.37731, -0.0628937, 0.997997, -0.00687867, -35.9891, 9.11938, -160.574)
 
 [node name="Sword" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D" index="0"]
 script = ExtResource("4_8aff3")
 
 [node name="BoneAttachment3D2" parent="TestTuto/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.362645, 0.0286589, 0.931487, 0.929927, 0.054328, -0.363709, -0.0610293, 0.998112, -0.00694896, -35.6421, 8.75266, -161.249)
+transform = Transform3D(0.376171, 0.030089, 0.926062, 0.924413, 0.0556559, -0.37731, -0.0628937, 0.997997, -0.00687867, -35.9891, 9.11938, -160.574)
 
 [node name="BoneAttachment3D3" parent="TestTuto/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.108589, 0.0109747, -0.994026, -0.991417, 0.074427, -0.107482, 0.0728028, 0.997166, 0.0189624, 38.1823, 10.6232, -164.478)
+transform = Transform3D(0.102717, 0.0198446, -0.994513, -0.990345, 0.0956123, -0.100378, 0.0930957, 0.995221, 0.029474, 36.9517, 11.1624, -164.581)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="TestTuto"]
 transform = Transform3D(2.22222, 0, 0, 0, 2.22222, 0, 0, 0, 2.22222, 0, 2.00406, 0)
@@ -162,6 +177,7 @@ visible = false
 [node name="HUD_stuff" type="CanvasLayer" parent="."]
 
 [node name="Hud" parent="HUD_stuff" instance=ExtResource("7_lbhen")]
+mouse_filter = 2
 script = ExtResource("8_jk654")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="HUD_stuff"]
@@ -504,17 +520,20 @@ omni_range = 30.0
 [node name="Label" type="Label" parent="."]
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 323.0
-offset_top = -2.0
-offset_right = -289.0
-offset_bottom = 135.0
+offset_left = 968.0
+offset_top = 16.0
+offset_right = -20.0
+offset_bottom = 153.0
 grow_horizontal = 2
 size_flags_horizontal = 6
 size_flags_vertical = 10
 theme_type_variation = &"HeaderLarge"
-theme_override_font_sizes/font_size = 48
-text = "Objective: Get out (try f if you need it)"
-horizontal_alignment = 1
+theme_override_fonts/font = ExtResource("25_w5jdk")
+theme_override_font_sizes/font_size = 30
+text = "Objective: 
+GET OUT 
+(Press F!)"
+horizontal_alignment = 2
 autowrap_mode = 2
 
 [editable path="TestTuto"]
