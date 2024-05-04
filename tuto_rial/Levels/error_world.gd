@@ -6,6 +6,7 @@ var exitPortal
 var canFlipLights = true
 var player
 var reloadingScene = false
+var paused = false
 
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
@@ -18,6 +19,7 @@ func _ready():
 	exitPortal.changeScene.connect(ReturnHome)
 	for n in get_tree().get_nodes_in_group("Lights"):
 				n.visible = false
+	Engine.time_scale = 1
 	pass
 
 func _process(delta):
@@ -31,7 +33,10 @@ func _process(delta):
 		flipLights()
 	if player.playerHealth == 0:
 		ReloadScene()
-	pass
+	
+	if Input.is_action_just_pressed("esc"):
+		pauseMenu()
+		
 	pass
 
 func ReloadScene():
@@ -82,3 +87,13 @@ func removeenemy():
 		#enemy.queue_free()
 	#spawnenemy()
 	pass
+
+func pauseMenu():
+	if paused:
+		$CameraController/SpringArm3D/Camera3D/PauseMenu.hide()
+		Engine.time_scale = 1
+	else:
+		$CameraController/SpringArm3D/Camera3D/PauseMenu.show()
+		Engine.time_scale = 0
+		
+	paused = !paused

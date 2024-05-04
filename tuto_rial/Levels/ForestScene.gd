@@ -7,6 +7,7 @@ var canFlipLights = true
 var slimesHaveSpawned = false
 var player
 var reloadingScene = false
+var paused = false
 
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
@@ -18,6 +19,7 @@ func _ready():
 	exitPortal.changeScene.connect(ReturnHome)
 	for n in get_tree().get_nodes_in_group("Lights"):
 				n.visible = false
+	Engine.time_scale = 1
 	pass
 
 func _process(delta):
@@ -29,6 +31,10 @@ func _process(delta):
 		i += 1
 	if player.playerHealth == 0:
 		ReloadScene()
+		
+	if Input.is_action_just_pressed("esc"):
+		pauseMenu()
+		
 	pass
 
 func ReloadScene():
@@ -74,3 +80,13 @@ func _on_drop_slimes_area_entered(area):
 			spawnenemy(Vector3(-40, 29, -5), Vector3(2, 2, 2), 10, 3, true, slimeTeal)
 			spawnenemy(Vector3(31, 29, --7), Vector3(4, 4, 4), 10, 3, true, slimeTeal)
 			slimesHaveSpawned = true
+
+func pauseMenu():
+	if paused:
+		$CameraController/SpringArm3D/Camera3D/PauseMenu.hide()
+		Engine.time_scale = 1
+	else:
+		$CameraController/SpringArm3D/Camera3D/PauseMenu.show()
+		Engine.time_scale = 0
+		
+	paused = !paused

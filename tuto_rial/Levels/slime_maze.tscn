@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://lgig8u201wdk"]
+[gd_scene load_steps=28 format=3 uid="uid://lgig8u201wdk"]
 
 [ext_resource type="PackedScene" uid="uid://bsjyu0fp5fq4g" path="res://Asset/Environment/Scene/floor.tscn" id="1_dh3g6"]
 [ext_resource type="Script" path="res://Levels/slime_maze.gd" id="1_ql7qn"]
 [ext_resource type="PackedScene" uid="uid://c5mhdn1r3s2b4" path="res://Asset/Environment/Scene/wall.tscn" id="2_f7w2e"]
 [ext_resource type="PackedScene" uid="uid://fvsjrcdrpbmh" path="res://Asset/Environment/Scene/pillar_45.tscn" id="3_ky1ia"]
 [ext_resource type="PackedScene" uid="uid://d1plc8ddh0ybl" path="res://TutoPlayer.tscn" id="4_2gpl1"]
+[ext_resource type="PackedScene" uid="uid://ctac0wyiqimxb" path="res://pause_menu.tscn" id="4_6k8bc"]
 [ext_resource type="Script" path="res://scripts/CameraController.gd" id="6_gi1f8"]
 [ext_resource type="PackedScene" uid="uid://be88vc16o0dli" path="res://puzzling.tscn" id="7_dpei8"]
 [ext_resource type="PackedScene" uid="uid://w44wi1bbti8" path="res://Asset/Environment/Scene/wallDoor.tscn" id="8_mhnt1"]
@@ -15,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cadh5fpt8bemd" path="res://health_canister.png" id="13_4jd7t"]
 [ext_resource type="Texture2D" uid="uid://n4bomb8wvy8a" path="res://health_filling.png" id="14_ututa"]
 [ext_resource type="Script" path="res://health_bar.gd" id="15_ftomu"]
+[ext_resource type="FontFile" uid="uid://ckrrvcbu53esy" path="res://PixelifySans-Regular.ttf" id="17_h48mi"]
 
 [sub_resource type="Shader" id="Shader_84j1x"]
 code = "
@@ -190,6 +192,10 @@ margin = 0.05
 
 [node name="Camera3D" type="Camera3D" parent="CameraController/SpringArm3D"]
 transform = Transform3D(1, -4.23684e-16, 3.4065e-16, 3.4065e-16, 0.976672, 0.214735, -4.23684e-16, -0.214735, 0.976672, 0.0318664, 2.28447, 1.35409)
+
+[node name="PauseMenu" parent="CameraController/SpringArm3D/Camera3D" instance=ExtResource("4_6k8bc")]
+visible = false
+z_index = 5
 
 [node name="LookAt" type="Node3D" parent="CameraController"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218803, 2.41586, -4.98026)
@@ -1419,25 +1425,10 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 0
 [node name="PortalExit" parent="." instance=ExtResource("10_dr2jn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66038, 0, -97.2099)
 
-[node name="Label" type="Label" parent="."]
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 305.0
-offset_top = 2.0
-offset_right = -310.0
-offset_bottom = 242.0
-grow_horizontal = 2
-size_flags_horizontal = 6
-size_flags_vertical = 10
-theme_type_variation = &"HeaderLarge"
-theme_override_font_sizes/font_size = 48
-text = "Objective: Reach the exit with the key"
-horizontal_alignment = 1
-autowrap_mode = 2
-
 [node name="HUD_stuff" type="CanvasLayer" parent="."]
 
 [node name="Hud" parent="HUD_stuff" instance=ExtResource("11_jr8x7")]
+mouse_filter = 2
 script = ExtResource("12_p2ai1")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="HUD_stuff"]
@@ -1453,6 +1444,25 @@ fill_mode = 3
 texture_under = ExtResource("13_4jd7t")
 texture_progress = ExtResource("14_ututa")
 script = ExtResource("15_ftomu")
+
+[node name="Label" type="Label" parent="HUD_stuff"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 744.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 101.0
+grow_horizontal = 2
+scale = Vector2(0.918842, 0.937695)
+size_flags_horizontal = 6
+size_flags_vertical = 10
+theme_type_variation = &"HeaderLarge"
+theme_override_fonts/font = ExtResource("17_h48mi")
+theme_override_font_sizes/font_size = 30
+text = "Objective:
+Reach the exit with the key"
+horizontal_alignment = 2
+autowrap_mode = 2
 
 [connection signal="area_entered" from="Areas/SlimeArea1" to="." method="_on_slime_area_1_area_entered"]
 [connection signal="area_entered" from="Areas/SlimeArea2" to="." method="_on_slime_area_2_area_entered"]

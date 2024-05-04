@@ -34,6 +34,7 @@ var pickedUpKey = false
 var portalExt
 var player
 var reloadingScene = false
+var paused = false
 
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
@@ -52,6 +53,7 @@ func _ready():
 	print(keyNode.position)
 	portalExt = get_tree().get_nodes_in_group("Portal")[1]
 	portalExt.changeScene.connect(exitScene)
+	Engine.time_scale = 1
 	pass
 
 func _process(delta):
@@ -81,6 +83,10 @@ func _process(delta):
 		exitArray[0].rotation = Vector3(0, exitAngle, 0)
 	if player.playerHealth == 0:
 		ReloadScene()
+		
+	if Input.is_action_just_pressed("esc"):
+		pauseMenu()
+		
 	pass
 
 func ReloadScene():
@@ -253,3 +259,13 @@ func _on_slime_area_8_area_entered(area):
 			if n.is_in_group("Doors"):
 				doorArray.append(n)
 		slime8Spawned = true
+
+func pauseMenu():
+	if paused:
+		$CameraController/SpringArm3D/Camera3D/PauseMenu.hide()
+		Engine.time_scale = 1
+	else:
+		$CameraController/SpringArm3D/Camera3D/PauseMenu.show()
+		Engine.time_scale = 0
+		
+	paused = !paused
