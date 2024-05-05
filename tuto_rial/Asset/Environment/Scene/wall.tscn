@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5mhdn1r3s2b4"]
+[gd_scene load_steps=10 format=3 uid="uid://c5mhdn1r3s2b4"]
 
 [ext_resource type="Texture2D" uid="uid://cagmm6ac3pcio" path="res://Asset/Environment/Texture/Wall_4x0.6x1.5_Color.png" id="1_6kypy"]
 [ext_resource type="Texture2D" uid="uid://disb8qyeeppor" path="res://Asset/Environment/Texture/Wall_2x0.6x4_low_AO.png" id="2_1b8kp"]
@@ -54,32 +54,41 @@ shadow_mesh = SubResource("ArrayMesh_5uwqs")
 [sub_resource type="BoxShape3D" id="BoxShape3D_m8uof"]
 size = Vector3(2.14902, 7.82751, 1.51311)
 
-[node name="Wall_2x06x4" type="StaticBody3D"]
-transform = Transform3D(2, 0, 0, 0, 0.75, 0, 0, 0, 1, 0, 0, 0)
-collision_layer = 3
-collision_mask = 3
+[sub_resource type="BoxShape3D" id="BoxShape3D_0r43i"]
+size = Vector3(2.51417, 5.91064, 0.734863)
 
-[node name="Wall_2x06x4_low2" type="Node3D" parent="."]
+[node name="Node3D" type="Node3D"]
 
-[node name="RootNode" type="Node3D" parent="Wall_2x06x4_low2"]
+[node name="Wall_2x06x4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.75, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Wall_2x06x4_low" type="MeshInstance3D" parent="Wall_2x06x4_low2/RootNode"]
+[node name="Wall_2x06x4_low2" type="Node3D" parent="Wall_2x06x4"]
+
+[node name="RootNode" type="Node3D" parent="Wall_2x06x4/Wall_2x06x4_low2"]
+
+[node name="Wall_2x06x4_low" type="MeshInstance3D" parent="Wall_2x06x4/Wall_2x06x4_low2/RootNode"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_gl66n")
 mesh = SubResource("ArrayMesh_2ufnt")
 skeleton = NodePath("")
 
-[node name="Wall_2x06x4_low3" type="Node3D" parent="."]
+[node name="Wall_2x06x4_low3" type="Node3D" parent="Wall_2x06x4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.91303, 0)
 
-[node name="RootNode" type="Node3D" parent="Wall_2x06x4_low3"]
+[node name="RootNode" type="Node3D" parent="Wall_2x06x4/Wall_2x06x4_low3"]
 
-[node name="Wall_2x06x4_low" type="MeshInstance3D" parent="Wall_2x06x4_low3/RootNode"]
+[node name="Wall_2x06x4_low" type="MeshInstance3D" parent="Wall_2x06x4/Wall_2x06x4_low3/RootNode"]
 transform = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_gl66n")
 mesh = SubResource("ArrayMesh_2ufnt")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall_2x06x4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.982849, 3.966, 0.349136)
 shape = SubResource("BoxShape3D_m8uof")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.941613, 2.97884, 0.300537)
+shape = SubResource("BoxShape3D_0r43i")

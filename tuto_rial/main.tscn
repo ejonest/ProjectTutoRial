@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://clid1fxm6rbk7"]
+[gd_scene load_steps=90 format=3 uid="uid://clid1fxm6rbk7"]
 
 [ext_resource type="PackedScene" uid="uid://bsjyu0fp5fq4g" path="res://Asset/Environment/Scene/floor.tscn" id="1_lm25w"]
 [ext_resource type="Script" path="res://main.gd" id="1_uy32c"]
@@ -390,6 +390,33 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_a7djl")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_e8nsi"]
+size = Vector3(45.9161, 7.72091, 0.998558)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b1jsu"]
+size = Vector3(37.0798, 14.4478, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_587g0"]
+size = Vector3(1, 10.4668, 41.1205)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q4lo8"]
+size = Vector3(1, 10.4682, 31.4457)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5t6cw"]
+size = Vector3(1, 12.5255, 33.5052)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pm442"]
+size = Vector3(1, 10.5516, 16.6057)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ytr1"]
+size = Vector3(11.5813, 5.11298, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5kc64"]
+size = Vector3(8.39105, 6.14349, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kdjyg"]
+size = Vector3(12.1342, 7.58246, 1)
+
 [node name="Node" type="Node"]
 script = ExtResource("1_uy32c")
 
@@ -549,6 +576,7 @@ light_volumetric_fog_energy = 0.0
 omni_range = 7.68686
 
 [node name="Trees" type="Node3D" parent="NavigationRegion3D/Node3D"]
+visible = false
 
 [node name="Tree" type="Node3D" parent="NavigationRegion3D/Node3D/Trees"]
 transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 9.5, 0, -25.5)
@@ -2722,16 +2750,16 @@ transform = Transform3D(-1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, -1, -4.25,
 transform = Transform3D(1, 3.55271e-15, -5.96046e-08, 2.6054e-15, -1, -8.74228e-08, -5.96046e-08, 8.74228e-08, -1, -4.25, 1, -26)
 
 [node name="pillar_25_2" parent="NavigationRegion3D/Node3D/Pillars" instance=ExtResource("11_lanjy")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.5, 0, -19)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.5, 0, -19)
 
 [node name="pillar_25_7" parent="NavigationRegion3D/Node3D/Pillars" instance=ExtResource("11_lanjy")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.5, -0.5, -14.5)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.5, -0.5, -14.5)
 
 [node name="pillar_25_8" parent="NavigationRegion3D/Node3D/Pillars" instance=ExtResource("11_lanjy")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.5, 0, -3.5)
 
 [node name="pillar_25_9" parent="NavigationRegion3D/Node3D/Pillars" instance=ExtResource("11_lanjy")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.5, 0, 1.5)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.5, 0, 1.5)
 
 [node name="pillar_25_10" parent="NavigationRegion3D/Node3D/Pillars" instance=ExtResource("11_lanjy")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 8.4, 6, -82.95)
@@ -2822,6 +2850,7 @@ transform = Transform3D(1.62921e-07, 0, -1, 0, 1, 0, 1, 0, 1.62921e-07, -16.25, 
 
 [node name="State_sit2" parent="NavigationRegion3D/Node3D/Pillars" instance=ExtResource("20_jq51g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2424, 0.519378, -24.7791)
+visible = false
 
 [node name="State_sit3" parent="NavigationRegion3D/Node3D/Pillars" instance=ExtResource("20_jq51g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.85066, 2, -35.399)
@@ -2858,15 +2887,19 @@ transform = Transform3D(-0.73527, 0, 0.677775, 0, 1, 0, -0.677775, 0, -0.73527, 
 
 [node name="State_sit" parent="NavigationRegion3D/Node3D/Pillars" instance=ExtResource("20_jq51g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -26.25)
+visible = false
 
 [node name="State_stand" parent="NavigationRegion3D/Node3D/Pillars" instance=ExtResource("21_4dxhh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16, 0, -16.75)
+visible = false
 
 [node name="State_stand3" parent="NavigationRegion3D/Node3D/Pillars" instance=ExtResource("21_4dxhh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16, 0, -21.05)
+visible = false
 
 [node name="State_stand2" parent="NavigationRegion3D/Node3D/Pillars" instance=ExtResource("21_4dxhh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.75, 0, -4.75)
+visible = false
 
 [node name="Lamps" type="Node3D" parent="NavigationRegion3D/Node3D"]
 
@@ -3743,6 +3776,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -2, 5)
 [node name="Wall_4x06x44" parent="NavigationRegion3D/Node3D/Walls" instance=ExtResource("8_c12wf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -2, 5)
 
+[node name="StaticBody3D" parent="NavigationRegion3D/Node3D/Walls/Wall_4x06x44/Wall_4x06x35_low_C" index="0"]
+collision_layer = 3
+collision_mask = 3
+
 [node name="Wall_4x06x45" parent="NavigationRegion3D/Node3D/Walls" instance=ExtResource("8_c12wf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 5)
 
@@ -4078,65 +4115,174 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 2, 
 [node name="Stairs_high2" parent="NavigationRegion3D/Node3D/Stairs" instance=ExtResource("23_6365b")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 6, -85)
 
+[node name="Boundaries" type="Node3D" parent="NavigationRegion3D/Node3D"]
+
+[node name="Front" type="StaticBody3D" parent="NavigationRegion3D/Node3D/Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.55762)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Node3D/Boundaries/Front"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14883, 3.96538, 0.599283)
+shape = SubResource("BoxShape3D_e8nsi")
+
+[node name="Back" type="StaticBody3D" parent="NavigationRegion3D/Node3D/Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.065, -108.151)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Node3D/Boundaries/Back"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19738, 6.72388, 0)
+shape = SubResource("BoxShape3D_b1jsu")
+
+[node name="Left1" type="StaticBody3D" parent="NavigationRegion3D/Node3D/Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2523, 0, -8.0211)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Node3D/Boundaries/Left1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7334, -2.28729)
+shape = SubResource("BoxShape3D_587g0")
+
+[node name="Right1" type="StaticBody3D" parent="NavigationRegion3D/Node3D/Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1784, 0, -8.0211)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Node3D/Boundaries/Right1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7334, -2.28729)
+shape = SubResource("BoxShape3D_587g0")
+
+[node name="Left2" type="StaticBody3D" parent="NavigationRegion3D/Node3D/Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.17825, 1.78078, -41.613)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Node3D/Boundaries/Left2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.73409, -1.08731)
+shape = SubResource("BoxShape3D_q4lo8")
+
+[node name="Right2" type="StaticBody3D" parent="NavigationRegion3D/Node3D/Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.09181, 1.78078, -41.613)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Node3D/Boundaries/Right2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.73409, -1.08731)
+shape = SubResource("BoxShape3D_q4lo8")
+
+[node name="Left3" type="StaticBody3D" parent="NavigationRegion3D/Node3D/Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1836, 6.21396, -77.8204)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Node3D/Boundaries/Left3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.1553, 2.76433)
+shape = SubResource("BoxShape3D_5t6cw")
+
+[node name="Right3" type="StaticBody3D" parent="NavigationRegion3D/Node3D/Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0717, 6.21396, -77.8204)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Node3D/Boundaries/Right3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.1553, 2.76433)
+shape = SubResource("BoxShape3D_5t6cw")
+
+[node name="Left4" type="StaticBody3D" parent="NavigationRegion3D/Node3D/Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.22729, 10.4796, -98.8461)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Node3D/Boundaries/Left4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.77582, -1.09415)
+shape = SubResource("BoxShape3D_pm442")
+
+[node name="Right4" type="StaticBody3D" parent="NavigationRegion3D/Node3D/Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.05726, 10.4796, -98.8461)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Node3D/Boundaries/Right4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.77582, -1.09415)
+shape = SubResource("BoxShape3D_pm442")
+
+[node name="FrontL1" type="StaticBody3D" parent="NavigationRegion3D/Node3D/Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8886, 1.91816, -27.5292)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Node3D/Boundaries/FrontL1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.485802, 2.05649, 0)
+shape = SubResource("BoxShape3D_0ytr1")
+
+[node name="FrontR1" type="StaticBody3D" parent="NavigationRegion3D/Node3D/Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7682, 1.91816, -27.5292)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Node3D/Boundaries/FrontR1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.485802, 2.05649, 0)
+shape = SubResource("BoxShape3D_0ytr1")
+
+[node name="FrontL2" type="StaticBody3D" parent="NavigationRegion3D/Node3D/Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8787, 6.14527, -57.9208)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Node3D/Boundaries/FrontL2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.152679, 2.57175, 0)
+shape = SubResource("BoxShape3D_5kc64")
+
+[node name="FrontR2" type="StaticBody3D" parent="NavigationRegion3D/Node3D/Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9711, 6.14527, -57.9208)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Node3D/Boundaries/FrontR2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.152679, 2.57175, 0)
+shape = SubResource("BoxShape3D_5kc64")
+
+[node name="FrontL3" type="StaticBody3D" parent="NavigationRegion3D/Node3D/Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2934, 12.9092, -92.1616)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Node3D/Boundaries/FrontL3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50572, 2.50357, 0)
+shape = SubResource("BoxShape3D_kdjyg")
+
+[node name="FrontR3" type="StaticBody3D" parent="NavigationRegion3D/Node3D/Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5348, 11.7069, -92.2588)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Node3D/Boundaries/FrontR3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50572, 2.50357, 0)
+shape = SubResource("BoxShape3D_kdjyg")
+
 [node name="TestTuto" parent="." instance=ExtResource("45_bo71b")]
 unique_name_in_owner = true
-transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
 [node name="Skeleton3D" parent="TestTuto/Armature" index="0"]
-bones/0/position = Vector3(0.0287387, 1.01996, -173.387)
-bones/0/rotation = Quaternion(-0.726116, -0.0569257, 0.0148595, 0.685051)
-bones/1/rotation = Quaternion(0.0188617, 0.0126931, 0.0217507, 0.999505)
-bones/2/rotation = Quaternion(0.0102962, 0.00329671, 0.0137456, 0.999847)
-bones/3/rotation = Quaternion(0.0102776, 0.0036332, 0.0139066, 0.999844)
-bones/4/rotation = Quaternion(0.0593628, -0.00147938, 0.00441115, 0.998226)
-bones/5/rotation = Quaternion(-0.0678735, 0.0108522, -0.00183194, 0.997633)
-bones/7/rotation = Quaternion(-0.721636, -0.271374, 0.529891, -0.353288)
-bones/8/rotation = Quaternion(0.388935, 0.142569, 0.0818626, 0.906478)
-bones/9/rotation = Quaternion(0.000374335, 0.00135328, 0.0130776, 0.999914)
-bones/10/rotation = Quaternion(0.047754, -0.283416, 0.0243019, 0.957499)
-bones/11/rotation = Quaternion(0.0664184, 0.00104282, 0.00664867, 0.997769)
-bones/12/rotation = Quaternion(0.127648, 0.00153064, -0.0265614, 0.991463)
-bones/13/rotation = Quaternion(0.00572311, 0.00713913, -0.0609304, 0.9981)
-bones/15/rotation = Quaternion(0.714604, -0.270298, 0.554896, 0.329195)
-bones/16/rotation = Quaternion(0.316079, -0.240434, -0.0950769, 0.912823)
-bones/17/rotation = Quaternion(0.0020772, 0.000283574, -0.0580977, 0.998309)
-bones/18/position = Vector3(-2.10275e-07, 58.104, 1.34215e-06)
-bones/18/rotation = Quaternion(0.0599532, 0.174925, -0.00355089, 0.982748)
-bones/19/position = Vector3(4.89121e-07, 14.6156, -1.02503e-06)
-bones/19/rotation = Quaternion(0.0598661, -0.00148809, -0.00885655, 0.998166)
-bones/21/rotation = Quaternion(0.0145624, -0.010832, 0.125795, 0.99189)
-bones/23/rotation = Quaternion(0.138905, 0.0652511, 0.984946, -0.0795557)
-bones/24/rotation = Quaternion(-0.116723, -0.0158552, 0.0303555, 0.992574)
-bones/25/rotation = Quaternion(0.529207, -0.0322937, -0.05161, 0.846306)
-bones/26/position = Vector3(-5.44172e-06, 37.0536, -1.33766e-06)
-bones/26/rotation = Quaternion(0.280196, -0.0315164, 0.00651209, 0.959403)
-bones/28/rotation = Quaternion(-0.0898468, -0.0234447, 0.995264, -0.0287638)
-bones/29/rotation = Quaternion(-0.0601353, 0.0840716, -0.0241114, 0.994351)
-bones/30/rotation = Quaternion(0.55831, 0.0165032, 0.0174413, 0.829285)
-bones/31/rotation = Quaternion(0.299488, 0.0308451, -0.00585689, 0.953583)
+bones/0/position = Vector3(-0.851249, 2.12555, -173.334)
+bones/0/rotation = Quaternion(-0.730139, -0.0517326, 0.0150272, 0.681172)
+bones/1/rotation = Quaternion(0.0224435, 0.0170501, 0.0248937, 0.999293)
+bones/2/rotation = Quaternion(0.0110261, 0.00437721, 0.0144549, 0.999825)
+bones/3/rotation = Quaternion(0.0108057, 0.00457188, 0.0144689, 0.999826)
+bones/4/rotation = Quaternion(0.0627615, -0.00187186, 0.00306079, 0.998022)
+bones/5/rotation = Quaternion(-0.0742499, 0.00870945, -0.000942728, 0.997201)
+bones/7/rotation = Quaternion(-0.723617, -0.268641, 0.529263, -0.352266)
+bones/8/rotation = Quaternion(0.388593, 0.13988, 0.086614, 0.906602)
+bones/9/rotation = Quaternion(0.000426956, 0.00135327, 0.0149226, 0.999888)
+bones/10/rotation = Quaternion(0.0435907, -0.28579, 0.0295176, 0.956845)
+bones/15/rotation = Quaternion(0.718104, -0.265672, 0.553408, 0.327848)
+bones/16/rotation = Quaternion(0.314164, -0.239235, -0.0913566, 0.914178)
+bones/17/rotation = Quaternion(0.00208271, 0.000283627, -0.0582523, 0.9983)
+bones/18/rotation = Quaternion(0.0528161, 0.177046, -0.00302224, 0.98278)
+bones/23/rotation = Quaternion(0.141206, 0.0550393, 0.985327, -0.0785002)
+bones/24/rotation = Quaternion(-0.114562, -0.00976085, 0.0305511, 0.992898)
+bones/25/rotation = Quaternion(0.530922, -0.033281, -0.0527617, 0.845122)
+bones/28/rotation = Quaternion(-0.0922836, -0.0292129, 0.994961, -0.0261247)
+bones/29/rotation = Quaternion(-0.0708037, 0.0837145, -0.0259605, 0.993632)
+bones/30/rotation = Quaternion(0.567388, 0.0178314, 0.0177818, 0.823066)
+bones/31/rotation = Quaternion(0.298947, 0.0308464, -0.00587358, 0.953753)
 
 [node name="BoneAttachment3D" parent="TestTuto/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.356131, 0.0242899, 0.93412, 0.932665, 0.0522783, -0.356936, -0.057504, 0.998337, -0.0040364, -35.9428, 8.01892, -161.569)
+transform = Transform3D(0.372637, 0.0315002, 0.927443, 0.925596, 0.058934, -0.373897, -0.0664356, 0.997765, -0.00719551, -35.7519, 9.64252, -160.754)
 
 [node name="Sword" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D" index="0"]
 transform = Transform3D(-23.1219, 49.007, -9.41749, 10.4524, -5.39307, -53.7277, -48.7968, -24.3768, -7.04625, -50.6289, 20.7265, 24.3065)
 script = ExtResource("46_wk8wj")
 
 [node name="BoneAttachment3D2" parent="TestTuto/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.356131, 0.0242899, 0.93412, 0.932665, 0.0522783, -0.356936, -0.057504, 0.998337, -0.0040364, -35.9428, 8.01892, -161.569)
+transform = Transform3D(0.372637, 0.0315002, 0.927443, 0.925596, 0.058934, -0.373897, -0.0664356, 0.997765, -0.00719551, -35.7519, 9.64252, -160.754)
 
 [node name="BoneAttachment3D3" parent="TestTuto/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.122872, 0.0104251, -0.992368, -0.990284, 0.0669032, -0.121911, 0.0651216, 0.997705, 0.0185443, 38.736, 10.5803, -164.338)
+transform = Transform3D(0.103897, 0.0183702, -0.994419, -0.990397, 0.0936009, -0.101748, 0.0912093, 0.995441, 0.0279189, 37.2737, 11.7805, -164.704)
 
 [node name="ForestPortal" parent="." instance=ExtResource("49_8cprb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11, 6, -72)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.025, 6, -72)
 
 [node name="ErrorPortal" parent="." instance=ExtResource("49_8cprb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.2006, -98.4911)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47611, 9.94255, -104.877)
 
 [node name="MazePortal" parent="." instance=ExtResource("49_8cprb")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11, 6, -75)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13.7441, 6, -75)
 
 [editable path="NavigationRegion3D/Node3D/Flooring/Floor51"]
+[editable path="NavigationRegion3D/Node3D/Pillars/Arc_mid25"]
+[editable path="NavigationRegion3D/Node3D/Pillars/Arc_mid26"]
+[editable path="NavigationRegion3D/Node3D/Walls/Wall_2x06x18"]
+[editable path="NavigationRegion3D/Node3D/Walls/Wall_4x06x44"]
 [editable path="NavigationRegion3D/Node3D/Stairs/Stairs_short2"]
 [editable path="TestTuto"]

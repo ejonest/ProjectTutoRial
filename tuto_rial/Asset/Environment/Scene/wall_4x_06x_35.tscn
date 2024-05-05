@@ -65,6 +65,14 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall_4x06x35_low_C/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_v6gnq")
 
+[node name="CameraCollision" type="StaticBody3D" parent="Wall_4x06x35_low_C"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall_4x06x35_low_C/CameraCollision"]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 2, 0, 0.00121247, 1.44537e-10)
+shape = SubResource("ConcavePolygonShape3D_v6gnq")
+
 [node name="Wall_4x06x35_low2" type="Node3D" parent="."]
 
 [node name="RootNode" type="Node3D" parent="Wall_4x06x35_low2"]

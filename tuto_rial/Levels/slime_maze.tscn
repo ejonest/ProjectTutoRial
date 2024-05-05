@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://lgig8u201wdk"]
+[gd_scene load_steps=29 format=3 uid="uid://lgig8u201wdk"]
 
 [ext_resource type="PackedScene" uid="uid://bsjyu0fp5fq4g" path="res://Asset/Environment/Scene/floor.tscn" id="1_dh3g6"]
 [ext_resource type="Script" path="res://Levels/slime_maze.gd" id="1_ql7qn"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://n4bomb8wvy8a" path="res://health_filling.png" id="14_ututa"]
 [ext_resource type="Script" path="res://health_bar.gd" id="15_ftomu"]
 [ext_resource type="FontFile" uid="uid://ckrrvcbu53esy" path="res://PixelifySans-Regular.ttf" id="17_h48mi"]
+[ext_resource type="Script" path="res://scripts/Sword.gd" id="18_gdxtr"]
 
 [sub_resource type="Shader" id="Shader_84j1x"]
 code = "
@@ -176,30 +177,6 @@ light_color = Color(0.92549, 0.556863, 0.129412, 1)
 light_energy = 4.06
 shadow_enabled = true
 
-[node name="TestTuto" parent="." instance=ExtResource("4_2gpl1")]
-unique_name_in_owner = true
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.585, 0.715567)
-
-[node name="CameraController" type="Node3D" parent="." groups=["CameraController"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.72701)
-script = ExtResource("6_gi1f8")
-
-[node name="SpringArm3D" type="SpringArm3D" parent="CameraController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.71441, -0.887852)
-collision_mask = 2
-spring_length = 3.0
-margin = 0.05
-
-[node name="Camera3D" type="Camera3D" parent="CameraController/SpringArm3D"]
-transform = Transform3D(1, -4.23684e-16, 3.4065e-16, 3.4065e-16, 0.976672, 0.214735, -4.23684e-16, -0.214735, 0.976672, 0.0318664, 2.28447, 1.35409)
-
-[node name="PauseMenu" parent="CameraController/SpringArm3D/Camera3D" instance=ExtResource("4_6k8bc")]
-visible = false
-z_index = 5
-
-[node name="LookAt" type="Node3D" parent="CameraController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218803, 2.41586, -4.98026)
-
 [node name="Flooring" type="Node" parent="."]
 
 [node name="floor0x1" parent="Flooring" instance=ExtResource("1_dh3g6")]
@@ -304,15 +281,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0.584633, -96)
 
 [node name="wall" parent="Walls/FrontWall" instance=ExtResource("2_f7w2e")]
 transform = Transform3D(2, 0, 0, 0, 0.75, 0, 0, 0, 1, -24, 0, -10)
-
-[node name="Wall_2x06x4_low" parent="Walls/FrontWall/wall/Wall_2x06x4_low2/RootNode" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0.77951, 0)
-
-[node name="Wall_2x06x4_low" parent="Walls/FrontWall/wall/Wall_2x06x4_low3/RootNode" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 1.62921e-07, 0, -1.62921e-07, 1, 0, 0.585, 0)
-
-[node name="CollisionShape3D" parent="Walls/FrontWall/wall" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.997977, 4.80664, 0.282027)
 
 [node name="wall2" parent="Walls/FrontWall" instance=ExtResource("2_f7w2e")]
 transform = Transform3D(2, 0, 0, 0, 0.75, 0, 0, 0, 1, -20, 0.584633, -10)
@@ -1464,6 +1432,67 @@ Reach the exit with the key"
 horizontal_alignment = 2
 autowrap_mode = 2
 
+[node name="CameraController" type="Node3D" parent="." groups=["CameraController"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.816829, 1.72701)
+script = ExtResource("6_gi1f8")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12978, -0.887852)
+collision_mask = 2
+spring_length = 3.0
+margin = 0.05
+
+[node name="Camera3D" type="Camera3D" parent="CameraController/SpringArm3D"]
+transform = Transform3D(1, -4.23683e-16, 3.40651e-16, 3.4065e-16, 0.976672, 0.214735, -4.23684e-16, -0.214735, 0.976672, 0.0318664, 2.28447, 1.35409)
+
+[node name="PauseMenu" parent="CameraController/SpringArm3D/Camera3D" instance=ExtResource("4_6k8bc")]
+visible = false
+z_index = 5
+
+[node name="LookAt" type="Node3D" parent="CameraController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218803, 2.41586, -4.98026)
+
+[node name="TestTuto" parent="." instance=ExtResource("4_2gpl1")]
+unique_name_in_owner = true
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.816829, 0)
+
+[node name="Skeleton3D" parent="TestTuto/Armature" index="0"]
+bones/0/position = Vector3(0.476961, 0.145817, -173.365)
+bones/0/rotation = Quaternion(-0.728652, -0.0529282, 0.0118502, 0.682733)
+bones/1/rotation = Quaternion(0.0185145, 0.0126449, 0.0226883, 0.999491)
+bones/2/rotation = Quaternion(0.0102178, 0.0026015, 0.0137479, 0.99985)
+bones/3/rotation = Quaternion(0.00997759, 0.0027894, 0.0137717, 0.999852)
+bones/4/rotation = Quaternion(0.0599533, -0.00108062, 0.00412913, 0.998192)
+bones/5/rotation = Quaternion(-0.0660404, 0.0118196, -0.00147366, 0.997746)
+bones/7/rotation = Quaternion(-0.722436, -0.270516, 0.529015, -0.353625)
+bones/8/rotation = Quaternion(0.390087, 0.143838, 0.0803311, 0.905919)
+bones/9/rotation = Quaternion(0.000367927, 0.00135331, 0.0128541, 0.999916)
+bones/10/rotation = Quaternion(0.049388, -0.284849, 0.0256112, 0.956957)
+bones/15/rotation = Quaternion(0.714419, -0.27084, 0.554331, 0.330103)
+bones/16/rotation = Quaternion(0.315535, -0.239993, -0.096743, 0.912952)
+bones/17/rotation = Quaternion(0.00208564, 0.000283578, -0.058334, 0.998295)
+bones/18/rotation = Quaternion(0.0586144, 0.17508, -0.00364258, 0.982801)
+bones/23/rotation = Quaternion(0.136329, 0.0638062, 0.985614, -0.0768599)
+bones/24/rotation = Quaternion(-0.114372, -0.0139901, 0.030464, 0.992872)
+bones/25/rotation = Quaternion(0.527728, -0.0315473, -0.0506419, 0.847315)
+bones/28/rotation = Quaternion(-0.0906132, -0.0212447, 0.995302, -0.0266967)
+bones/29/rotation = Quaternion(-0.0673706, 0.083697, -0.0249315, 0.993899)
+bones/30/rotation = Quaternion(0.559299, 0.0205581, 0.0163103, 0.828551)
+bones/31/rotation = Quaternion(0.300116, 0.0308436, -0.00583817, 0.953386)
+
+[node name="BoneAttachment3D" parent="TestTuto/Armature/Skeleton3D" index="1"]
+transform = Transform3D(0.36396, 0.0234257, 0.93112, 0.92878, 0.066003, -0.364706, -0.0700002, 0.997544, 0.00226502, -35.5741, 7.96935, -161.614)
+
+[node name="Sword" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D" index="0"]
+transform = Transform3D(-23.1219, 49.007, -9.41749, 10.4524, -5.39307, -53.7277, -48.7968, -24.3768, -7.04625, -50.6289, 20.7265, 24.3065)
+script = ExtResource("18_gdxtr")
+
+[node name="BoneAttachment3D2" parent="TestTuto/Armature/Skeleton3D" index="2"]
+transform = Transform3D(0.36396, 0.0234257, 0.93112, 0.92878, 0.066003, -0.364706, -0.0700002, 0.997544, 0.00226502, -35.5741, 7.96935, -161.614)
+
+[node name="BoneAttachment3D3" parent="TestTuto/Armature/Skeleton3D" index="3"]
+transform = Transform3D(0.116284, 0.00818496, -0.993182, -0.990745, 0.0714435, -0.11541, 0.0700118, 0.997411, 0.016417, 39.1557, 9.22033, -164.435)
+
 [connection signal="area_entered" from="Areas/SlimeArea1" to="." method="_on_slime_area_1_area_entered"]
 [connection signal="area_entered" from="Areas/SlimeArea2" to="." method="_on_slime_area_2_area_entered"]
 [connection signal="area_entered" from="Areas/SlimeArea3" to="." method="_on_slime_area_3_area_entered"]
@@ -1476,3 +1505,4 @@ autowrap_mode = 2
 [editable path="Flooring/floor0x2"]
 [editable path="Flooring/floor1x2"]
 [editable path="Walls/FrontWall/wall"]
+[editable path="TestTuto"]
