@@ -158,4 +158,10 @@ shape = SubResource("BoxShape3D_8y6pp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49327, 2.76481, -0.744025)
 shape = SubResource("BoxShape3D_sf0qq")
 
+[node name="Orgin" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51055, 0, 0)
+
+[node name="ForVec" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51055, 0, 1.64058)
+
 [connection signal="area_entered" from="PortalEnt" to="." method="_on_portal_ent_area_entered"]

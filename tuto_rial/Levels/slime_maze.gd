@@ -35,6 +35,8 @@ var portalExt
 var player
 var reloadingScene = false
 var paused = false
+var rotKey = 0
+var keySpawned = false
 
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
@@ -46,17 +48,15 @@ func _ready():
 		if n.is_in_group("ExitGate"):
 			exitArray.append(n)
 	exitArray[0].MayOpen.connect(openExit)
-	keyNode = key.instantiate()
-	keyNode.position = Vector3(-1.5, .585, -67)
-	add_child(keyNode)
-	keyNode.PickUp.connect(pickUp)
-	print(keyNode.position)
 	portalExt = get_tree().get_nodes_in_group("Portal")[1]
 	portalExt.changeScene.connect(exitScene)
 	Engine.time_scale = 1
 	pass
 
 func _process(delta):
+	if keyNode:
+		keyNode.rotation = Vector3(0, rotKey, 3.14)
+	rotKey += delta
 	var i = 0
 	for n in enemyArray:
 		if n.getHealth() <= 0:
@@ -64,6 +64,8 @@ func _process(delta):
 			n.scale = Vector3(j, j, j)
 			j -= .01
 			if destoryable:
+				if slime5Spawned && !keySpawned:
+					spawnKey(n.position)
 				n.queue_free()
 				enemyArray.pop_at(i)
 				destoryable = false
@@ -89,6 +91,16 @@ func _process(delta):
 		
 	pass
 
+func spawnKey(keyPos : Vector3):
+	keySpawned = true
+	keyNode = key.instantiate()
+	#keyNode.position = Vector3(-1.5, .585, -67)
+	keyNode.position = Vector3(keyPos.x, 1.5, keyPos.z)
+	keyNode.scale = Vector3(.3, .3, .3)
+	add_child(keyNode)
+	keyNode.PickUp.connect(pickUp)
+	print(keyNode.position)
+	
 func ReloadScene():
 	if !reloadingScene:
 		player.moveOn = 0
@@ -217,7 +229,7 @@ func _on_slime_area_5_area_entered(area):
 			#i += 1
 
 func _on_slime_area_6_area_entered(area):
-	if area.is_in_group("LeftHand") && gotKey && !slime5Spawned:
+	if area.is_in_group("LeftHand") && !gotKey && !slime5Spawned:
 		#gotKey = true
 		var wallDoor = wall.instantiate()
 		wallDoor.position = Vector3(20.5, .585, -62)

@@ -18,6 +18,10 @@ var damageAni = false
 var attacking = false
 var moveOn = 1
 var canHeal = true
+var walkingOut = false
+var walkAwayFrom
+var orgin
+var toward
 
 signal attack
 signal healthChange
@@ -27,8 +31,12 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	lookat = get_tree().get_nodes_in_group("CameraController")[0].get_node("LookAt")
+	walkAwayFrom = get_tree().get_nodes_in_group("Portal")[0]
+	orgin = walkAwayFrom.get_node("Orgin").global_position
+	toward = walkAwayFrom.get_node("ForVec").global_position
 	weaponNode = get_node("Armature/Skeleton3D/BoneAttachment3D/Sword")
 	weaponNode.visible = false
+	walkOut()
 
 func _physics_process(delta):
 	if playerHealth <= 0:
@@ -81,7 +89,17 @@ func _physics_process(delta):
 		input_dir.y += -1
 	if moveOn == 0:
 		input_dir = Vector2(0, 0)
-	
+		
+	if walkingOut:
+		#print("I should be walking")
+		#velocity.z = global_position.z - walkAwayFrom.position.z * SPEED
+		velocity.z = (toward - orgin).z * SPEED
+		print(velocity)
+		#global_position.z -= (walkAwayFrom.position.z - global_position.z) / 50
+		#print(global_position.z)
+		#print(velocity.z)
+		#walkAwayFrom.z
+		
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		var lerpDirection = lerp(Vector3(lastLookAtDirection.x, global_position.y, 
@@ -94,13 +112,16 @@ func _physics_process(delta):
 		velocity.x = direction.x * SPEED * moveOn
 		velocity.z = direction.z * SPEED * moveOn
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED) * moveOn
-		velocity.z = move_toward(velocity.z, 0, SPEED) * moveOn
+		#velocity.x = move_toward(velocity.x, 0, SPEED) * moveOn
+		#velocity.z = move_toward(velocity.z, 0, SPEED) * moveOn
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
 #IDLE
 	$AnimationTree.set("parameters/conditions/idle", input_dir == Vector2.ZERO && is_on_floor() 
-		&& !crouching)
+		&& !crouching && !walkingOut)
 #WALK
-	$AnimationTree.set("parameters/conditions/walk", input_dir.x == 0 && input_dir.y == -1 
+	#$AnimationTree.set("parameters/conditions/walk", walkingOut == true)
+	$AnimationTree.set("parameters/conditions/walk", walkingOut || input_dir.x == 0 && input_dir.y == -1 
 		&& is_on_floor() && SPEED == 5.0 && !crouching && moveOn != 0)
 	$AnimationTree.set("parameters/conditions/back", input_dir.x == 0 && input_dir.y == 1 
 		&& is_on_floor() && SPEED == 5.0 && !crouching && moveOn != 0)
@@ -162,6 +183,15 @@ func _physics_process(delta):
 	#print(playerHealth)
 	move_and_slide()
 
+func walkOut():
+	moveOn = 0
+	walkingOut = true
+	print("Walking out now: ", walkingOut)
+	await get_tree().create_timer(1.75).timeout
+	walkingOut = false
+	moveOn = 1
+	print("Man that was a long walk: ", walkingOut)
+	
 func heal():
 	if canHeal:
 		canHeal = false

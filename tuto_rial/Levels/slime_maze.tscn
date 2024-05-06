@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://lgig8u201wdk"]
+[gd_scene load_steps=28 format=3 uid="uid://lgig8u201wdk"]
 
 [ext_resource type="PackedScene" uid="uid://bsjyu0fp5fq4g" path="res://Asset/Environment/Scene/floor.tscn" id="1_dh3g6"]
 [ext_resource type="Script" path="res://Levels/slime_maze.gd" id="1_ql7qn"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://ctac0wyiqimxb" path="res://pause_menu.tscn" id="4_6k8bc"]
 [ext_resource type="Script" path="res://scripts/CameraController.gd" id="6_gi1f8"]
 [ext_resource type="PackedScene" uid="uid://be88vc16o0dli" path="res://puzzling.tscn" id="7_dpei8"]
-[ext_resource type="PackedScene" uid="uid://w44wi1bbti8" path="res://Asset/Environment/Scene/wallDoor.tscn" id="8_mhnt1"]
 [ext_resource type="PackedScene" uid="uid://85isfhc13f3v" path="res://Asset/Environment/Scene/rock.tscn" id="9_cmuq5"]
 [ext_resource type="PackedScene" uid="uid://bj8v5o040vyyn" path="res://Asset/Environment/Scene/portal.tscn" id="10_dr2jn"]
 [ext_resource type="PackedScene" uid="uid://c8340arsybqqc" path="res://hud.tscn" id="11_jr8x7"]
@@ -1262,9 +1261,6 @@ transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 21.9016, 2.5, -75.7906)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/SlimeArea8"]
 shape = SubResource("BoxShape3D_vn033")
 
-[node name="Wall_2x06x4" parent="." instance=ExtResource("8_mhnt1")]
-transform = Transform3D(2, 0, 0, 0, 0.75, 0, 0, 0, 1, 20.5, 0.585, -62)
-
 [node name="Rocks" type="Node" parent="."]
 
 [node name="RockF1" parent="Rocks" instance=ExtResource("9_cmuq5")]
@@ -1313,7 +1309,7 @@ transform = Transform3D(-6.32789, -0.334549, 6.39108, -0.553148, 8.98265, -0.077
 transform = Transform3D(3.77548, 0.243692, 1.29861, -0.245843, 3.99229, -0.0344316, -1.2982, -0.0473146, 3.78318, -32.2515, 0.834865, -63.7864)
 
 [node name="RockB1" parent="Rocks" instance=ExtResource("9_cmuq5")]
-transform = Transform3D(-4.88388, -0.666381, -6.30108, -3.37018, 7.01014, 1.87081, 5.3656, 3.79657, -4.56031, 7.08935, -2.85921, -122.446)
+transform = Transform3D(-4.88388, -0.666381, -6.30108, -3.37018, 7.01014, 1.87081, 5.3656, 3.79657, -4.56031, 3.85691, -2.85921, -120.865)
 
 [node name="RockB2" parent="Rocks" instance=ExtResource("9_cmuq5")]
 transform = Transform3D(-5.43291, -0.245035, -5.86715, -0.367262, 7.99156, 0.00632158, 5.86076, 0.273641, -5.43843, 21.8945, -0.152463, -108.096)
@@ -1322,7 +1318,7 @@ transform = Transform3D(-5.43291, -0.245035, -5.86715, -0.367262, 7.99156, 0.006
 transform = Transform3D(-3.97961, -0.247807, -0.318222, -0.245843, 3.99229, -0.0344316, 0.319741, -0.0146977, -3.98717, 27.3921, 0.834865, -93.5728)
 
 [node name="RockB4" parent="Rocks" instance=ExtResource("9_cmuq5")]
-transform = Transform3D(-1.05834, -0.0439658, -5.90575, -0.275447, 5.99366, 0.00474168, 5.89949, 0.271956, -1.05925, -4.82449, -0.152463, -115.583)
+transform = Transform3D(0.197105, 0.0237535, -7.99843, -0.459079, 13.9852, 0.00632139, 9.98751, 0.642366, 0.158141, -10.2641, -0.152463, -118.667)
 
 [node name="RockB5" parent="Rocks" instance=ExtResource("9_cmuq5")]
 transform = Transform3D(3.38576, 0.251159, 4.94707, -0.368765, 5.98843, -0.0516471, -4.9397, -0.274907, 3.39467, -22.7103, 0.834865, -92.8382)
@@ -1391,7 +1387,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1721, 0.585, -63.5777)
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 0, 0.916)
 
 [node name="PortalExit" parent="." instance=ExtResource("10_dr2jn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66038, 0, -97.2099)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66038, 0, -105.958)
 
 [node name="HUD_stuff" type="CanvasLayer" parent="."]
 
@@ -1433,7 +1429,7 @@ horizontal_alignment = 2
 autowrap_mode = 2
 
 [node name="CameraController" type="Node3D" parent="." groups=["CameraController"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.816829, 1.72701)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.816829, 0.851616)
 script = ExtResource("6_gi1f8")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraController"]
@@ -1454,44 +1450,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218803, 2.41586, -4.98026)
 
 [node name="TestTuto" parent="." instance=ExtResource("4_2gpl1")]
 unique_name_in_owner = true
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.816829, 0)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.816829, -0.875393)
 
 [node name="Skeleton3D" parent="TestTuto/Armature" index="0"]
-bones/0/position = Vector3(0.476961, 0.145817, -173.365)
-bones/0/rotation = Quaternion(-0.728652, -0.0529282, 0.0118502, 0.682733)
-bones/1/rotation = Quaternion(0.0185145, 0.0126449, 0.0226883, 0.999491)
-bones/2/rotation = Quaternion(0.0102178, 0.0026015, 0.0137479, 0.99985)
-bones/3/rotation = Quaternion(0.00997759, 0.0027894, 0.0137717, 0.999852)
-bones/4/rotation = Quaternion(0.0599533, -0.00108062, 0.00412913, 0.998192)
-bones/5/rotation = Quaternion(-0.0660404, 0.0118196, -0.00147366, 0.997746)
-bones/7/rotation = Quaternion(-0.722436, -0.270516, 0.529015, -0.353625)
-bones/8/rotation = Quaternion(0.390087, 0.143838, 0.0803311, 0.905919)
-bones/9/rotation = Quaternion(0.000367927, 0.00135331, 0.0128541, 0.999916)
-bones/10/rotation = Quaternion(0.049388, -0.284849, 0.0256112, 0.956957)
-bones/15/rotation = Quaternion(0.714419, -0.27084, 0.554331, 0.330103)
-bones/16/rotation = Quaternion(0.315535, -0.239993, -0.096743, 0.912952)
-bones/17/rotation = Quaternion(0.00208564, 0.000283578, -0.058334, 0.998295)
-bones/18/rotation = Quaternion(0.0586144, 0.17508, -0.00364258, 0.982801)
-bones/23/rotation = Quaternion(0.136329, 0.0638062, 0.985614, -0.0768599)
-bones/24/rotation = Quaternion(-0.114372, -0.0139901, 0.030464, 0.992872)
-bones/25/rotation = Quaternion(0.527728, -0.0315473, -0.0506419, 0.847315)
-bones/28/rotation = Quaternion(-0.0906132, -0.0212447, 0.995302, -0.0266967)
-bones/29/rotation = Quaternion(-0.0673706, 0.083697, -0.0249315, 0.993899)
-bones/30/rotation = Quaternion(0.559299, 0.0205581, 0.0163103, 0.828551)
-bones/31/rotation = Quaternion(0.300116, 0.0308436, -0.00583817, 0.953386)
+bones/0/position = Vector3(-0.472926, 0.93899, -173.296)
+bones/0/rotation = Quaternion(-0.729938, -0.0519081, 0.0136415, 0.681403)
+bones/1/rotation = Quaternion(0.0244594, 0.0148135, 0.0252991, 0.999271)
+bones/2/rotation = Quaternion(0.0118712, 0.00349884, 0.0145936, 0.999817)
+bones/3/rotation = Quaternion(0.011655, 0.00367855, 0.0146186, 0.999818)
+bones/4/rotation = Quaternion(0.0622062, -0.00198826, 0.00456995, 0.998051)
+bones/5/rotation = Quaternion(-0.0757058, 0.00846305, 0.000239291, 0.997094)
+bones/7/rotation = Quaternion(-0.724625, -0.268201, 0.526529, -0.354617)
+bones/8/rotation = Quaternion(0.3907, 0.14256, 0.0852243, 0.90541)
+bones/9/rotation = Quaternion(0.000382173, 0.00135341, 0.0133597, 0.99991)
+bones/10/rotation = Quaternion(0.0447568, -0.289381, 0.0298068, 0.955702)
+bones/15/rotation = Quaternion(0.71787, -0.267236, 0.550789, 0.33148)
+bones/16/rotation = Quaternion(0.315989, -0.237423, -0.0929589, 0.91386)
+bones/17/rotation = Quaternion(0.00208423, 0.0002836, -0.0582946, 0.998297)
+bones/18/rotation = Quaternion(0.0539635, 0.175725, -0.00343209, 0.982953)
+bones/23/rotation = Quaternion(0.139765, 0.0591793, 0.985333, -0.0779887)
+bones/24/rotation = Quaternion(-0.114015, -0.0103095, 0.0308436, 0.992947)
+bones/25/rotation = Quaternion(0.528341, -0.0327854, -0.0522478, 0.846789)
+bones/28/rotation = Quaternion(-0.0918559, -0.0221171, 0.99517, -0.0266496)
+bones/29/rotation = Quaternion(-0.076217, 0.0834045, -0.0261856, 0.993252)
+bones/30/rotation = Quaternion(0.566377, 0.0194453, 0.0164975, 0.823752)
+bones/31/rotation = Quaternion(0.299575, 0.0308449, -0.00585461, 0.953556)
 
 [node name="BoneAttachment3D" parent="TestTuto/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.36396, 0.0234257, 0.93112, 0.92878, 0.066003, -0.364706, -0.0700002, 0.997544, 0.00226502, -35.5741, 7.96935, -161.614)
+transform = Transform3D(0.37167, 0.0305943, 0.927861, 0.926262, 0.0550127, -0.372844, -0.062451, 0.998017, -0.00789193, -35.7304, 8.39717, -160.84)
 
 [node name="Sword" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D" index="0"]
 transform = Transform3D(-23.1219, 49.007, -9.41749, 10.4524, -5.39307, -53.7277, -48.7968, -24.3768, -7.04625, -50.6289, 20.7265, 24.3065)
 script = ExtResource("18_gdxtr")
 
 [node name="BoneAttachment3D2" parent="TestTuto/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.36396, 0.0234257, 0.93112, 0.92878, 0.066003, -0.364706, -0.0700002, 0.997544, 0.00226502, -35.5741, 7.96935, -161.614)
+transform = Transform3D(0.37167, 0.0305943, 0.927861, 0.926262, 0.0550127, -0.372844, -0.062451, 0.998017, -0.00789193, -35.7304, 8.39717, -160.84)
 
 [node name="BoneAttachment3D3" parent="TestTuto/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.116284, 0.00818496, -0.993182, -0.990745, 0.0714435, -0.11541, 0.0700118, 0.997411, 0.016417, 39.1557, 9.22033, -164.435)
+transform = Transform3D(0.11206, 0.0178467, -0.993541, -0.990821, 0.0780822, -0.11035, 0.0756085, 0.996787, 0.0264327, 37.8278, 10.0868, -164.621)
 
 [connection signal="area_entered" from="Areas/SlimeArea1" to="." method="_on_slime_area_1_area_entered"]
 [connection signal="area_entered" from="Areas/SlimeArea2" to="." method="_on_slime_area_2_area_entered"]

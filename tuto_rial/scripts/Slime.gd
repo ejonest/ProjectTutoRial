@@ -27,6 +27,7 @@ var whereToGo
 var canTakeDamage_ = true
 var JustStarted = true
 
+
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 	player.attack.connect(_on_test_tuto_attack)
