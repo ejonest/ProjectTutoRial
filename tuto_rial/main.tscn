@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://clid1fxm6rbk7"]
+[gd_scene load_steps=92 format=3 uid="uid://clid1fxm6rbk7"]
 
 [ext_resource type="PackedScene" uid="uid://bsjyu0fp5fq4g" path="res://Asset/Environment/Scene/floor.tscn" id="1_lm25w"]
 [ext_resource type="Script" path="res://main.gd" id="1_uy32c"]
@@ -50,6 +50,8 @@
 [ext_resource type="PackedScene" uid="uid://d1plc8ddh0ybl" path="res://TutoPlayer.tscn" id="45_bo71b"]
 [ext_resource type="Script" path="res://scripts/Sword.gd" id="46_wk8wj"]
 [ext_resource type="PackedScene" uid="uid://bj8v5o040vyyn" path="res://Asset/Environment/Scene/portal.tscn" id="49_8cprb"]
+[ext_resource type="Texture2D" uid="uid://hu0wi8v17m63" path="res://heal_ready.png" id="51_telin"]
+[ext_resource type="Texture2D" uid="uid://ocwrvb2uhcev" path="res://fist.png" id="52_y4uqh"]
 
 [sub_resource type="Shader" id="Shader_0pevc"]
 code = "
@@ -430,26 +432,6 @@ light_energy = 4.06
 shadow_enabled = true
 
 [node name="Environment" type="Node" parent="."]
-
-[node name="HUD_stuff" type="CanvasLayer" parent="."]
-
-[node name="Hud" parent="HUD_stuff" instance=ExtResource("5_sk40m")]
-mouse_filter = 2
-script = ExtResource("4_oufyj")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD_stuff"]
-z_index = 2
-offset_left = 136.0
-offset_top = -56.0
-offset_right = 392.0
-offset_bottom = 200.0
-rotation = 0.242415
-scale = Vector2(0.486413, 0.486413)
-pivot_offset = Vector2(128, 128)
-fill_mode = 3
-texture_under = ExtResource("5_hbwe5")
-texture_progress = ExtResource("6_lgeiq")
-script = ExtResource("7_thrf3")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_2oukv")
@@ -4243,41 +4225,93 @@ unique_name_in_owner = true
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 3.3)
 
 [node name="Skeleton3D" parent="TestTuto/Armature" index="0"]
-bones/0/position = Vector3(0.0284636, 0.445639, -173.382)
-bones/0/rotation = Quaternion(-0.729, -0.0533185, 0.0141932, 0.682287)
-bones/1/rotation = Quaternion(0.0207625, 0.0134834, 0.0239191, 0.999407)
-bones/2/rotation = Quaternion(0.0109418, 0.00294351, 0.0141654, 0.999835)
-bones/3/rotation = Quaternion(0.0107198, 0.00314146, 0.0141936, 0.999837)
-bones/4/rotation = Quaternion(0.0601201, -0.00149943, 0.00469507, 0.998179)
-bones/5/rotation = Quaternion(-0.0694392, 0.0106161, -0.000888793, 0.997529)
-bones/7/rotation = Quaternion(-0.722472, -0.270897, 0.527933, -0.354875)
-bones/8/rotation = Quaternion(0.392239, 0.142967, 0.0820396, 0.904974)
-bones/9/rotation = Quaternion(0.000377404, 0.00135337, 0.0131898, 0.999912)
-bones/10/rotation = Quaternion(0.0491799, -0.286084, 0.0269827, 0.956561)
-bones/15/rotation = Quaternion(0.715617, -0.269834, 0.552581, 0.331265)
-bones/16/rotation = Quaternion(0.3158, -0.239319, -0.0969677, 0.913014)
-bones/17/rotation = Quaternion(0.00208472, 0.000283593, -0.0583078, 0.998296)
-bones/18/rotation = Quaternion(0.0544859, 0.17517, -0.00309588, 0.983024)
-bones/23/rotation = Quaternion(0.137605, 0.0610785, 0.985628, -0.0766223)
-bones/24/rotation = Quaternion(-0.110758, -0.0149149, 0.0309401, 0.993254)
-bones/25/rotation = Quaternion(0.525894, -0.0322128, -0.051652, 0.848369)
-bones/28/rotation = Quaternion(-0.0911673, -0.0207877, 0.995272, -0.0262578)
-bones/29/rotation = Quaternion(-0.069312, 0.0834749, -0.0252956, 0.993775)
-bones/30/rotation = Quaternion(0.561121, 0.0180326, 0.0170625, 0.827362)
-bones/31/rotation = Quaternion(0.299747, 0.0308445, -0.00584936, 0.953502)
+bones/0/position = Vector3(-0.759253, 1.6378, -173.41)
+bones/0/rotation = Quaternion(-0.730635, -0.0478175, 0.0141796, 0.680944)
+bones/1/rotation = Quaternion(0.0154201, 0.0147955, 0.0244228, 0.999473)
+bones/2/rotation = Quaternion(0.00921282, 0.00348997, 0.0143782, 0.999848)
+bones/3/rotation = Quaternion(0.00903612, 0.00361478, 0.0144168, 0.999849)
+bones/4/rotation = Quaternion(0.0569194, -0.00223767, 0.00561092, 0.998361)
+bones/5/rotation = Quaternion(-0.0678291, 0.00906545, -0.0014631, 0.997655)
+bones/7/rotation = Quaternion(-0.717946, -0.276474, 0.530926, -0.355292)
+bones/8/rotation = Quaternion(0.39901, 0.142967, 0.081497, 0.902059)
+bones/9/rotation = Quaternion(0.0004035, 0.00135327, 0.0140997, 0.9999)
+bones/10/rotation = Quaternion(0.0534846, -0.279261, 0.0243702, 0.958415)
+bones/11/rotation = Quaternion(0.0664184, 0.00104282, 0.00664867, 0.997769)
+bones/12/rotation = Quaternion(0.127648, 0.00153064, -0.0265614, 0.991463)
+bones/13/rotation = Quaternion(0.00572311, 0.00713913, -0.0609304, 0.9981)
+bones/15/rotation = Quaternion(0.713959, -0.27133, 0.554774, 0.329953)
+bones/16/rotation = Quaternion(0.312973, -0.241663, -0.095666, 0.913507)
+bones/17/rotation = Quaternion(0.00205127, 0.00028358, -0.0573746, 0.998351)
+bones/18/position = Vector3(-2.10275e-07, 58.104, 1.34215e-06)
+bones/18/rotation = Quaternion(0.0545106, 0.174055, -0.00207424, 0.983224)
+bones/19/position = Vector3(4.89121e-07, 14.6156, -1.02503e-06)
+bones/19/rotation = Quaternion(0.0598661, -0.00148809, -0.00885655, 0.998166)
+bones/21/rotation = Quaternion(0.0145624, -0.010832, 0.125795, 0.99189)
+bones/23/rotation = Quaternion(0.136916, 0.0519369, 0.986391, -0.0747666)
+bones/24/rotation = Quaternion(-0.104714, -0.0116011, 0.030831, 0.993957)
+bones/25/rotation = Quaternion(0.525109, -0.032924, -0.0526313, 0.848768)
+bones/26/position = Vector3(-5.44172e-06, 37.0536, -1.33766e-06)
+bones/26/rotation = Quaternion(0.280196, -0.0315164, 0.00651209, 0.959403)
+bones/28/rotation = Quaternion(-0.0931801, -0.0277601, 0.994977, -0.023816)
+bones/29/rotation = Quaternion(-0.0712686, 0.0837064, -0.0255665, 0.99361)
+bones/30/rotation = Quaternion(0.566426, 0.0206322, 0.0156527, 0.823706)
+bones/31/rotation = Quaternion(0.298006, 0.0308485, -0.00590145, 0.954047)
 
 [node name="BoneAttachment3D" parent="TestTuto/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.366432, 0.0238482, 0.930139, 0.927829, 0.0655367, -0.367203, -0.0697154, 0.997566, 0.00188754, -35.687, 8.25664, -161.321)
+transform = Transform3D(0.377219, 0.0229092, 0.925841, 0.922361, 0.0807336, -0.377799, -0.0834015, 0.996472, 0.00932365, -37.0119, 10.2638, -161.317)
 
 [node name="Sword" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D" index="0"]
 transform = Transform3D(-23.1219, 49.007, -9.41749, 10.4524, -5.39307, -53.7277, -48.7968, -24.3768, -7.04625, -50.6289, 20.7265, 24.3065)
 script = ExtResource("46_wk8wj")
 
 [node name="BoneAttachment3D2" parent="TestTuto/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.366432, 0.0238482, 0.930139, 0.927829, 0.0655367, -0.367203, -0.0697154, 0.997566, 0.00188754, -35.687, 8.25664, -161.321)
+transform = Transform3D(0.377219, 0.0229092, 0.925841, 0.922361, 0.0807336, -0.377799, -0.0834015, 0.996472, 0.00932365, -37.0119, 10.2638, -161.317)
 
 [node name="BoneAttachment3D3" parent="TestTuto/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.11697, 0.0108139, -0.993076, -0.990729, 0.0708437, -0.115922, 0.0690995, 0.997429, 0.0190001, 38.6035, 9.5162, -164.683)
+transform = Transform3D(0.104083, 0.00991308, -0.994519, -0.991646, 0.0776356, -0.103009, 0.0761889, 0.996932, 0.0179108, 37.9021, 10.0341, -165.319)
+
+[node name="HUD_Main" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="HUD_Main" instance=ExtResource("5_sk40m")]
+mouse_filter = 2
+script = ExtResource("4_oufyj")
+metadata/_edit_lock_ = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="HUD_Main"]
+z_index = 2
+offset_left = 136.0
+offset_top = -56.0
+offset_right = 392.0
+offset_bottom = 200.0
+rotation = 0.242415
+scale = Vector2(0.486413, 0.486413)
+pivot_offset = Vector2(128, 128)
+fill_mode = 3
+texture_under = ExtResource("5_hbwe5")
+texture_progress = ExtResource("6_lgeiq")
+script = ExtResource("7_thrf3")
+metadata/_edit_use_anchors_ = true
+
+[node name="AbilityContainer" type="HFlowContainer" parent="HUD_Main"]
+offset_left = 960.0
+offset_top = 560.0
+offset_right = 1136.0
+offset_bottom = 632.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HealAbility" type="Sprite2D" parent="HUD_Main/AbilityContainer"]
+unique_name_in_owner = true
+position = Vector2(112, 8)
+scale = Vector2(0.203125, 0.203125)
+texture = ExtResource("51_telin")
+
+[node name="WeaponDisplay" type="Sprite2D" parent="HUD_Main"]
+unique_name_in_owner = true
+z_index = 2
+position = Vector2(200, 168)
+scale = Vector2(0.203125, 0.203125)
+texture = ExtResource("52_y4uqh")
+metadata/_edit_lock_ = true
 
 [editable path="NavigationRegion3D/Node3D/Flooring/Floor51"]
 [editable path="NavigationRegion3D/Node3D/Pillars/Arc_mid25"]

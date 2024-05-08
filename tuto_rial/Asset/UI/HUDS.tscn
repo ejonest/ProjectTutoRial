@@ -1,0 +1,262 @@
+[gd_scene load_steps=11 format=3 uid="uid://bwpcd2v5x1aj2"]
+
+[ext_resource type="PackedScene" uid="uid://c8340arsybqqc" path="res://hud.tscn" id="1_kws86"]
+[ext_resource type="Script" path="res://hud.gd" id="2_u5bvm"]
+[ext_resource type="Texture2D" uid="uid://cadh5fpt8bemd" path="res://health_canister.png" id="3_p2pkj"]
+[ext_resource type="Texture2D" uid="uid://n4bomb8wvy8a" path="res://health_filling.png" id="4_nk6m7"]
+[ext_resource type="Script" path="res://health_bar.gd" id="5_twoq6"]
+[ext_resource type="Texture2D" uid="uid://hu0wi8v17m63" path="res://heal_ready.png" id="6_4lm5d"]
+[ext_resource type="Texture2D" uid="uid://ocwrvb2uhcev" path="res://fist.png" id="7_525l4"]
+[ext_resource type="FontFile" uid="uid://ckrrvcbu53esy" path="res://PixelifySans-Regular.ttf" id="8_sdyun"]
+[ext_resource type="Texture2D" uid="uid://27h58ussvnym" path="res://cosmiceye_ready.png" id="9_22xeh"]
+[ext_resource type="Texture2D" uid="uid://dficwlh3nk8v2" path="res://nokey.png" id="10_wwptr"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="HUD_Main" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="HUD_Main" instance=ExtResource("1_kws86")]
+mouse_filter = 2
+script = ExtResource("2_u5bvm")
+metadata/_edit_lock_ = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="HUD_Main"]
+z_index = 2
+offset_left = 136.0
+offset_top = -56.0
+offset_right = 392.0
+offset_bottom = 200.0
+rotation = 0.242415
+scale = Vector2(0.486413, 0.486413)
+pivot_offset = Vector2(128, 128)
+fill_mode = 3
+texture_under = ExtResource("3_p2pkj")
+texture_progress = ExtResource("4_nk6m7")
+script = ExtResource("5_twoq6")
+metadata/_edit_use_anchors_ = true
+
+[node name="AbilityContainer" type="HFlowContainer" parent="HUD_Main"]
+offset_left = 960.0
+offset_top = 560.0
+offset_right = 1136.0
+offset_bottom = 632.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HealAbility" type="Sprite2D" parent="HUD_Main/AbilityContainer"]
+unique_name_in_owner = true
+position = Vector2(112, 8)
+scale = Vector2(0.203125, 0.203125)
+texture = ExtResource("6_4lm5d")
+
+[node name="WeaponDisplay" type="Sprite2D" parent="HUD_Main"]
+unique_name_in_owner = true
+z_index = 2
+position = Vector2(200, 168)
+scale = Vector2(0.203125, 0.203125)
+texture = ExtResource("7_525l4")
+metadata/_edit_lock_ = true
+
+[node name="HUD_Maze" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="HUD_Maze" instance=ExtResource("1_kws86")]
+mouse_filter = 2
+script = ExtResource("2_u5bvm")
+metadata/_edit_lock_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD_Maze"]
+z_index = 2
+offset_left = 136.0
+offset_top = -56.0
+offset_right = 392.0
+offset_bottom = 200.0
+rotation = 0.242415
+scale = Vector2(0.486413, 0.486413)
+pivot_offset = Vector2(128, 128)
+fill_mode = 3
+texture_under = ExtResource("3_p2pkj")
+texture_progress = ExtResource("4_nk6m7")
+script = ExtResource("5_twoq6")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="HUD_Maze"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 744.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 101.0
+grow_horizontal = 2
+scale = Vector2(0.918842, 0.937695)
+size_flags_horizontal = 6
+size_flags_vertical = 10
+theme_type_variation = &"HeaderLarge"
+theme_override_fonts/font = ExtResource("8_sdyun")
+theme_override_font_sizes/font_size = 30
+text = "Objective:
+Reach the exit with the key"
+horizontal_alignment = 2
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AbilityContainer" type="HFlowContainer" parent="HUD_Maze"]
+offset_left = 960.0
+offset_top = 560.0
+offset_right = 1136.0
+offset_bottom = 632.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HealAbility" type="Sprite2D" parent="HUD_Maze/AbilityContainer"]
+position = Vector2(112, 8)
+scale = Vector2(0.203125, 0.203125)
+texture = ExtResource("6_4lm5d")
+
+[node name="EyeAbility" type="Sprite2D" parent="HUD_Maze/AbilityContainer"]
+unique_name_in_owner = true
+position = Vector2(-24, 7.99999)
+scale = Vector2(0.203, 0.203)
+texture = ExtResource("9_22xeh")
+
+[node name="KeyStatus" type="Sprite2D" parent="HUD_Maze/AbilityContainer"]
+unique_name_in_owner = true
+position = Vector2(-160, 8)
+scale = Vector2(0.203, 0.203)
+texture = ExtResource("10_wwptr")
+
+[node name="WeaponDisplay" type="Sprite2D" parent="HUD_Maze"]
+z_index = 2
+position = Vector2(200, 168)
+scale = Vector2(0.203125, 0.203125)
+texture = ExtResource("7_525l4")
+metadata/_edit_lock_ = true
+
+[node name="HUD_Forest" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="HUD_Forest" instance=ExtResource("1_kws86")]
+mouse_filter = 2
+script = ExtResource("2_u5bvm")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD_Forest"]
+z_index = 2
+offset_left = 136.0
+offset_top = -56.0
+offset_right = 392.0
+offset_bottom = 200.0
+rotation = 0.242415
+scale = Vector2(0.486413, 0.486413)
+pivot_offset = Vector2(128, 128)
+fill_mode = 3
+texture_under = ExtResource("3_p2pkj")
+texture_progress = ExtResource("4_nk6m7")
+script = ExtResource("5_twoq6")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="HUD_Forest"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 848.0
+offset_top = 24.0
+offset_right = -23.0
+offset_bottom = 112.0
+grow_horizontal = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+theme_type_variation = &"HeaderLarge"
+theme_override_fonts/font = ExtResource("8_sdyun")
+theme_override_font_sizes/font_size = 30
+text = "Objective: 
+Beat all the slimes
+"
+horizontal_alignment = 2
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AbilityContainer" type="HFlowContainer" parent="HUD_Forest"]
+offset_left = 960.0
+offset_top = 560.0
+offset_right = 1136.0
+offset_bottom = 632.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HealAbility" type="Sprite2D" parent="HUD_Forest/AbilityContainer"]
+position = Vector2(112, 8)
+scale = Vector2(0.203125, 0.203125)
+texture = ExtResource("6_4lm5d")
+
+[node name="EyeAbility" type="Sprite2D" parent="HUD_Forest/AbilityContainer"]
+position = Vector2(-24, 7.99999)
+scale = Vector2(0.203, 0.203)
+texture = ExtResource("9_22xeh")
+
+[node name="WeaponDisplay" type="Sprite2D" parent="HUD_Forest"]
+z_index = 2
+position = Vector2(200, 168)
+scale = Vector2(0.203125, 0.203125)
+texture = ExtResource("7_525l4")
+metadata/_edit_lock_ = true
+
+[node name="HUD_Error" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="HUD_Error" instance=ExtResource("1_kws86")]
+mouse_filter = 2
+script = ExtResource("2_u5bvm")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD_Error"]
+z_index = 2
+offset_left = 136.0
+offset_top = -56.0
+offset_right = 392.0
+offset_bottom = 200.0
+rotation = 0.242415
+scale = Vector2(0.486413, 0.486413)
+pivot_offset = Vector2(128, 128)
+fill_mode = 3
+texture_under = ExtResource("3_p2pkj")
+texture_progress = ExtResource("4_nk6m7")
+script = ExtResource("5_twoq6")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="HUD_Error"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 968.0
+offset_top = 16.0
+offset_right = -20.0
+offset_bottom = 153.0
+grow_horizontal = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+theme_type_variation = &"HeaderLarge"
+theme_override_fonts/font = ExtResource("8_sdyun")
+theme_override_font_sizes/font_size = 30
+text = "Objective: 
+GET OUT 
+(Press F!)"
+horizontal_alignment = 2
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AbilityContainer" type="HFlowContainer" parent="HUD_Error"]
+offset_left = 960.0
+offset_top = 560.0
+offset_right = 1136.0
+offset_bottom = 632.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HealAbility" type="Sprite2D" parent="HUD_Error/AbilityContainer"]
+position = Vector2(112, 8)
+scale = Vector2(0.203125, 0.203125)
+texture = ExtResource("6_4lm5d")
+
+[node name="EyeAbility" type="Sprite2D" parent="HUD_Error/AbilityContainer"]
+position = Vector2(-24, 7.99999)
+scale = Vector2(0.203, 0.203)
+texture = ExtResource("9_22xeh")
+
+[node name="WeaponDisplay" type="Sprite2D" parent="HUD_Error"]
+z_index = 2
+position = Vector2(200, 168)
+scale = Vector2(0.203125, 0.203125)
+texture = ExtResource("7_525l4")
+metadata/_edit_lock_ = true

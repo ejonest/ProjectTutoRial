@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://b68t87m0jk2pr"]
+[gd_scene load_steps=95 format=3 uid="uid://b68t87m0jk2pr"]
 
 [ext_resource type="Script" path="res://Levels/ForestScene.gd" id="1_qntww"]
 [ext_resource type="PackedScene" uid="uid://bsjyu0fp5fq4g" path="res://Asset/Environment/Scene/floor.tscn" id="1_tlauk"]
@@ -51,6 +51,9 @@
 [ext_resource type="Script" path="res://scripts/Sword.gd" id="49_8oonw"]
 [ext_resource type="PackedScene" uid="uid://dpfqm1lyxgks5" path="res://Asset/Environment/Scene/red_grass_scene.tscn" id="50_gnamd"]
 [ext_resource type="PackedScene" uid="uid://ixf02ggqsgd5" path="res://Asset/Environment/Scene/gate_narrow.tscn" id="51_8bgpl"]
+[ext_resource type="Texture2D" uid="uid://hu0wi8v17m63" path="res://heal_ready.png" id="52_u5c05"]
+[ext_resource type="Texture2D" uid="uid://27h58ussvnym" path="res://cosmiceye_ready.png" id="53_u6i6v"]
+[ext_resource type="Texture2D" uid="uid://ocwrvb2uhcev" path="res://fist.png" id="54_xl6go"]
 
 [sub_resource type="Environment" id="Environment_ome6f"]
 fog_enabled = true
@@ -8990,50 +8993,50 @@ unique_name_in_owner = true
 transform = Transform3D(-0.4, 0, -3.49691e-08, 0, 0.4, 0, 3.49691e-08, 0, -0.4, -21, 28.2, -52.3312)
 
 [node name="Skeleton3D" parent="TestTuto/Armature" index="0"]
-bones/0/position = Vector3(-0.693538, 1.53822, -173.346)
-bones/0/rotation = Quaternion(-0.729524, -0.0511537, 0.0140926, 0.681894)
-bones/1/rotation = Quaternion(0.021654, 0.0161663, 0.0243899, 0.999337)
-bones/2/rotation = Quaternion(0.010738, 0.00412222, 0.0142886, 0.999832)
-bones/3/rotation = Quaternion(0.0101623, 0.00400216, 0.0142062, 0.999839)
-bones/4/rotation = Quaternion(0.061199, -0.00211475, 0.00309778, 0.998119)
-bones/5/rotation = Quaternion(-0.0740504, 0.00697733, -0.00151113, 0.997229)
-bones/7/rotation = Quaternion(-0.723752, -0.268382, 0.529413, -0.35196)
-bones/8/rotation = Quaternion(0.388637, 0.139964, 0.083818, 0.906833)
-bones/9/rotation = Quaternion(0.000387536, 0.00135328, 0.0135404, 0.999907)
-bones/10/rotation = Quaternion(0.0468537, -0.284356, 0.0265108, 0.957206)
+bones/0/position = Vector3(-0.82875, 2.0954, -173.414)
+bones/0/rotation = Quaternion(-0.728489, -0.0514637, 0.0159452, 0.682935)
+bones/1/rotation = Quaternion(0.0186114, 0.013503, 0.0238901, 0.99945)
+bones/2/rotation = Quaternion(0.0102335, 0.00340896, 0.0142853, 0.99984)
+bones/3/rotation = Quaternion(0.00987577, 0.00340918, 0.0141811, 0.999845)
+bones/4/rotation = Quaternion(0.0603085, -0.00147721, 0.00438106, 0.998169)
+bones/5/rotation = Quaternion(-0.0702684, 0.0101122, -0.000432474, 0.997477)
+bones/7/rotation = Quaternion(-0.720491, -0.27277, 0.53071, -0.353321)
+bones/8/rotation = Quaternion(0.392045, 0.141084, 0.0848165, 0.905098)
+bones/9/rotation = Quaternion(0.000418715, 0.00135327, 0.0146326, 0.999892)
+bones/10/rotation = Quaternion(0.0475499, -0.281849, 0.025431, 0.957942)
 bones/11/rotation = Quaternion(0.0664184, 0.00104282, 0.00664867, 0.997769)
 bones/12/rotation = Quaternion(0.127648, 0.00153064, -0.0265614, 0.991463)
 bones/13/rotation = Quaternion(0.00572311, 0.00713913, -0.0609304, 0.9981)
-bones/15/rotation = Quaternion(0.718033, -0.266295, 0.552337, 0.3293)
-bones/16/rotation = Quaternion(0.314112, -0.24128, -0.0919974, 0.913594)
-bones/17/rotation = Quaternion(0.00206545, 0.000283577, -0.0577703, 0.998328)
+bones/15/rotation = Quaternion(0.716113, -0.268057, 0.554801, 0.327908)
+bones/16/rotation = Quaternion(0.313904, -0.241411, -0.0936179, 0.913466)
+bones/17/rotation = Quaternion(0.00208214, 0.000283636, -0.0582374, 0.998301)
 bones/18/position = Vector3(-2.10275e-07, 58.104, 1.34215e-06)
-bones/18/rotation = Quaternion(0.0544598, 0.177724, -0.00198066, 0.98257)
+bones/18/rotation = Quaternion(0.0556152, 0.175119, -0.00264331, 0.982972)
 bones/19/position = Vector3(4.89121e-07, 14.6156, -1.02503e-06)
 bones/19/rotation = Quaternion(0.0598661, -0.00148809, -0.00885655, 0.998166)
 bones/21/rotation = Quaternion(0.0145624, -0.010832, 0.125795, 0.99189)
-bones/23/rotation = Quaternion(0.140041, 0.0573487, 0.9854, -0.0780148)
-bones/24/rotation = Quaternion(-0.112925, -0.00966587, 0.0301711, 0.993098)
-bones/25/rotation = Quaternion(0.52856, -0.0327371, -0.0522069, 0.846657)
+bones/23/rotation = Quaternion(0.138302, 0.0550928, 0.985901, -0.0763998)
+bones/24/rotation = Quaternion(-0.108801, -0.0140175, 0.0311308, 0.993477)
+bones/25/rotation = Quaternion(0.527785, -0.0334037, -0.0531735, 0.847053)
 bones/26/position = Vector3(-5.44172e-06, 37.0536, -1.33766e-06)
 bones/26/rotation = Quaternion(0.280196, -0.0315164, 0.00651209, 0.959403)
-bones/28/rotation = Quaternion(-0.0918932, -0.0256017, 0.995087, -0.0265033)
-bones/29/rotation = Quaternion(-0.0724521, 0.0836537, -0.0261201, 0.993514)
-bones/30/rotation = Quaternion(0.566311, 0.0198844, 0.0162478, 0.823792)
-bones/31/rotation = Quaternion(0.298817, 0.0308466, -0.00587706, 0.953794)
+bones/28/rotation = Quaternion(-0.092171, -0.0282323, 0.995013, -0.0256411)
+bones/29/rotation = Quaternion(-0.0662941, 0.0838694, -0.0252078, 0.99395)
+bones/30/rotation = Quaternion(0.565142, 0.0175354, 0.0171457, 0.824629)
+bones/31/rotation = Quaternion(0.298514, 0.0308474, -0.00588646, 0.953888)
 
 [node name="BoneAttachment3D" parent="TestTuto/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.376002, 0.0272137, 0.92622, 0.924537, 0.0559575, -0.376962, -0.0620874, 0.998062, -0.00411987, -36.0521, 9.21551, -160.954)
+transform = Transform3D(0.365504, 0.0310661, 0.930291, 0.928216, 0.0623937, -0.366772, -0.0694384, 0.997568, -0.00603071, -36.2831, 9.55373, -161.041)
 
 [node name="Sword" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D" index="0"]
 transform = Transform3D(-23.1219, 49.007, -9.41749, 10.4524, -5.39307, -53.7277, -48.7968, -24.3768, -7.04625, -50.6289, 20.7265, 24.3065)
 script = ExtResource("49_8oonw")
 
 [node name="BoneAttachment3D2" parent="TestTuto/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.376002, 0.0272137, 0.92622, 0.924537, 0.0559575, -0.376962, -0.0620874, 0.998062, -0.00411987, -36.0521, 9.21551, -160.954)
+transform = Transform3D(0.365504, 0.0310661, 0.930291, 0.928216, 0.0623937, -0.366772, -0.0694384, 0.997568, -0.00603071, -36.2831, 9.55373, -161.041)
 
 [node name="BoneAttachment3D3" parent="TestTuto/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.10447, 0.0157797, -0.994403, -0.991443, 0.0803441, -0.102884, 0.0782709, 0.996642, 0.0240381, 37.5753, 10.836, -164.627)
+transform = Transform3D(0.115815, 0.0160781, -0.993141, -0.990075, 0.0820062, -0.11413, 0.0796087, 0.996502, 0.0254161, 37.5492, 11.7696, -164.963)
 
 [node name="Rock" parent="." instance=ExtResource("6_dm6nt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8472, 28.1347, -14.657)
@@ -9073,6 +9076,72 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.8424, 28.04, -21.0503)
 
 [node name="GRASS_scene5" parent="." instance=ExtResource("50_gnamd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.1064, 28.04, -22.3644)
+
+[node name="HUD_Forest" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="HUD_Forest" instance=ExtResource("45_6lkvu")]
+mouse_filter = 2
+script = ExtResource("46_uybne")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD_Forest"]
+z_index = 2
+offset_left = 136.0
+offset_top = -56.0
+offset_right = 392.0
+offset_bottom = 200.0
+rotation = 0.242415
+scale = Vector2(0.486413, 0.486413)
+pivot_offset = Vector2(128, 128)
+fill_mode = 3
+texture_under = ExtResource("47_ftmug")
+texture_progress = ExtResource("48_dfpel")
+script = ExtResource("49_3ts74")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="HUD_Forest"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 848.0
+offset_top = 24.0
+offset_right = -23.0
+offset_bottom = 112.0
+grow_horizontal = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+theme_type_variation = &"HeaderLarge"
+theme_override_fonts/font = ExtResource("11_cwco3")
+theme_override_font_sizes/font_size = 30
+text = "Objective: 
+Beat all the slimes
+"
+horizontal_alignment = 2
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AbilityContainer" type="HFlowContainer" parent="HUD_Forest"]
+offset_left = 960.0
+offset_top = 560.0
+offset_right = 1136.0
+offset_bottom = 632.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HealAbility" type="Sprite2D" parent="HUD_Forest/AbilityContainer"]
+position = Vector2(112, 8)
+scale = Vector2(0.203125, 0.203125)
+texture = ExtResource("52_u5c05")
+
+[node name="EyeAbility" type="Sprite2D" parent="HUD_Forest/AbilityContainer"]
+position = Vector2(-24, 7.99999)
+scale = Vector2(0.203, 0.203)
+texture = ExtResource("53_u6i6v")
+
+[node name="WeaponDisplay" type="Sprite2D" parent="HUD_Forest"]
+z_index = 2
+position = Vector2(200, 168)
+scale = Vector2(0.203125, 0.203125)
+texture = ExtResource("54_xl6go")
+metadata/_edit_lock_ = true
 
 [connection signal="area_entered" from="DropSlimesZone" to="." method="_on_drop_slimes_area_entered"]
 

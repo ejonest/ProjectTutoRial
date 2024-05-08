@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://lgig8u201wdk"]
+[gd_scene load_steps=32 format=3 uid="uid://lgig8u201wdk"]
 
 [ext_resource type="PackedScene" uid="uid://bsjyu0fp5fq4g" path="res://Asset/Environment/Scene/floor.tscn" id="1_dh3g6"]
 [ext_resource type="Script" path="res://Levels/slime_maze.gd" id="1_ql7qn"]
@@ -17,6 +17,10 @@
 [ext_resource type="Script" path="res://health_bar.gd" id="15_ftomu"]
 [ext_resource type="FontFile" uid="uid://ckrrvcbu53esy" path="res://PixelifySans-Regular.ttf" id="17_h48mi"]
 [ext_resource type="Script" path="res://scripts/Sword.gd" id="18_gdxtr"]
+[ext_resource type="Texture2D" uid="uid://hu0wi8v17m63" path="res://heal_ready.png" id="18_ggqub"]
+[ext_resource type="Texture2D" uid="uid://27h58ussvnym" path="res://cosmiceye_ready.png" id="19_4evcq"]
+[ext_resource type="Texture2D" uid="uid://dficwlh3nk8v2" path="res://nokey.png" id="20_1c1no"]
+[ext_resource type="Texture2D" uid="uid://ocwrvb2uhcev" path="res://fist.png" id="21_yvh8p"]
 
 [sub_resource type="Shader" id="Shader_84j1x"]
 code = "
@@ -1390,45 +1394,6 @@ visible = false
 [node name="PortalExit" parent="." instance=ExtResource("10_dr2jn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66038, 0, -105.958)
 
-[node name="HUD_stuff" type="CanvasLayer" parent="."]
-
-[node name="Hud" parent="HUD_stuff" instance=ExtResource("11_jr8x7")]
-mouse_filter = 2
-script = ExtResource("12_p2ai1")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD_stuff"]
-z_index = 2
-offset_left = 136.0
-offset_top = -56.0
-offset_right = 392.0
-offset_bottom = 200.0
-rotation = 0.242415
-scale = Vector2(0.486413, 0.486413)
-pivot_offset = Vector2(128, 128)
-fill_mode = 3
-texture_under = ExtResource("13_4jd7t")
-texture_progress = ExtResource("14_ututa")
-script = ExtResource("15_ftomu")
-
-[node name="Label" type="Label" parent="HUD_stuff"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 744.0
-offset_top = 16.0
-offset_right = 16.0
-offset_bottom = 101.0
-grow_horizontal = 2
-scale = Vector2(0.918842, 0.937695)
-size_flags_horizontal = 6
-size_flags_vertical = 10
-theme_type_variation = &"HeaderLarge"
-theme_override_fonts/font = ExtResource("17_h48mi")
-theme_override_font_sizes/font_size = 30
-text = "Objective:
-Reach the exit with the key"
-horizontal_alignment = 2
-autowrap_mode = 2
-
 [node name="CameraController" type="Node3D" parent="." groups=["CameraController"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.8, 2.8)
 script = ExtResource("6_gi1f8")
@@ -1454,41 +1419,123 @@ unique_name_in_owner = true
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.8, 5.7)
 
 [node name="Skeleton3D" parent="TestTuto/Armature" index="0"]
-bones/0/position = Vector3(-0.230477, 0.649177, -173.341)
-bones/0/rotation = Quaternion(-0.728879, -0.0530713, 0.0143152, 0.682432)
-bones/1/rotation = Quaternion(0.0222529, 0.0139305, 0.0244374, 0.999357)
-bones/2/rotation = Quaternion(0.0112865, 0.00309345, 0.0143195, 0.999829)
-bones/3/rotation = Quaternion(0.0110572, 0.00330049, 0.0143498, 0.99983)
-bones/4/rotation = Quaternion(0.0607769, -0.00172068, 0.00482376, 0.998138)
-bones/5/rotation = Quaternion(-0.0721449, 0.00989257, -0.000437606, 0.997345)
-bones/7/rotation = Quaternion(-0.72308, -0.270255, 0.527239, -0.355156)
-bones/8/rotation = Quaternion(0.39215, 0.142845, 0.0828511, 0.904958)
-bones/9/rotation = Quaternion(0.000379699, 0.00135339, 0.0132711, 0.999911)
-bones/10/rotation = Quaternion(0.0478894, -0.287532, 0.0281911, 0.956157)
-bones/15/rotation = Quaternion(0.716425, -0.268936, 0.551871, 0.331432)
-bones/16/rotation = Quaternion(0.316121, -0.238594, -0.0957962, 0.913216)
-bones/17/rotation = Quaternion(0.00208447, 0.000283597, -0.0583015, 0.998297)
-bones/18/rotation = Quaternion(0.0539732, 0.175432, -0.00343026, 0.983005)
-bones/23/rotation = Quaternion(0.138485, 0.0605452, 0.985483, -0.0773332)
-bones/24/rotation = Quaternion(-0.112313, -0.0131108, 0.0309302, 0.993105)
-bones/25/rotation = Quaternion(0.526861, -0.0324458, -0.0519093, 0.847744)
-bones/28/rotation = Quaternion(-0.0914657, -0.021272, 0.995227, -0.0265295)
-bones/29/rotation = Quaternion(-0.0727726, 0.0834311, -0.0258518, 0.993517)
-bones/30/rotation = Quaternion(0.563566, 0.0188835, 0.0166087, 0.825688)
-bones/31/rotation = Quaternion(0.299665, 0.0308447, -0.00585188, 0.953528)
+bones/0/position = Vector3(-0.998361, 1.72715, -173.342)
+bones/0/rotation = Quaternion(-0.73182, -0.0469215, 0.0129506, 0.679758)
+bones/1/rotation = Quaternion(0.0178873, 0.0149726, 0.0248333, 0.999419)
+bones/2/rotation = Quaternion(0.00976077, 0.00365073, 0.0144609, 0.999841)
+bones/3/rotation = Quaternion(0.00953058, 0.00371797, 0.0144952, 0.999843)
+bones/4/rotation = Quaternion(0.0596185, -0.00237204, 0.00547109, 0.998204)
+bones/5/rotation = Quaternion(-0.0679535, 0.00835146, -0.000847719, 0.997653)
+bones/7/rotation = Quaternion(-0.718938, -0.27522, 0.53037, -0.355092)
+bones/8/rotation = Quaternion(0.397504, 0.142193, 0.0825492, 0.90275)
+bones/9/rotation = Quaternion(0.000400817, 0.00135327, 0.0140055, 0.999901)
+bones/10/rotation = Quaternion(0.0517735, -0.28197, 0.0253593, 0.95769)
+bones/11/rotation = Quaternion(0.0664184, 0.00104282, 0.00664867, 0.997769)
+bones/12/rotation = Quaternion(0.127648, 0.00153064, -0.0265614, 0.991463)
+bones/13/rotation = Quaternion(0.00572311, 0.00713913, -0.0609304, 0.9981)
+bones/15/rotation = Quaternion(0.715602, -0.269271, 0.553868, 0.329602)
+bones/16/rotation = Quaternion(0.313426, -0.240709, -0.0943577, 0.91374)
+bones/17/rotation = Quaternion(0.00205363, 0.000283581, -0.0574412, 0.998347)
+bones/18/position = Vector3(-2.10275e-07, 58.104, 1.34215e-06)
+bones/18/rotation = Quaternion(0.0544374, 0.174778, -0.00270015, 0.983098)
+bones/19/position = Vector3(4.89121e-07, 14.6156, -1.02503e-06)
+bones/19/rotation = Quaternion(0.0598661, -0.00148809, -0.00885655, 0.998166)
+bones/21/rotation = Quaternion(0.0145624, -0.010832, 0.125795, 0.99189)
+bones/23/rotation = Quaternion(0.138207, 0.0520041, 0.986102, -0.0761401)
+bones/24/rotation = Quaternion(-0.108555, -0.00843048, 0.0306615, 0.993582)
+bones/25/rotation = Quaternion(0.526643, -0.0331364, -0.0528367, 0.847796)
+bones/26/position = Vector3(-5.44172e-06, 37.0536, -1.33766e-06)
+bones/26/rotation = Quaternion(0.280196, -0.0315164, 0.00651209, 0.959403)
+bones/28/rotation = Quaternion(-0.0930926, -0.0277816, 0.994962, -0.0247435)
+bones/29/rotation = Quaternion(-0.0747899, 0.0836228, -0.0261754, 0.993342)
+bones/30/rotation = Quaternion(0.569163, 0.0218684, 0.0150419, 0.821796)
+bones/31/rotation = Quaternion(0.298142, 0.0308482, -0.00589734, 0.954005)
 
 [node name="BoneAttachment3D" parent="TestTuto/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.367386, 0.0266974, 0.929686, 0.927675, 0.0611497, -0.368347, -0.0666841, 0.997772, -0.00230095, -35.7363, 8.29819, -161.115)
+transform = Transform3D(0.380339, 0.0283203, 0.924414, 0.92118, 0.0773224, -0.381377, -0.0822785, 0.996604, 0.00332052, -36.7474, 10.2453, -161.073)
 
 [node name="Sword" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D" index="0"]
 transform = Transform3D(-23.1219, 49.007, -9.41749, 10.4524, -5.39307, -53.7277, -48.7968, -24.3768, -7.04625, -50.6289, 20.7265, 24.3065)
 script = ExtResource("18_gdxtr")
 
 [node name="BoneAttachment3D2" parent="TestTuto/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.367386, 0.0266974, 0.929686, 0.927675, 0.0611497, -0.368347, -0.0666841, 0.997772, -0.00230095, -35.7363, 8.29819, -161.115)
+transform = Transform3D(0.380339, 0.0283203, 0.924414, 0.92118, 0.0773224, -0.381377, -0.0822785, 0.996604, 0.00332052, -36.7474, 10.2453, -161.073)
 
 [node name="BoneAttachment3D3" parent="TestTuto/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.115528, 0.0133492, -0.993214, -0.990885, 0.0712971, -0.114299, 0.0692875, 0.997366, 0.0214644, 38.3025, 9.70326, -164.67)
+transform = Transform3D(0.0974047, 0.0129648, -0.995161, -0.992085, 0.080889, -0.0960498, 0.0792523, 0.996639, 0.0207412, 37.6598, 10.1302, -165.211)
+
+[node name="HUD_Maze" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="HUD_Maze" instance=ExtResource("11_jr8x7")]
+mouse_filter = 2
+script = ExtResource("12_p2ai1")
+metadata/_edit_lock_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD_Maze"]
+z_index = 2
+offset_left = 136.0
+offset_top = -56.0
+offset_right = 392.0
+offset_bottom = 200.0
+rotation = 0.242415
+scale = Vector2(0.486413, 0.486413)
+pivot_offset = Vector2(128, 128)
+fill_mode = 3
+texture_under = ExtResource("13_4jd7t")
+texture_progress = ExtResource("14_ututa")
+script = ExtResource("15_ftomu")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="HUD_Maze"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 744.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 101.0
+grow_horizontal = 2
+scale = Vector2(0.918842, 0.937695)
+size_flags_horizontal = 6
+size_flags_vertical = 10
+theme_type_variation = &"HeaderLarge"
+theme_override_fonts/font = ExtResource("17_h48mi")
+theme_override_font_sizes/font_size = 30
+text = "Objective:
+Reach the exit with the key"
+horizontal_alignment = 2
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AbilityContainer" type="HFlowContainer" parent="HUD_Maze"]
+offset_left = 960.0
+offset_top = 560.0
+offset_right = 1136.0
+offset_bottom = 632.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HealAbility" type="Sprite2D" parent="HUD_Maze/AbilityContainer"]
+position = Vector2(112, 8)
+scale = Vector2(0.203125, 0.203125)
+texture = ExtResource("18_ggqub")
+
+[node name="EyeAbility" type="Sprite2D" parent="HUD_Maze/AbilityContainer"]
+unique_name_in_owner = true
+position = Vector2(-24, 7.99999)
+scale = Vector2(0.203, 0.203)
+texture = ExtResource("19_4evcq")
+
+[node name="KeyStatus" type="Sprite2D" parent="HUD_Maze/AbilityContainer"]
+unique_name_in_owner = true
+position = Vector2(-160, 8)
+scale = Vector2(0.203, 0.203)
+texture = ExtResource("20_1c1no")
+
+[node name="WeaponDisplay" type="Sprite2D" parent="HUD_Maze"]
+z_index = 2
+position = Vector2(200, 168)
+scale = Vector2(0.203125, 0.203125)
+texture = ExtResource("21_yvh8p")
+metadata/_edit_lock_ = true
 
 [connection signal="area_entered" from="Areas/SlimeArea1" to="." method="_on_slime_area_1_area_entered"]
 [connection signal="area_entered" from="Areas/SlimeArea2" to="." method="_on_slime_area_2_area_entered"]

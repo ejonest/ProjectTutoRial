@@ -98,6 +98,9 @@ func _process(delta):
 		entrance.scale = Vector3(1, shrinkJ, 1)
 		shrinkJ -= .01
 	
+	if gotKey == true:
+		%KeyStatus.texture = KEYFOUND
+	
 func spawnEnt():
 	await get_tree().create_timer(2).timeout
 	shrink = true
