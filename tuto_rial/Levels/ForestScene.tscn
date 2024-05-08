@@ -8993,50 +8993,50 @@ unique_name_in_owner = true
 transform = Transform3D(-0.4, 0, -3.49691e-08, 0, 0.4, 0, 3.49691e-08, 0, -0.4, -21, 28.2, -52.3312)
 
 [node name="Skeleton3D" parent="TestTuto/Armature" index="0"]
-bones/0/position = Vector3(-0.82875, 2.0954, -173.414)
-bones/0/rotation = Quaternion(-0.728489, -0.0514637, 0.0159452, 0.682935)
-bones/1/rotation = Quaternion(0.0186114, 0.013503, 0.0238901, 0.99945)
-bones/2/rotation = Quaternion(0.0102335, 0.00340896, 0.0142853, 0.99984)
-bones/3/rotation = Quaternion(0.00987577, 0.00340918, 0.0141811, 0.999845)
-bones/4/rotation = Quaternion(0.0603085, -0.00147721, 0.00438106, 0.998169)
-bones/5/rotation = Quaternion(-0.0702684, 0.0101122, -0.000432474, 0.997477)
-bones/7/rotation = Quaternion(-0.720491, -0.27277, 0.53071, -0.353321)
-bones/8/rotation = Quaternion(0.392045, 0.141084, 0.0848165, 0.905098)
-bones/9/rotation = Quaternion(0.000418715, 0.00135327, 0.0146326, 0.999892)
-bones/10/rotation = Quaternion(0.0475499, -0.281849, 0.025431, 0.957942)
+bones/0/position = Vector3(0.518305, 0.1075, -173.368)
+bones/0/rotation = Quaternion(-0.729127, -0.0529184, 0.0122683, 0.682219)
+bones/1/rotation = Quaternion(0.0186111, 0.0126945, 0.0227741, 0.999487)
+bones/2/rotation = Quaternion(0.0102695, 0.00263032, 0.0137929, 0.999849)
+bones/3/rotation = Quaternion(0.0100223, 0.00281539, 0.0138133, 0.99985)
+bones/4/rotation = Quaternion(0.0599784, -0.00114389, 0.00421466, 0.99819)
+bones/5/rotation = Quaternion(-0.0660738, 0.0117735, -0.00146566, 0.997744)
+bones/7/rotation = Quaternion(-0.722339, -0.27067, 0.528994, -0.353736)
+bones/8/rotation = Quaternion(0.390328, 0.143758, 0.080409, 0.905821)
+bones/9/rotation = Quaternion(0.000369342, 0.00135332, 0.0129049, 0.999916)
+bones/10/rotation = Quaternion(0.0495397, -0.284837, 0.0256556, 0.956951)
 bones/11/rotation = Quaternion(0.0664184, 0.00104282, 0.00664867, 0.997769)
 bones/12/rotation = Quaternion(0.127648, 0.00153064, -0.0265614, 0.991463)
 bones/13/rotation = Quaternion(0.00572311, 0.00713913, -0.0609304, 0.9981)
-bones/15/rotation = Quaternion(0.716113, -0.268057, 0.554801, 0.327908)
-bones/16/rotation = Quaternion(0.313904, -0.241411, -0.0936179, 0.913466)
-bones/17/rotation = Quaternion(0.00208214, 0.000283636, -0.0582374, 0.998301)
+bones/15/rotation = Quaternion(0.714458, -0.270835, 0.554214, 0.330219)
+bones/16/rotation = Quaternion(0.315569, -0.239905, -0.0968063, 0.912957)
+bones/17/rotation = Quaternion(0.00208549, 0.000283581, -0.0583301, 0.998295)
 bones/18/position = Vector3(-2.10275e-07, 58.104, 1.34215e-06)
-bones/18/rotation = Quaternion(0.0556152, 0.175119, -0.00264331, 0.982972)
+bones/18/rotation = Quaternion(0.0581279, 0.175049, -0.00350725, 0.982836)
 bones/19/position = Vector3(4.89121e-07, 14.6156, -1.02503e-06)
 bones/19/rotation = Quaternion(0.0598661, -0.00148809, -0.00885655, 0.998166)
 bones/21/rotation = Quaternion(0.0145624, -0.010832, 0.125795, 0.99189)
-bones/23/rotation = Quaternion(0.138302, 0.0550928, 0.985901, -0.0763998)
-bones/24/rotation = Quaternion(-0.108801, -0.0140175, 0.0311308, 0.993477)
-bones/25/rotation = Quaternion(0.527785, -0.0334037, -0.0531735, 0.847053)
+bones/23/rotation = Quaternion(0.136225, 0.062913, 0.98572, -0.0764316)
+bones/24/rotation = Quaternion(-0.113845, -0.0143463, 0.0304894, 0.992927)
+bones/25/rotation = Quaternion(0.527497, -0.0315025, -0.0505842, 0.847464)
 bones/26/position = Vector3(-5.44172e-06, 37.0536, -1.33766e-06)
 bones/26/rotation = Quaternion(0.280196, -0.0315164, 0.00651209, 0.959403)
-bones/28/rotation = Quaternion(-0.092171, -0.0282323, 0.995013, -0.0256411)
-bones/29/rotation = Quaternion(-0.0662941, 0.0838694, -0.0252078, 0.99395)
-bones/30/rotation = Quaternion(0.565142, 0.0175354, 0.0171457, 0.824629)
-bones/31/rotation = Quaternion(0.298514, 0.0308474, -0.00588646, 0.953888)
+bones/28/rotation = Quaternion(-0.0910198, -0.0214653, 0.995277, -0.0260424)
+bones/29/rotation = Quaternion(-0.0676769, 0.0836417, -0.0250064, 0.993881)
+bones/30/rotation = Quaternion(0.559392, 0.020389, 0.0166211, 0.828486)
+bones/31/rotation = Quaternion(0.300037, 0.0308438, -0.00584056, 0.953411)
 
 [node name="BoneAttachment3D" parent="TestTuto/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.365504, 0.0310661, 0.930291, 0.928216, 0.0623937, -0.366772, -0.0694384, 0.997568, -0.00603071, -36.2831, 9.55373, -161.041)
+transform = Transform3D(0.363835, 0.0233122, 0.931172, 0.92872, 0.0675883, -0.364569, -0.0714352, 0.997441, 0.00294042, -35.5145, 7.9482, -161.596)
 
 [node name="Sword" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D" index="0"]
 transform = Transform3D(-23.1219, 49.007, -9.41749, 10.4524, -5.39307, -53.7277, -48.7968, -24.3768, -7.04625, -50.6289, 20.7265, 24.3065)
 script = ExtResource("49_8oonw")
 
 [node name="BoneAttachment3D2" parent="TestTuto/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.365504, 0.0310661, 0.930291, 0.928216, 0.0623937, -0.366772, -0.0694384, 0.997568, -0.00603071, -36.2831, 9.55373, -161.041)
+transform = Transform3D(0.363835, 0.0233122, 0.931172, 0.92872, 0.0675883, -0.364569, -0.0714352, 0.997441, 0.00294042, -35.5145, 7.9482, -161.596)
 
 [node name="BoneAttachment3D3" parent="TestTuto/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.115815, 0.0160781, -0.993141, -0.990075, 0.0820062, -0.11413, 0.0796087, 0.996502, 0.0254161, 37.5492, 11.7696, -164.963)
+transform = Transform3D(0.116472, 0.00856595, -0.993157, -0.990647, 0.0725716, -0.115551, 0.0710851, 0.997326, 0.0169384, 39.2065, 9.19211, -164.488)
 
 [node name="Rock" parent="." instance=ExtResource("6_dm6nt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8472, 28.1347, -14.657)
@@ -9127,16 +9127,19 @@ offset_bottom = 632.0
 metadata/_edit_use_anchors_ = true
 
 [node name="HealAbility" type="Sprite2D" parent="HUD_Forest/AbilityContainer"]
+unique_name_in_owner = true
 position = Vector2(112, 8)
 scale = Vector2(0.203125, 0.203125)
 texture = ExtResource("52_u5c05")
 
 [node name="EyeAbility" type="Sprite2D" parent="HUD_Forest/AbilityContainer"]
+unique_name_in_owner = true
 position = Vector2(-24, 7.99999)
 scale = Vector2(0.203, 0.203)
 texture = ExtResource("53_u6i6v")
 
 [node name="WeaponDisplay" type="Sprite2D" parent="HUD_Forest"]
+unique_name_in_owner = true
 z_index = 2
 position = Vector2(200, 168)
 scale = Vector2(0.203125, 0.203125)

@@ -23,6 +23,11 @@ var walkAwayFrom
 var walkDir = Vector3(0, 0, 0)
 var toward
 
+const FIST = preload("res://fist.png")
+const BLADE = preload("res://blade.png")
+const HEAL = preload("res://heal_ready.png")
+const NOHEAL = preload("res://heal_unready.png")
+
 signal attack
 signal healthChange
 
@@ -34,6 +39,17 @@ func _ready():
 	weaponNode = get_node("Armature/Skeleton3D/BoneAttachment3D/Sword")
 	weaponNode.visible = false
 	walkOut()
+
+func _process(delta):
+	if sword == true:
+		%WeaponDisplay.texture = BLADE
+	else: 
+		%WeaponDisplay.texture = FIST
+		
+	if canHeal == true:
+		%HealAbility.texture = HEAL
+	else:
+		%HealAbility.texture = NOHEAL
 
 func _physics_process(delta):
 	if playerHealth <= 0:

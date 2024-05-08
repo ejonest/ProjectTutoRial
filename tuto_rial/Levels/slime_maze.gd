@@ -40,6 +40,10 @@ var shrink = false
 var shrinkJ = 1
 var entranceExists = true
 
+const EYE = preload("res://cosmiceye_ready.png")
+const NOEYE = preload("res://cosmiceye_unready.png")
+const KEYFOUND = preload("res://keyfound.png")
+
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
 	var exitGate = gate.instantiate()
@@ -97,6 +101,12 @@ func _process(delta):
 	if shrink && entranceExists:
 		entrance.scale = Vector3(1, shrinkJ, 1)
 		shrinkJ -= .01
+	
+	# UNCOMMENT WHEN YOU IMPLEMENT EYE ABILITY
+	#if canFlipLights == true:
+		#%EyeAbility.texture = EYE
+	#else:
+		#%EyeAbility.texture = NOEYE
 	
 	if gotKey == true:
 		%KeyStatus.texture = KEYFOUND
