@@ -2,6 +2,8 @@ extends Node
 
 @onready var slimeTeal = load("res://Enemies/slimeTeal.tscn")
 @onready var portalEnt = load("res://Asset/Environment/Scene/treePortal.tscn")
+var objLabel 
+var warningLabel
 var enemyArray : Array
 var exitPortal
 var canFlipLights = true
@@ -33,6 +35,8 @@ func _ready():
 	for n in get_tree().get_nodes_in_group("Lights"):
 				n.visible = false
 	Engine.time_scale = 1
+	objLabel = get_tree().get_nodes_in_group("Objective")[0]
+	warningLabel = get_tree().get_nodes_in_group("Warning")[0]
 	pass
 
 func _process(delta):
@@ -75,12 +79,17 @@ func ReloadScene():
 		pass
 		
 func ReturnHome():
-	player.moveOn = 0
-	print("exiting")
-	await get_tree().create_timer(1).timeout
-	get_tree().change_scene_to_file.bind("res://main.tscn").call_deferred()
-	print("should have exited")
-	pass
+	if enemyArray.size() == 0:
+		player.moveOn = 0
+		print("exiting")
+		await get_tree().create_timer(1).timeout
+		get_tree().change_scene_to_file.bind("res://main.tscn").call_deferred()
+		print("should have exited")
+		pass
+	else:
+		warningLabel.text = "YOU MUST DEFEAT ALL THE SLIMES TO EXIT"
+		await get_tree().create_timer(3).timeout
+		warningLabel.text = ""
 	
 func spawnenemy(pos : Vector3, scale : Vector3, health : int, speed : float, canTakeDamage : bool, Type):
 	var enemy = Type.instantiate()

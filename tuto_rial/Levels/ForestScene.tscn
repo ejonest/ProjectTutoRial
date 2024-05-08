@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://b68t87m0jk2pr"]
+[gd_scene load_steps=96 format=3 uid="uid://b68t87m0jk2pr"]
 
 [ext_resource type="Script" path="res://Levels/ForestScene.gd" id="1_qntww"]
 [ext_resource type="PackedScene" uid="uid://bsjyu0fp5fq4g" path="res://Asset/Environment/Scene/floor.tscn" id="1_tlauk"]
@@ -377,6 +377,8 @@ turbulence_noise_strength = 0.2
 
 [sub_resource type="QuadMesh" id="QuadMesh_70cce"]
 
+[sub_resource type="Theme" id="Theme_as8ax"]
+
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_qntww")
 
@@ -395,45 +397,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 28.1386, -7)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DropSlimesZone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.229332, 2.02537, 1.35061)
 shape = SubResource("BoxShape3D_jva12")
-
-[node name="HUD_stuff" type="CanvasLayer" parent="."]
-
-[node name="Hud" parent="HUD_stuff" instance=ExtResource("45_6lkvu")]
-mouse_filter = 2
-script = ExtResource("46_uybne")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD_stuff"]
-z_index = 2
-offset_left = 136.0
-offset_top = -56.0
-offset_right = 392.0
-offset_bottom = 200.0
-rotation = 0.242415
-scale = Vector2(0.486413, 0.486413)
-pivot_offset = Vector2(128, 128)
-fill_mode = 3
-texture_under = ExtResource("47_ftmug")
-texture_progress = ExtResource("48_dfpel")
-script = ExtResource("49_3ts74")
-
-[node name="Label" type="Label" parent="HUD_stuff"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 848.0
-offset_top = 24.0
-offset_right = -23.0
-offset_bottom = 112.0
-grow_horizontal = 2
-size_flags_horizontal = 6
-size_flags_vertical = 10
-theme_type_variation = &"HeaderLarge"
-theme_override_fonts/font = ExtResource("11_cwco3")
-theme_override_font_sizes/font_size = 30
-text = "Objective: 
-Beat all the slimes
-"
-horizontal_alignment = 2
-autowrap_mode = 2
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 visible = false
@@ -8993,50 +8956,41 @@ unique_name_in_owner = true
 transform = Transform3D(-0.4, 0, -3.49691e-08, 0, 0.4, 0, 3.49691e-08, 0, -0.4, -21, 28.2, -52.3312)
 
 [node name="Skeleton3D" parent="TestTuto/Armature" index="0"]
-bones/0/position = Vector3(0.518305, 0.1075, -173.368)
-bones/0/rotation = Quaternion(-0.729127, -0.0529184, 0.0122683, 0.682219)
-bones/1/rotation = Quaternion(0.0186111, 0.0126945, 0.0227741, 0.999487)
-bones/2/rotation = Quaternion(0.0102695, 0.00263032, 0.0137929, 0.999849)
-bones/3/rotation = Quaternion(0.0100223, 0.00281539, 0.0138133, 0.99985)
-bones/4/rotation = Quaternion(0.0599784, -0.00114389, 0.00421466, 0.99819)
-bones/5/rotation = Quaternion(-0.0660738, 0.0117735, -0.00146566, 0.997744)
-bones/7/rotation = Quaternion(-0.722339, -0.27067, 0.528994, -0.353736)
-bones/8/rotation = Quaternion(0.390328, 0.143758, 0.080409, 0.905821)
-bones/9/rotation = Quaternion(0.000369342, 0.00135332, 0.0129049, 0.999916)
-bones/10/rotation = Quaternion(0.0495397, -0.284837, 0.0256556, 0.956951)
-bones/11/rotation = Quaternion(0.0664184, 0.00104282, 0.00664867, 0.997769)
-bones/12/rotation = Quaternion(0.127648, 0.00153064, -0.0265614, 0.991463)
-bones/13/rotation = Quaternion(0.00572311, 0.00713913, -0.0609304, 0.9981)
-bones/15/rotation = Quaternion(0.714458, -0.270835, 0.554214, 0.330219)
-bones/16/rotation = Quaternion(0.315569, -0.239905, -0.0968063, 0.912957)
-bones/17/rotation = Quaternion(0.00208549, 0.000283581, -0.0583301, 0.998295)
-bones/18/position = Vector3(-2.10275e-07, 58.104, 1.34215e-06)
-bones/18/rotation = Quaternion(0.0581279, 0.175049, -0.00350725, 0.982836)
-bones/19/position = Vector3(4.89121e-07, 14.6156, -1.02503e-06)
-bones/19/rotation = Quaternion(0.0598661, -0.00148809, -0.00885655, 0.998166)
-bones/21/rotation = Quaternion(0.0145624, -0.010832, 0.125795, 0.99189)
-bones/23/rotation = Quaternion(0.136225, 0.062913, 0.98572, -0.0764316)
-bones/24/rotation = Quaternion(-0.113845, -0.0143463, 0.0304894, 0.992927)
-bones/25/rotation = Quaternion(0.527497, -0.0315025, -0.0505842, 0.847464)
-bones/26/position = Vector3(-5.44172e-06, 37.0536, -1.33766e-06)
-bones/26/rotation = Quaternion(0.280196, -0.0315164, 0.00651209, 0.959403)
-bones/28/rotation = Quaternion(-0.0910198, -0.0214653, 0.995277, -0.0260424)
-bones/29/rotation = Quaternion(-0.0676769, 0.0836417, -0.0250064, 0.993881)
-bones/30/rotation = Quaternion(0.559392, 0.020389, 0.0166211, 0.828486)
-bones/31/rotation = Quaternion(0.300037, 0.0308438, -0.00584056, 0.953411)
+bones/0/position = Vector3(-0.812105, 1.94396, -173.409)
+bones/0/rotation = Quaternion(-0.728611, -0.0509601, 0.0154673, 0.682855)
+bones/1/rotation = Quaternion(0.0175661, 0.0135382, 0.0234752, 0.999478)
+bones/2/rotation = Quaternion(0.0100479, 0.00342369, 0.0143022, 0.999841)
+bones/3/rotation = Quaternion(0.00953093, 0.00319501, 0.0140493, 0.999851)
+bones/4/rotation = Quaternion(0.058921, -0.00153349, 0.00477194, 0.99825)
+bones/5/rotation = Quaternion(-0.0685762, 0.0106642, -0.000874361, 0.997589)
+bones/7/rotation = Quaternion(-0.719247, -0.274425, 0.531224, -0.353801)
+bones/8/rotation = Quaternion(0.393859, 0.141743, 0.083475, 0.904332)
+bones/9/rotation = Quaternion(0.000415943, 0.00135327, 0.0145357, 0.999893)
+bones/10/rotation = Quaternion(0.04815, -0.280465, 0.0251669, 0.958325)
+bones/15/rotation = Quaternion(0.714942, -0.269612, 0.555274, 0.328388)
+bones/16/rotation = Quaternion(0.313773, -0.242192, -0.0930338, 0.913364)
+bones/17/rotation = Quaternion(0.00207195, 0.000283622, -0.0579528, 0.998317)
+bones/18/rotation = Quaternion(0.0555206, 0.174953, -0.0024756, 0.983007)
+bones/23/rotation = Quaternion(0.137691, 0.0547409, 0.986005, -0.076415)
+bones/24/rotation = Quaternion(-0.108088, -0.013751, 0.0312895, 0.993554)
+bones/25/rotation = Quaternion(0.527227, -0.033339, -0.0531219, 0.847407)
+bones/28/rotation = Quaternion(-0.092199, -0.0275196, 0.99503, -0.0256486)
+bones/29/rotation = Quaternion(-0.0662291, 0.083857, -0.0251647, 0.993956)
+bones/30/rotation = Quaternion(0.564875, 0.0180773, 0.0167282, 0.824809)
+bones/31/rotation = Quaternion(0.298241, 0.030848, -0.00589457, 0.953974)
 
 [node name="BoneAttachment3D" parent="TestTuto/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.363835, 0.0233122, 0.931172, 0.92872, 0.0675883, -0.364569, -0.0714352, 0.997441, 0.00294042, -35.5145, 7.9482, -161.596)
+transform = Transform3D(0.365418, 0.0249979, 0.930508, 0.928357, 0.0632383, -0.366272, -0.0679996, 0.997685, -9.85786e-05, -36.7786, 9.32329, -161.185)
 
 [node name="Sword" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D" index="0"]
 transform = Transform3D(-23.1219, 49.007, -9.41749, 10.4524, -5.39307, -53.7277, -48.7968, -24.3768, -7.04625, -50.6289, 20.7265, 24.3065)
 script = ExtResource("49_8oonw")
 
 [node name="BoneAttachment3D2" parent="TestTuto/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.363835, 0.0233122, 0.931172, 0.92872, 0.0675883, -0.364569, -0.0714352, 0.997441, 0.00294042, -35.5145, 7.9482, -161.596)
+transform = Transform3D(0.365418, 0.0249979, 0.930508, 0.928357, 0.0632383, -0.366272, -0.0679996, 0.997685, -9.85786e-05, -36.7786, 9.32329, -161.185)
 
 [node name="BoneAttachment3D3" parent="TestTuto/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.116472, 0.00856595, -0.993157, -0.990647, 0.0725716, -0.115551, 0.0710851, 0.997326, 0.0169384, 39.2065, 9.19211, -164.488)
+transform = Transform3D(0.11414, 0.0155794, -0.993343, -0.990427, 0.07991, -0.112552, 0.0776245, 0.99668, 0.024551, 37.7214, 11.2369, -164.998)
 
 [node name="Rock" parent="." instance=ExtResource("6_dm6nt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8472, 28.1347, -14.657)
@@ -9099,7 +9053,7 @@ texture_progress = ExtResource("48_dfpel")
 script = ExtResource("49_3ts74")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="HUD_Forest"]
+[node name="Obj" type="Label" parent="HUD_Forest" groups=["Objective"]]
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 848.0
@@ -9145,6 +9099,28 @@ position = Vector2(200, 168)
 scale = Vector2(0.203125, 0.203125)
 texture = ExtResource("54_xl6go")
 metadata/_edit_lock_ = true
+
+[node name="Obj2" type="Label" parent="HUD_Forest" groups=["Warning"]]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 407.0
+offset_top = 64.0
+offset_right = -464.0
+offset_bottom = 181.0
+grow_horizontal = 2
+scale = Vector2(1.32, 1.44)
+size_flags_horizontal = 6
+size_flags_vertical = 10
+theme = SubResource("Theme_as8ax")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.847059, 0.0745098, 0, 1)
+theme_override_fonts/font = ExtResource("11_cwco3")
+theme_override_font_sizes/font_size = 30
+text = "
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [connection signal="area_entered" from="DropSlimesZone" to="." method="_on_drop_slimes_area_entered"]
 
