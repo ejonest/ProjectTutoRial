@@ -22,6 +22,7 @@ metadata/_edit_lock_ = true
 
 [node name="LevelSelect" type="Button" parent="."]
 z_index = 3
+layout_mode = 0
 offset_left = 456.0
 offset_top = 223.1
 offset_right = 1064.0
@@ -32,6 +33,7 @@ metadata/_edit_lock_ = true
 
 [node name="Quit" type="Button" parent="."]
 z_index = 3
+layout_mode = 0
 offset_left = 456.0
 offset_top = 376.525
 offset_right = 1064.0

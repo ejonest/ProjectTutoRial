@@ -14,6 +14,9 @@ var shrinkJ = 1
 var entranceExists = true
 var entrance
 
+const EYE = preload("res://cosmiceye_ready.png")
+const NOEYE = preload("res://cosmiceye_unready.png")
+
 func _ready():
 	entrance = portalEnt.instantiate()
 	entrance.position = Vector3(-22, 28, -52)
@@ -47,6 +50,11 @@ func _process(delta):
 	if shrink && entranceExists:
 		entrance.scale = Vector3(1, shrinkJ, shrinkJ)
 		shrinkJ -= .01
+		
+	if canFlipLights == true:
+		%EyeAbility.texture = EYE
+	else:
+		%EyeAbility.texture = NOEYE
 	
 func spawnEnt():
 	await get_tree().create_timer(2).timeout

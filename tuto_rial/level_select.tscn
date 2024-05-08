@@ -27,12 +27,14 @@ offset_bottom = 648.0
 metadata/_edit_lock_ = true
 
 [node name="EnchantedLevel" type="Button" parent="."]
+layout_mode = 0
 offset_left = 384.0
 offset_right = 768.0
 offset_bottom = 648.0
 metadata/_edit_lock_ = true
 
 [node name="MazeLevel" type="Button" parent="."]
+layout_mode = 0
 offset_left = 768.0
 offset_right = 1152.0
 offset_bottom = 648.0
