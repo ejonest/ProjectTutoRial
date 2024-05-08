@@ -1,14 +1,25 @@
 extends Node
 
 @onready var slimeWhite = load("res://Enemies/slimeWhite.tscn")
+@onready var portalEnt = load("res://Asset/Environment/Scene/portalEnt.tscn")
+
 var enemyArray : Array
 var exitPortal
 var canFlipLights = true
 var player
 var reloadingScene = false
 var paused = false
+var shrink = false
+var shrinkJ = 1
+var entranceExists = true
+var entrance
 
 func _ready():
+	entrance = portalEnt.instantiate()
+	entrance.position = Vector3(1.3, 4, 8)
+	entrance.rotate(Vector3(0, 1, 0), 3.14)
+	add_child(entrance)
+	spawnEnt()
 	player = get_tree().get_nodes_in_group("Player")[0]
 	spawnenemy(Vector3(4, 0, -110), Vector3(5, 5, 5), 30, 2, false, slimeWhite)
 	spawnenemy(Vector3(4, 0, -90), Vector3(5, 5, 5), 30, 2, false, slimeWhite)
@@ -23,6 +34,7 @@ func _ready():
 	pass
 
 func _process(delta):
+	
 	var i = 0
 	for n in enemyArray:
 		if n.getHealth() <= 0:
@@ -36,8 +48,18 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("esc"):
 		pauseMenu()
-		
-	pass
+	if shrink && entranceExists:
+		entrance.scale = Vector3(1, shrinkJ, 1)
+		shrinkJ -= .01
+	
+func spawnEnt():
+	await get_tree().create_timer(2).timeout
+	shrink = true
+	await get_tree().create_timer(4).timeout
+	entranceExists = false
+	print("test")
+	entrance.queue_free()
+	print("Should be gone now")
 
 func ReloadScene():
 	if !reloadingScene:

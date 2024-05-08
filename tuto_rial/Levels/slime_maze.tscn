@@ -1384,7 +1384,8 @@ shape = SubResource("BoxShape3D_8t4rh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1721, 0.585, -63.5777)
 
 [node name="PortalEnt" parent="." instance=ExtResource("10_dr2jn")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 0, 0.916)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 0, 5.6)
+visible = false
 
 [node name="PortalExit" parent="." instance=ExtResource("10_dr2jn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66038, 0, -105.958)
@@ -1429,7 +1430,7 @@ horizontal_alignment = 2
 autowrap_mode = 2
 
 [node name="CameraController" type="Node3D" parent="." groups=["CameraController"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.816829, 0.851616)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.8, 2.8)
 script = ExtResource("6_gi1f8")
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraController"]
@@ -1450,44 +1451,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218803, 2.41586, -4.98026)
 
 [node name="TestTuto" parent="." instance=ExtResource("4_2gpl1")]
 unique_name_in_owner = true
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.816829, -0.875393)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.8, 5.7)
 
 [node name="Skeleton3D" parent="TestTuto/Armature" index="0"]
-bones/0/position = Vector3(-0.472926, 0.93899, -173.296)
-bones/0/rotation = Quaternion(-0.729938, -0.0519081, 0.0136415, 0.681403)
-bones/1/rotation = Quaternion(0.0244594, 0.0148135, 0.0252991, 0.999271)
-bones/2/rotation = Quaternion(0.0118712, 0.00349884, 0.0145936, 0.999817)
-bones/3/rotation = Quaternion(0.011655, 0.00367855, 0.0146186, 0.999818)
-bones/4/rotation = Quaternion(0.0622062, -0.00198826, 0.00456995, 0.998051)
-bones/5/rotation = Quaternion(-0.0757058, 0.00846305, 0.000239291, 0.997094)
-bones/7/rotation = Quaternion(-0.724625, -0.268201, 0.526529, -0.354617)
-bones/8/rotation = Quaternion(0.3907, 0.14256, 0.0852243, 0.90541)
-bones/9/rotation = Quaternion(0.000382173, 0.00135341, 0.0133597, 0.99991)
-bones/10/rotation = Quaternion(0.0447568, -0.289381, 0.0298068, 0.955702)
-bones/15/rotation = Quaternion(0.71787, -0.267236, 0.550789, 0.33148)
-bones/16/rotation = Quaternion(0.315989, -0.237423, -0.0929589, 0.91386)
-bones/17/rotation = Quaternion(0.00208423, 0.0002836, -0.0582946, 0.998297)
-bones/18/rotation = Quaternion(0.0539635, 0.175725, -0.00343209, 0.982953)
-bones/23/rotation = Quaternion(0.139765, 0.0591793, 0.985333, -0.0779887)
-bones/24/rotation = Quaternion(-0.114015, -0.0103095, 0.0308436, 0.992947)
-bones/25/rotation = Quaternion(0.528341, -0.0327854, -0.0522478, 0.846789)
-bones/28/rotation = Quaternion(-0.0918559, -0.0221171, 0.99517, -0.0266496)
-bones/29/rotation = Quaternion(-0.076217, 0.0834045, -0.0261856, 0.993252)
-bones/30/rotation = Quaternion(0.566377, 0.0194453, 0.0164975, 0.823752)
-bones/31/rotation = Quaternion(0.299575, 0.0308449, -0.00585461, 0.953556)
+bones/0/position = Vector3(-0.230477, 0.649177, -173.341)
+bones/0/rotation = Quaternion(-0.728879, -0.0530713, 0.0143152, 0.682432)
+bones/1/rotation = Quaternion(0.0222529, 0.0139305, 0.0244374, 0.999357)
+bones/2/rotation = Quaternion(0.0112865, 0.00309345, 0.0143195, 0.999829)
+bones/3/rotation = Quaternion(0.0110572, 0.00330049, 0.0143498, 0.99983)
+bones/4/rotation = Quaternion(0.0607769, -0.00172068, 0.00482376, 0.998138)
+bones/5/rotation = Quaternion(-0.0721449, 0.00989257, -0.000437606, 0.997345)
+bones/7/rotation = Quaternion(-0.72308, -0.270255, 0.527239, -0.355156)
+bones/8/rotation = Quaternion(0.39215, 0.142845, 0.0828511, 0.904958)
+bones/9/rotation = Quaternion(0.000379699, 0.00135339, 0.0132711, 0.999911)
+bones/10/rotation = Quaternion(0.0478894, -0.287532, 0.0281911, 0.956157)
+bones/15/rotation = Quaternion(0.716425, -0.268936, 0.551871, 0.331432)
+bones/16/rotation = Quaternion(0.316121, -0.238594, -0.0957962, 0.913216)
+bones/17/rotation = Quaternion(0.00208447, 0.000283597, -0.0583015, 0.998297)
+bones/18/rotation = Quaternion(0.0539732, 0.175432, -0.00343026, 0.983005)
+bones/23/rotation = Quaternion(0.138485, 0.0605452, 0.985483, -0.0773332)
+bones/24/rotation = Quaternion(-0.112313, -0.0131108, 0.0309302, 0.993105)
+bones/25/rotation = Quaternion(0.526861, -0.0324458, -0.0519093, 0.847744)
+bones/28/rotation = Quaternion(-0.0914657, -0.021272, 0.995227, -0.0265295)
+bones/29/rotation = Quaternion(-0.0727726, 0.0834311, -0.0258518, 0.993517)
+bones/30/rotation = Quaternion(0.563566, 0.0188835, 0.0166087, 0.825688)
+bones/31/rotation = Quaternion(0.299665, 0.0308447, -0.00585188, 0.953528)
 
 [node name="BoneAttachment3D" parent="TestTuto/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.37167, 0.0305943, 0.927861, 0.926262, 0.0550127, -0.372844, -0.062451, 0.998017, -0.00789193, -35.7304, 8.39717, -160.84)
+transform = Transform3D(0.367386, 0.0266974, 0.929686, 0.927675, 0.0611497, -0.368347, -0.0666841, 0.997772, -0.00230095, -35.7363, 8.29819, -161.115)
 
 [node name="Sword" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D" index="0"]
 transform = Transform3D(-23.1219, 49.007, -9.41749, 10.4524, -5.39307, -53.7277, -48.7968, -24.3768, -7.04625, -50.6289, 20.7265, 24.3065)
 script = ExtResource("18_gdxtr")
 
 [node name="BoneAttachment3D2" parent="TestTuto/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.37167, 0.0305943, 0.927861, 0.926262, 0.0550127, -0.372844, -0.062451, 0.998017, -0.00789193, -35.7304, 8.39717, -160.84)
+transform = Transform3D(0.367386, 0.0266974, 0.929686, 0.927675, 0.0611497, -0.368347, -0.0666841, 0.997772, -0.00230095, -35.7363, 8.29819, -161.115)
 
 [node name="BoneAttachment3D3" parent="TestTuto/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.11206, 0.0178467, -0.993541, -0.990821, 0.0780822, -0.11035, 0.0756085, 0.996787, 0.0264327, 37.8278, 10.0868, -164.621)
+transform = Transform3D(0.115528, 0.0133492, -0.993214, -0.990885, 0.0712971, -0.114299, 0.0692875, 0.997366, 0.0214644, 38.3025, 9.70326, -164.67)
 
 [connection signal="area_entered" from="Areas/SlimeArea1" to="." method="_on_slime_area_1_area_entered"]
 [connection signal="area_entered" from="Areas/SlimeArea2" to="." method="_on_slime_area_2_area_entered"]

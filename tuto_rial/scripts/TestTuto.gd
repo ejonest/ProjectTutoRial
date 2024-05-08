@@ -20,7 +20,7 @@ var moveOn = 1
 var canHeal = true
 var walkingOut = false
 var walkAwayFrom
-var orgin
+var walkDir = Vector3(0, 0, 0)
 var toward
 
 signal attack
@@ -31,9 +31,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	lookat = get_tree().get_nodes_in_group("CameraController")[0].get_node("LookAt")
-	walkAwayFrom = get_tree().get_nodes_in_group("Portal")[0]
-	orgin = walkAwayFrom.get_node("Orgin").global_position
-	toward = walkAwayFrom.get_node("ForVec").global_position
 	weaponNode = get_node("Armature/Skeleton3D/BoneAttachment3D/Sword")
 	weaponNode.visible = false
 	walkOut()
@@ -91,10 +88,15 @@ func _physics_process(delta):
 		input_dir = Vector2(0, 0)
 		
 	if walkingOut:
+		walkAwayFrom = get_tree().get_nodes_in_group("Entrance")[0]
+		if walkDir == Vector3(0, 0, 0):
+			toward = walkAwayFrom.get_node("ForVec").global_position
+			walkDir = toward - global_position
 		#print("I should be walking")
 		#velocity.z = global_position.z - walkAwayFrom.position.z * SPEED
-		velocity.z = (toward - orgin).z * SPEED
-		print(velocity)
+		velocity.z = walkDir.z
+		velocity.x = walkDir.x
+		#print(velocity)
 		#global_position.z -= (walkAwayFrom.position.z - global_position.z) / 50
 		#print(global_position.z)
 		#print(velocity.z)
@@ -185,12 +187,13 @@ func _physics_process(delta):
 
 func walkOut():
 	moveOn = 0
+	await get_tree().create_timer(.5).timeout
 	walkingOut = true
-	print("Walking out now: ", walkingOut)
-	await get_tree().create_timer(1.75).timeout
+	#print("Walking out now: ", walkingOut)
+	await get_tree().create_timer(1.5).timeout
 	walkingOut = false
 	moveOn = 1
-	print("Man that was a long walk: ", walkingOut)
+	#print("Man that was a long walk: ", walkingOut)
 	
 func heal():
 	if canHeal:

@@ -4,6 +4,7 @@ extends Node
 @onready var slimeTeal = load("res://Enemies/slimeTeal.tscn")
 @onready var slimeWhite = load("res://Enemies/slimeWhite.tscn")
 @onready var slimeRock = load("res://Enemies/slimeRock.tscn")
+@onready var portalEnt = load("res://Asset/Environment/Scene/portalEnt.tscn")
 var paused = false
 var enemyArray : Array
 var forestPortal
@@ -14,12 +15,21 @@ var player
 var reloadingScene = false
 var spawnArray : Array
 var k = 0
+var shrink = false
+var shrinkJ = 1
+var entranceExists = true
+var entrance
 
 func _ready():
 # To spawn an enemy you need to pass it a location(vector3), a scaling(vector3), 
 # health(int), speed(float), if they can take damage(bool), and the type of slime
+	entrance = portalEnt.instantiate()
+	entrance.position = Vector3(1.52, 0, 3)
+	entrance.rotate(Vector3(0, 1, 0), 3.14)
+	add_child(entrance)
+	spawnEnt()
 	player = get_tree().get_nodes_in_group("Player")[0]
-	spawnArray = [Vector3(-5, 1, -12), Vector3(5, 5, 5), 10, 1.5, true, slimePlain, 
+	spawnArray = [Vector3(-6, 1, -16), Vector3(5, 5, 5), 10, 1.5, true, slimePlain, 
 		Vector3(5, 1, -12), Vector3(5, 5, 5), 10, 1.5, true, slimeTeal, 
 		Vector3(3, 5, -40), Vector3(5, 5, 5), 10, 1.5, true, slimeRock,
 		Vector3(-3, 5, -40), Vector3(5, 5, 5), 30, 1.5, false, slimeWhite]
@@ -56,8 +66,18 @@ func _process(delta):
 
 	if Input.is_action_just_pressed("esc"):
 		pauseMenu()
-		
-	pass
+	if shrink && entranceExists:
+		entrance.scale = Vector3(1, shrinkJ, 1)
+		shrinkJ -= .01
+	
+func spawnEnt():
+	await get_tree().create_timer(2).timeout
+	shrink = true
+	await get_tree().create_timer(4).timeout
+	entranceExists = false
+	print("test")
+	entrance.queue_free()
+	print("Should be gone now")
 
 func ForestScene():
 	player.moveOn = 0

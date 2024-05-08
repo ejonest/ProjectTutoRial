@@ -1,13 +1,11 @@
 extends Node3D
 
-@onready var slimePlain = load("res://Enemies/slime.tscn")
-@onready var slimeTeal = load("res://Enemies/slimeTeal.tscn")
-@onready var slimeWhite = load("res://Enemies/slimeWhite.tscn")
-@onready var slimeRock = load("res://Enemies/slimeRock.tscn")
 
+@onready var slimeRock = load("res://Enemies/slimeRock.tscn")
 @onready var wall = load("res://Asset/Environment/Scene/wallDoor.tscn")
 @onready var gate = load("res://Asset/Environment/Scene/Exit_Gate.tscn")
 @onready var key = load("res://Asset/Environment/Scene/key.tscn")
+@onready var portalEnt = load("res://Asset/Environment/Scene/portalEnt.tscn")
 
 var simultaneous_scene = preload("res://main.tscn").instantiate()
 var enemyArray : Array
@@ -32,17 +30,26 @@ var gotPos = false
 var pos : Vector3
 var pickedUpKey = false
 var portalExt
+var entrance
 var player
 var reloadingScene = false
 var paused = false
 var rotKey = 0
 var keySpawned = false
+var shrink = false
+var shrinkJ = 1
+var entranceExists = true
 
 func _ready():
 	player = get_tree().get_nodes_in_group("Player")[0]
 	var exitGate = gate.instantiate()
 	exitGate.position = Vector3(-2.73, 0, -85.5)
 	add_child(exitGate)
+	entrance = portalEnt.instantiate()
+	entrance.position = Vector3(1.52, .6, 5.6)
+	entrance.rotate(Vector3(0, 1, 0), 3.14)
+	add_child(entrance)
+	spawnEnt()
 	var children = get_children()
 	for n in children:
 		if n.is_in_group("ExitGate"):
@@ -85,11 +92,18 @@ func _process(delta):
 		exitArray[0].rotation = Vector3(0, exitAngle, 0)
 	if player.playerHealth == 0:
 		ReloadScene()
-		
 	if Input.is_action_just_pressed("esc"):
 		pauseMenu()
-		
-	pass
+	if shrink && entranceExists:
+		entrance.scale = Vector3(1, shrinkJ, 1)
+		shrinkJ -= .01
+	
+func spawnEnt():
+	await get_tree().create_timer(2).timeout
+	shrink = true
+	await get_tree().create_timer(4).timeout
+	entranceExists = false
+	entrance.queue_free()
 
 func spawnKey(keyPos : Vector3):
 	keySpawned = true
