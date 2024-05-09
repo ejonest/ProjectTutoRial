@@ -77,9 +77,10 @@ func _physics_process(delta):
 		crouching = false
 		SPEED = 5.0
 		
-	if Input.is_action_just_pressed("equip"):
-		sword = !sword
-		weaponNode.visible = !weaponNode.visible
+	#if Input.is_action_just_pressed("equip"):
+		#_swordChange()
+		##sword = !sword
+		##weaponNode.visible = !weaponNode.visible
 		
 	if Input.is_action_just_pressed("heal"):
 		heal()
@@ -136,7 +137,7 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 #IDLE
 	$AnimationTree.set("parameters/conditions/idle", input_dir == Vector2.ZERO && is_on_floor() 
-		&& !crouching && !walkingOut)
+		&& !crouching && !walkingOut && !damageAni)
 #WALK
 	#$AnimationTree.set("parameters/conditions/walk", walkingOut == true)
 	$AnimationTree.set("parameters/conditions/walk", walkingOut || input_dir.x == 0 && input_dir.y == -1 
@@ -171,8 +172,8 @@ func _physics_process(delta):
 	$AnimationTree.set("parameters/conditions/crouchRight", input_dir.x == 1 && is_on_floor()
 		&& crouching && moveOn != 0)
 #Equip
-	$AnimationTree.set("parameters/conditions/equip", input_dir == Vector2.ZERO 
-		&& is_on_floor() && !crouching && !sword && Input.is_action_pressed("equip") && moveOn != 0)
+	$AnimationTree.set("parameters/conditions/equip", !sword && input_dir == Vector2.ZERO 
+		&& is_on_floor() && !crouching && Input.is_action_pressed("equip") && moveOn != 0)
 	$AnimationTree.set("parameters/conditions/unequip", input_dir == Vector2.ZERO 
 		&& is_on_floor() && !crouching && sword && Input.is_action_pressed("equip") && moveOn != 0)
 #Combat
@@ -188,9 +189,9 @@ func _physics_process(delta):
 	$AnimationTree.set("parameters/conditions/slashOver", input_dir == Vector2.ZERO 
 		&& is_on_floor() && !crouching && sword && !meleeOne
 		&& Input.is_action_pressed("attack") && moveOn != 0)
-	$AnimationTree.set("parameters/conditions/slashOver", input_dir == Vector2.ZERO 
-		&& is_on_floor() && !crouching && sword && !meleeOne
-		&& Input.is_action_pressed("attack") && moveOn != 0)
+	#$AnimationTree.set("parameters/conditions/slashOver", input_dir == Vector2.ZERO 
+		#&& is_on_floor() && !crouching && sword && !meleeOne
+		#&& Input.is_action_pressed("attack") && moveOn != 0)
 # DAMAGE
 	$AnimationTree.set("parameters/conditions/hitLeft", damageAni && hitLeft 
 		&& playerHealth > 0)
@@ -212,7 +213,7 @@ func walkOut():
 	#print("Man that was a long walk: ", walkingOut)
 	
 func heal():
-	if canHeal:
+	if canHeal && playerHealth < 100:
 		canHeal = false
 		playerHealth += 10
 		healthChange.emit()
@@ -258,6 +259,12 @@ func _on_hitbox_area_exited(area):
 	if area.is_in_group("Enemy"):
 		beingTouched = false
 		#print(beingTouched)
-		
+
+func _playingEquip():
+	print("equip")
+func _playingUnEquip():
+	print("unequip")
 func _swordChange():
+	sword = !sword
+	weaponNode.visible = !weaponNode.visible
 	pass

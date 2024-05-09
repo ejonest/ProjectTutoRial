@@ -25,11 +25,13 @@ func _ready():
 	add_child(entrance)
 	spawnEnt()
 	player = get_tree().get_nodes_in_group("Player")[0]
-	spawnenemy(Vector3(4, 0, -110), Vector3(5, 5, 5), 30, 2, false, slimeWhite)
-	spawnenemy(Vector3(4, 0, -90), Vector3(5, 5, 5), 30, 2, false, slimeWhite)
-	spawnenemy(Vector3(4, 0, -70), Vector3(5, 5, 5), 30, 2, false, slimeWhite)
-	spawnenemy(Vector3(4, 0, -50), Vector3(5, 5, 5), 30, 2, false, slimeWhite)
-	spawnenemy(Vector3(4, 0, -30), Vector3(5, 5, 5), 30, 2, false, slimeWhite)
+	for n in get_tree().get_nodes_in_group("EnemyLoc"):
+		spawnenemy(n.global_position, Vector3(5, 5, 5), 30, 3, false, slimeWhite)
+	#spawnenemy(Vector3(4, 0, -110), Vector3(5, 5, 5), 30, 3, false, slimeWhite)
+	#spawnenemy(Vector3(4, 0, -90), Vector3(5, 5, 5), 30, 3, false, slimeWhite)
+	#spawnenemy(Vector3(4, 0, -70), Vector3(5, 5, 5), 30, 3, false, slimeWhite)
+	#spawnenemy(Vector3(4, 0, -50), Vector3(5, 5, 5), 30, 3, false, slimeWhite)
+	#spawnenemy(Vector3(4, 0, -30), Vector3(5, 5, 5), 30, 3, false, slimeWhite)
 	exitPortal = get_tree().get_nodes_in_group("Portal")[1]
 	exitPortal.changeScene.connect(ReturnHome)
 	for n in get_tree().get_nodes_in_group("Lights"):

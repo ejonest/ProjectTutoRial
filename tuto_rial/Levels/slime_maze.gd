@@ -210,7 +210,7 @@ func _on_slime_area_1_area_entered(area):
 		wallDoor.position = Vector3(-11.5, .585, -14)
 		wallDoor.rotation = Vector3(0, -3.14 / 2, 0)
 		add_child(wallDoor)
-		spawnenemy(Vector3(-21.5, 3, -19), Vector3(2, 2, 2), 30, 1.5, true, slimeRock)
+		spawnenemy(Vector3(-21.5, 3, -19), Vector3(3, 3, 3), 30, 1.5, true, slimeRock)
 		var children = get_children()
 		for n in children:
 			if n.is_in_group("Doors"):
@@ -223,7 +223,7 @@ func _on_slime_area_2_area_entered(area):
 		wallDoor.position = Vector3(28, .585, -26)
 		wallDoor.scale = Vector3(4, .75, 1)
 		add_child(wallDoor)
-		spawnenemy(Vector3(18.5, 3, -36), Vector3(2, 2, 2), 30, 1.5, true, slimeRock)
+		spawnenemy(Vector3(18.5, 3, -36), Vector3(3, 3, 3), 30, 1.5, true, slimeRock)
 		var children = get_children()
 		for n in children:
 			if n.is_in_group("Doors"):
@@ -235,7 +235,7 @@ func _on_slime_area_3_area_entered(area):
 		var wallDoor = wall.instantiate()
 		wallDoor.position = Vector3(-20, .585, -50)
 		add_child(wallDoor)
-		spawnenemy(Vector3(-22, 3, -44), Vector3(2, 2, 2), 30, 1.5, true, slimeRock)
+		spawnenemy(Vector3(-22, 3, -44), Vector3(3, 3, 3), 30, 1.5, true, slimeRock)
 		var children = get_children()
 		for n in children:
 			if n.is_in_group("Doors"):
@@ -247,7 +247,7 @@ func _on_slime_area_4_area_entered(area):
 		var wallDoor = wall.instantiate()
 		wallDoor.position = Vector3(8, .585, -54)
 		add_child(wallDoor)
-		spawnenemy(Vector3(14, 3, -48), Vector3(2, 2, 2), 30, 1.5, true, slimeRock)
+		spawnenemy(Vector3(14, 3, -48), Vector3(3, 3, 3), 30, 1.5, true, slimeRock)
 		wallDoor = wall.instantiate()
 		wallDoor.position = Vector3(24, .585, -54)
 		add_child(wallDoor)
@@ -264,7 +264,7 @@ func _on_slime_area_5_area_entered(area):
 		wallDoor.position = Vector3(20.5, .585, -62)
 		wallDoor.rotation = Vector3(0, 3*3.14/2, 0)
 		add_child(wallDoor)
-		spawnenemy(Vector3(-1.5, 3, -67), Vector3(2, 2, 2), 30, 1.5, true, slimeRock)
+		spawnenemy(Vector3(-1.5, 3, -67), Vector3(3, 3, 3), 30, 1.5, true, slimeRock)
 		var children = get_children()
 		for n in children:
 			if n.is_in_group("Doors"):
@@ -284,7 +284,7 @@ func _on_slime_area_6_area_entered(area):
 		wallDoor.position = Vector3(20.5, .585, -62)
 		wallDoor.rotation = Vector3(0, 3*3.14/2, 0)
 		add_child(wallDoor)
-		spawnenemy(Vector3(-1.5, 3, -67), Vector3(2, 2, 2), 30, 1.5, true, slimeRock)
+		spawnenemy(Vector3(-1.5, 3, -67), Vector3(3, 3, 3), 30, 1.5, true, slimeRock)
 		var children = get_children()
 		for n in children:
 			if n.is_in_group("Doors"):
@@ -302,7 +302,7 @@ func _on_slime_area_7_area_entered(area):
 		var wallDoor = wall.instantiate()
 		wallDoor.position = Vector3(-20, .585, -50)
 		add_child(wallDoor)
-		spawnenemy(Vector3(-22, 3,-60), Vector3(2, 2, 2), 30, 1.5, true, slimeRock)
+		spawnenemy(Vector3(-22, 3,-60), Vector3(3, 3, 3), 30, 1.5, true, slimeRock)
 		var children = get_children()
 		for n in children:
 			if n.is_in_group("Doors"):
@@ -314,7 +314,7 @@ func _on_slime_area_8_area_entered(area):
 		var wallDoor = wall.instantiate()
 		wallDoor.position = Vector3(16.5, .585, -74)
 		add_child(wallDoor)
-		spawnenemy(Vector3(18, 3, -83.5), Vector3(2, 2, 2), 30, 1.5, true, slimeRock)
+		spawnenemy(Vector3(18, 3, -83.5), Vector3(3, 3, 3), 30, 1.5, true, slimeRock)
 		var children = get_children()
 		for n in children:
 			if n.is_in_group("Doors"):

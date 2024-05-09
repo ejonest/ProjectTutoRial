@@ -215,7 +215,7 @@ libraries = {
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0350185, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.0350185, 0)
 shape = SubResource("ConvexPolygonShape3D_1m7u0")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

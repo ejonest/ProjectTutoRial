@@ -27,10 +27,10 @@ func _ready():
 	add_child(entrance)
 	spawnEnt()
 	player = get_tree().get_nodes_in_group("Player")[0]
-	spawnenemy(Vector3(-24, 29.5, -20), Vector3(3, 3, 3), 10, 3, true, slimeTeal)
-	spawnenemy(Vector3(-18, 29.5, -5), Vector3(2, 2, 2), 6, 3, true, slimeTeal)
-	spawnenemy(Vector3(-18, 29.5, 14), Vector3(2, 2, 2), 6, 3, true, slimeTeal)
-	spawnenemy(Vector3(38, 29.5, -20), Vector3(4, 4, 4), 50, 4, true, slimeTeal)
+	spawnenemy(Vector3(-24, 29.5, -20), Vector3(4, 4, 4), 12, 15, true, slimeTeal)
+	spawnenemy(Vector3(-18, 29.5, -5), Vector3(3, 3, 3), 6, 15, true, slimeTeal)
+	spawnenemy(Vector3(-18, 29.5, 14), Vector3(3, 3, 3), 6, 15, true, slimeTeal)
+	spawnenemy(Vector3(38, 29.5, -20), Vector3(5, 5, 5), 50, 10, true, slimeTeal)
 	exitPortal = get_tree().get_nodes_in_group("Portal")[0]
 	exitPortal.changeScene.connect(ReturnHome)
 	for n in get_tree().get_nodes_in_group("Lights"):
@@ -126,8 +126,8 @@ func removeenemy():
 func _on_drop_slimes_area_entered(area):
 	if area.is_in_group("LeftHand") || area.is_in_group("RightHand"):
 		if !slimesHaveSpawned:
-			spawnenemy(Vector3(37, 29, -4), Vector3(2, 2, 2), 20, 10, true, slimeTeal)
-			spawnenemy(Vector3(33, 29, -7), Vector3(2, 2, 2), 20, 10, true, slimeTeal)
+			spawnenemy(Vector3(37, 29, -4), Vector3(3, 3, 3), 6, 15, true, slimeTeal)
+			spawnenemy(Vector3(33, 29, -7), Vector3(3, 3, 3), 6, 15, true, slimeTeal)
 			slimesHaveSpawned = true
 
 func pauseMenu():

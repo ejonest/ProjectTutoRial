@@ -40,10 +40,10 @@ func _ready():
 	add_child(entrance)
 	spawnEnt()
 	player = get_tree().get_nodes_in_group("Player")[0]
-	spawnArray = [Vector3(-6, 1, -16), Vector3(5, 5, 5), 10, 1.5, true, slimePlain, 
-		Vector3(5, 1, -12), Vector3(5, 5, 5), 10, 1.5, true, slimeTeal, 
-		Vector3(3, 5, -40), Vector3(5, 5, 5), 10, 1.5, true, slimeRock,
-		Vector3(-3, 5, -40), Vector3(5, 5, 5), 30, 1.5, false, slimeWhite]
+	spawnArray = [Vector3(-6, 1, -16), Vector3(5, 5, 5), 10, 3, true, slimePlain, 
+		Vector3(5, 1, -12), Vector3(3, 3, 3), 6, 5, true, slimeTeal, 
+		Vector3(3, 5, -40), Vector3(3, 3, 3), 30, 1.5, true, slimeRock,
+		Vector3(-3, 5, -40), Vector3(3, 3, 3), 10, 3, false, slimeWhite]
 	spawnenemy(spawnArray[k+0], spawnArray[k+1], spawnArray[k+2], spawnArray[k+3], spawnArray[k+4], spawnArray[k+5])
 	k += 6
 	forestPortal = get_tree().get_nodes_in_group("Portal")[0]
