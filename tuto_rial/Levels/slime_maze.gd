@@ -39,12 +39,15 @@ var keySpawned = false
 var shrink = false
 var shrinkJ = 1
 var entranceExists = true
+var canFlipLights = true
+var warningLabel
 
 const EYE = preload("res://cosmiceye_ready.png")
 const NOEYE = preload("res://cosmiceye_unready.png")
 const KEYFOUND = preload("res://keyfound.png")
 
 func _ready():
+	get_node("Arrrow").visible = false
 	player = get_tree().get_nodes_in_group("Player")[0]
 	var exitGate = gate.instantiate()
 	exitGate.position = Vector3(-2.73, 0, -85.5)
@@ -62,6 +65,7 @@ func _ready():
 	portalExt = get_tree().get_nodes_in_group("Portal")[1]
 	portalExt.changeScene.connect(exitScene)
 	Engine.time_scale = 1
+	warningLabel = get_tree().get_nodes_in_group("Warning")[0]
 	pass
 
 func _process(delta):
@@ -96,6 +100,8 @@ func _process(delta):
 		exitArray[0].rotation = Vector3(0, exitAngle, 0)
 	if player.playerHealth == 0:
 		ReloadScene()
+	if Input.is_action_just_pressed("path") && canFlipLights:
+		flipLights()
 	if Input.is_action_just_pressed("esc"):
 		pauseMenu()
 	if shrink && entranceExists:
@@ -107,9 +113,22 @@ func _process(delta):
 		#%EyeAbility.texture = EYE
 	#else:
 		#%EyeAbility.texture = NOEYE
-	
+	if canFlipLights == true:
+		%EyeAbility.texture = EYE
+	else:
+		%EyeAbility.texture = NOEYE
 	if gotKey == true:
 		%KeyStatus.texture = KEYFOUND
+		
+func flipLights():
+	canFlipLights = false
+	get_node("Arrrow").visible = true
+	await get_tree().create_timer(2).timeout
+	get_node("Arrrow").visible = false
+	print("waiting")
+	await get_tree().create_timer(10).timeout
+	print("Done waiting")
+	canFlipLights = true
 	
 func spawnEnt():
 	await get_tree().create_timer(2).timeout
@@ -165,20 +184,23 @@ func spawnenemy(pos : Vector3, scale : Vector3, health : int, speed : float, can
 	enemy.takeDamage(canTakeDamage)
 	add_child(enemy)
 	var children = get_children()
-	print("Size A: ", enemyArray.size())
+	#print("Size A: ", enemyArray.size())
 	for n in children:
 		if n.is_in_group("Enemy"):
 			enemyArray.append(n)
-	print("Size B: ", enemyArray.size())
+	#print("Size B: ", enemyArray.size())
 	pass
 
 func openExit():
 	if gotKey:
-		print("Opening Gate")
+		#print("Opening Gate")
 		#exitArray[0].rotation = Vector3(0, 3.14/2, 0)
 		slowExit = true
 	else:
-		print("Can not open gate. You need a key")
+		warningLabel.text = "You need the key before you may exit"
+		await get_tree().create_timer(3).timeout
+		warningLabel.text = ""
+		#print("Can not open gate. You need a key")
 	pass
 	
 #Slime Encounter Areas

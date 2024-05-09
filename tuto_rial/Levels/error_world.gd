@@ -18,6 +18,7 @@ const EYE = preload("res://cosmiceye_ready.png")
 const NOEYE = preload("res://cosmiceye_unready.png")
 
 func _ready():
+	get_node("Arrrow").visible = false
 	entrance = portalEnt.instantiate()
 	entrance.position = Vector3(1.3, 4, 8)
 	entrance.rotate(Vector3(0, 1, 0), 3.14)
@@ -88,11 +89,9 @@ func ReturnHome():
 	
 func flipLights():
 	canFlipLights = false
-	for n in get_tree().get_nodes_in_group("Lights"):
-			n.visible = true
-	await get_tree().create_timer(3).timeout
-	for n in get_tree().get_nodes_in_group("Lights"):
-			n.visible = false
+	get_node("Arrrow").visible = true
+	await get_tree().create_timer(2).timeout
+	get_node("Arrrow").visible = false
 	print("waiting")
 	await get_tree().create_timer(10).timeout
 	print("Done waiting")

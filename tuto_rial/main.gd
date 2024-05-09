@@ -19,10 +19,21 @@ var shrink = false
 var shrinkJ = 1
 var entranceExists = true
 var entrance
+var OnScreenText
+var WelcomeText
+var canFlipLights = true
+var EnemyText = ["Before you is the plain slime. They tend to have a moderate health level and speed",
+				 "This is the water slime. Doesn't take much to kill them but they are fast buggers",
+				 "Here is the rock slime. These guys have the health of a tank but the speed of a sloth",
+				 "Beware of the ghost slime. They are cursed to roam this world for all eternity"]
+
+const EYE = preload("res://cosmiceye_ready.png")
+const NOEYE = preload("res://cosmiceye_unready.png")
 
 func _ready():
 # To spawn an enemy you need to pass it a location(vector3), a scaling(vector3), 
 # health(int), speed(float), if they can take damage(bool), and the type of slime
+	get_node("Arrrow").visible = false
 	entrance = portalEnt.instantiate()
 	entrance.position = Vector3(1.52, 0, 3)
 	entrance.rotate(Vector3(0, 1, 0), 3.14)
@@ -43,6 +54,10 @@ func _ready():
 	mazePortal.changeScene.connect(MazeScene)
 	levelName.emit("res:://main.tscn")
 	Engine.time_scale = 1
+	WelcomeText = get_tree().get_nodes_in_group("Welcome")[0]
+	WelcomeText.visible = true
+	OnScreenText = get_tree().get_nodes_in_group("Info")[0]
+	ChangeText()
 	pass
 
 func _process(delta):
@@ -56,6 +71,7 @@ func _process(delta):
 
 	if enemyArray.size() == 0 && k < 19:
 		spawnenemy(spawnArray[k+0], spawnArray[k+1], spawnArray[k+2], spawnArray[k+3], spawnArray[k+4], spawnArray[k+5])
+		OnScreenText.text = EnemyText[k/6]
 		k += 6
 
 	if enemyArray.size() < 0:
@@ -63,13 +79,37 @@ func _process(delta):
 
 	if player.playerHealth == 0:
 		ReloadScene()
-
+	
+	if Input.is_action_just_pressed("path") && canFlipLights:
+		flipLights()
 	if Input.is_action_just_pressed("esc"):
 		pauseMenu()
 	if shrink && entranceExists:
 		entrance.scale = Vector3(1, shrinkJ, 1)
 		shrinkJ -= .01
+		
+	if canFlipLights == true:
+		%EyeAbility.texture = EYE
+	else:
+		%EyeAbility.texture = NOEYE
+
+func flipLights():
+	canFlipLights = false
+	get_node("Arrrow").visible = true
+	await get_tree().create_timer(2).timeout
+	get_node("Arrrow").visible = false
+	print("waiting")
+	await get_tree().create_timer(10).timeout
+	print("Done waiting")
+	canFlipLights = true
 	
+func ChangeText():
+	await get_tree().create_timer(4).timeout
+	WelcomeText.visible = false
+	OnScreenText.text = "If you are ever lost in a level try pressing F to locate the exit"
+	await get_tree().create_timer(3).timeout
+	OnScreenText.text = EnemyText[0]
+	pass
 func spawnEnt():
 	await get_tree().create_timer(2).timeout
 	shrink = true
@@ -144,3 +184,8 @@ func pauseMenu():
 		Engine.time_scale = 0
 		
 	paused = !paused
+
+
+func _on_portal_area_ent_area_entered(area):
+	if area.is_in_group("LeftHand") || area.is_in_group("RightHand"):
+		OnScreenText.text = "This is the level selection area. Pick a portal"

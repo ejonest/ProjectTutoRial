@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c31bcy2pmxnyr"]
+
+[ext_resource type="PackedScene" uid="uid://bav4tskc7nieu" path="res://Asset/Scene/Arrrow.glb" id="1_ifxej"]
+[ext_resource type="Script" path="res://Asset/Environment/Scene/arrrow.gd" id="2_v2q45"]
+
+[node name="Arrrow" instance=ExtResource("1_ifxej")]
+script = ExtResource("2_v2q45")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Vert" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.3879, -1.53423)
+visible = false
+light_color = Color(0.831373, 0.737255, 0.294118, 1)
+light_energy = 8.0
+spot_range = 2.65691
+spot_angle = 33.9303
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Vert" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44891, -6.94984)
+light_color = Color(0.831373, 0.737255, 0.294118, 1)
+omni_range = 2.12045

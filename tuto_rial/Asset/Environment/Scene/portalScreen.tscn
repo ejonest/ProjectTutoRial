@@ -106,4 +106,7 @@ lifetime = 1.5
 process_material = SubResource("ParticleProcessMaterial_l5oe5")
 draw_pass_1 = SubResource("QuadMesh_70cce")
 
+[node name="Orgin" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.51225, 0, 0)
+
 [connection signal="area_entered" from="PortalEnt" to="." method="_on_portal_ent_area_entered"]

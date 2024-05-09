@@ -20,6 +20,7 @@ const EYE = preload("res://cosmiceye_ready.png")
 const NOEYE = preload("res://cosmiceye_unready.png")
 
 func _ready():
+	get_node("Arrrow").visible = false
 	entrance = portalEnt.instantiate()
 	entrance.position = Vector3(-22, 28, -52)
 	#entrance.rotate(Vector3(0, 1, 0), 3.14)
@@ -48,7 +49,8 @@ func _process(delta):
 		i += 1
 	if player.playerHealth == 0:
 		ReloadScene()
-		
+	if Input.is_action_just_pressed("path") && canFlipLights:
+		flipLights()
 	if Input.is_action_just_pressed("esc"):
 		pauseMenu()
 	if shrink && entranceExists:
@@ -59,6 +61,16 @@ func _process(delta):
 		%EyeAbility.texture = EYE
 	else:
 		%EyeAbility.texture = NOEYE
+
+func flipLights():
+	canFlipLights = false
+	get_node("Arrrow").visible = true
+	await get_tree().create_timer(2).timeout
+	get_node("Arrrow").visible = false
+	print("waiting")
+	await get_tree().create_timer(10).timeout
+	print("Done waiting")
+	canFlipLights = true
 	
 func spawnEnt():
 	await get_tree().create_timer(2).timeout

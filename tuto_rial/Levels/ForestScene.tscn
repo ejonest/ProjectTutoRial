@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://b68t87m0jk2pr"]
+[gd_scene load_steps=97 format=3 uid="uid://b68t87m0jk2pr"]
 
 [ext_resource type="Script" path="res://Levels/ForestScene.gd" id="1_qntww"]
 [ext_resource type="PackedScene" uid="uid://bsjyu0fp5fq4g" path="res://Asset/Environment/Scene/floor.tscn" id="1_tlauk"]
@@ -54,6 +54,7 @@
 [ext_resource type="Texture2D" uid="uid://hu0wi8v17m63" path="res://heal_ready.png" id="52_u5c05"]
 [ext_resource type="Texture2D" uid="uid://27h58ussvnym" path="res://cosmiceye_ready.png" id="53_u6i6v"]
 [ext_resource type="Texture2D" uid="uid://ocwrvb2uhcev" path="res://fist.png" id="54_xl6go"]
+[ext_resource type="PackedScene" uid="uid://c31bcy2pmxnyr" path="res://Asset/Environment/Scene/arrrow.tscn" id="55_jaej8"]
 
 [sub_resource type="Environment" id="Environment_ome6f"]
 fog_enabled = true
@@ -6984,7 +6985,7 @@ transform = Transform3D(-0.0398534, -1.14125, -0.532499, -1.25923, 0.0439734, -4
 
 [node name="PortalExit" type="Node" parent="Level2"]
 
-[node name="Portal" parent="Level2/PortalExit" instance=ExtResource("44_ahkuo")]
+[node name="Portal" parent="Level2/PortalExit" groups=["ExitPortal"] instance=ExtResource("44_ahkuo")]
 transform = Transform3D(0.570634, 0, 0.18541, 0, 0.6, 0, -0.18541, 0, 0.570634, 36.584, 28.154, -23.748)
 
 [node name="Tree" parent="Level2/PortalExit" instance=ExtResource("4_vgbnt")]
@@ -8956,41 +8957,50 @@ unique_name_in_owner = true
 transform = Transform3D(-0.4, 0, -3.49691e-08, 0, 0.4, 0, 3.49691e-08, 0, -0.4, -21, 28.2, -52.3312)
 
 [node name="Skeleton3D" parent="TestTuto/Armature" index="0"]
-bones/0/position = Vector3(-0.812105, 1.94396, -173.409)
-bones/0/rotation = Quaternion(-0.728611, -0.0509601, 0.0154673, 0.682855)
-bones/1/rotation = Quaternion(0.0175661, 0.0135382, 0.0234752, 0.999478)
-bones/2/rotation = Quaternion(0.0100479, 0.00342369, 0.0143022, 0.999841)
-bones/3/rotation = Quaternion(0.00953093, 0.00319501, 0.0140493, 0.999851)
-bones/4/rotation = Quaternion(0.058921, -0.00153349, 0.00477194, 0.99825)
-bones/5/rotation = Quaternion(-0.0685762, 0.0106642, -0.000874361, 0.997589)
-bones/7/rotation = Quaternion(-0.719247, -0.274425, 0.531224, -0.353801)
-bones/8/rotation = Quaternion(0.393859, 0.141743, 0.083475, 0.904332)
-bones/9/rotation = Quaternion(0.000415943, 0.00135327, 0.0145357, 0.999893)
-bones/10/rotation = Quaternion(0.04815, -0.280465, 0.0251669, 0.958325)
-bones/15/rotation = Quaternion(0.714942, -0.269612, 0.555274, 0.328388)
-bones/16/rotation = Quaternion(0.313773, -0.242192, -0.0930338, 0.913364)
-bones/17/rotation = Quaternion(0.00207195, 0.000283622, -0.0579528, 0.998317)
-bones/18/rotation = Quaternion(0.0555206, 0.174953, -0.0024756, 0.983007)
-bones/23/rotation = Quaternion(0.137691, 0.0547409, 0.986005, -0.076415)
-bones/24/rotation = Quaternion(-0.108088, -0.013751, 0.0312895, 0.993554)
-bones/25/rotation = Quaternion(0.527227, -0.033339, -0.0531219, 0.847407)
-bones/28/rotation = Quaternion(-0.092199, -0.0275196, 0.99503, -0.0256486)
-bones/29/rotation = Quaternion(-0.0662291, 0.083857, -0.0251647, 0.993956)
-bones/30/rotation = Quaternion(0.564875, 0.0180773, 0.0167282, 0.824809)
-bones/31/rotation = Quaternion(0.298241, 0.030848, -0.00589457, 0.953974)
+bones/0/position = Vector3(-0.609373, 1.6893, -173.444)
+bones/0/rotation = Quaternion(-0.730948, -0.0482589, 0.0147242, 0.680565)
+bones/1/rotation = Quaternion(0.0139791, 0.0143884, 0.0241803, 0.999506)
+bones/2/rotation = Quaternion(0.00936987, 0.0034775, 0.0143639, 0.999847)
+bones/3/rotation = Quaternion(0.00854023, 0.00351678, 0.0143242, 0.999855)
+bones/4/rotation = Quaternion(0.0560891, -0.00184726, 0.00518341, 0.998411)
+bones/5/rotation = Quaternion(-0.0644143, 0.0110165, -0.00251912, 0.997859)
+bones/7/rotation = Quaternion(-0.717513, -0.276921, 0.531424, -0.355076)
+bones/8/rotation = Quaternion(0.399593, 0.143806, 0.0803205, 0.901773)
+bones/9/rotation = Quaternion(0.000405839, 0.00135327, 0.0141817, 0.999898)
+bones/10/rotation = Quaternion(0.0547251, -0.276927, 0.0227043, 0.959063)
+bones/11/rotation = Quaternion(0.0664184, 0.00104282, 0.00664867, 0.997769)
+bones/12/rotation = Quaternion(0.127648, 0.00153064, -0.0265614, 0.991463)
+bones/13/rotation = Quaternion(0.00572311, 0.00713913, -0.0609304, 0.9981)
+bones/15/rotation = Quaternion(0.712455, -0.272917, 0.556219, 0.329461)
+bones/16/rotation = Quaternion(0.312158, -0.243058, -0.0962503, 0.913354)
+bones/17/rotation = Quaternion(0.00204918, 0.000283582, -0.0573166, 0.998354)
+bones/18/position = Vector3(-2.10275e-07, 58.104, 1.34215e-06)
+bones/18/rotation = Quaternion(0.0547588, 0.174077, -0.00192716, 0.983206)
+bones/19/position = Vector3(4.89121e-07, 14.6156, -1.02503e-06)
+bones/19/rotation = Quaternion(0.0598661, -0.00148809, -0.00885655, 0.998166)
+bones/21/rotation = Quaternion(0.0145624, -0.010832, 0.125795, 0.99189)
+bones/23/rotation = Quaternion(0.136671, 0.0510352, 0.986498, -0.0744178)
+bones/24/rotation = Quaternion(-0.10371, -0.0128369, 0.0308462, 0.994046)
+bones/25/rotation = Quaternion(0.525378, -0.0329817, -0.0527043, 0.848594)
+bones/26/position = Vector3(-5.44172e-06, 37.0536, -1.33766e-06)
+bones/26/rotation = Quaternion(0.280196, -0.0315164, 0.00651209, 0.959403)
+bones/28/rotation = Quaternion(-0.0934616, -0.0293016, 0.994922, -0.0231603)
+bones/29/rotation = Quaternion(-0.0685248, 0.0837087, -0.0253613, 0.993808)
+bones/30/rotation = Quaternion(0.565067, 0.01976, 0.0164364, 0.824644)
+bones/31/rotation = Quaternion(0.297887, 0.0308488, -0.00590502, 0.954084)
 
 [node name="BoneAttachment3D" parent="TestTuto/Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.365418, 0.0249979, 0.930508, 0.928357, 0.0632383, -0.366272, -0.0679996, 0.997685, -9.85786e-05, -36.7786, 9.32329, -161.185)
+transform = Transform3D(0.373529, 0.0191755, 0.92742, 0.923707, 0.0840236, -0.373771, -0.0850925, 0.99628, 0.0136728, -37.2483, 10.2073, -161.467)
 
 [node name="Sword" parent="TestTuto/Armature/Skeleton3D/BoneAttachment3D" index="0"]
 transform = Transform3D(-23.1219, 49.007, -9.41749, 10.4524, -5.39307, -53.7277, -48.7968, -24.3768, -7.04625, -50.6289, 20.7265, 24.3065)
 script = ExtResource("49_8oonw")
 
 [node name="BoneAttachment3D2" parent="TestTuto/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.365418, 0.0249979, 0.930508, 0.928357, 0.0632383, -0.366272, -0.0679996, 0.997685, -9.85786e-05, -36.7786, 9.32329, -161.185)
+transform = Transform3D(0.373529, 0.0191755, 0.92742, 0.923707, 0.0840236, -0.373771, -0.0850925, 0.99628, 0.0136728, -37.2483, 10.2073, -161.467)
 
 [node name="BoneAttachment3D3" parent="TestTuto/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.11414, 0.0155794, -0.993343, -0.990427, 0.07991, -0.112552, 0.0776245, 0.99668, 0.024551, 37.7214, 11.2369, -164.998)
+transform = Transform3D(0.109491, 0.00847315, -0.993952, -0.991275, 0.0747582, -0.108558, 0.0733862, 0.997166, 0.0165845, 38.0566, 9.98641, -165.363)
 
 [node name="Rock" parent="." instance=ExtResource("6_dm6nt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8472, 28.1347, -14.657)
@@ -9068,8 +9078,8 @@ theme_override_fonts/font = ExtResource("11_cwco3")
 theme_override_font_sizes/font_size = 30
 text = "Objective: 
 Beat all the slimes
+and escape
 "
-horizontal_alignment = 2
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
@@ -9121,6 +9131,9 @@ text = "
 horizontal_alignment = 1
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="Arrrow" parent="." instance=ExtResource("55_jaej8")]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, -21, 29, -52.33)
 
 [connection signal="area_entered" from="DropSlimesZone" to="." method="_on_drop_slimes_area_entered"]
 
