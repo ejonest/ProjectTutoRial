@@ -41,6 +41,7 @@ var shrinkJ = 1
 var entranceExists = true
 var canFlipLights = true
 var warningLabel
+#var pickedUpKey = false
 
 const EYE = preload("res://cosmiceye_ready.png")
 const NOEYE = preload("res://cosmiceye_unready.png")
@@ -117,7 +118,7 @@ func _process(delta):
 		%EyeAbility.texture = EYE
 	else:
 		%EyeAbility.texture = NOEYE
-	if gotKey == true:
+	if pickedUpKey == true:
 		%KeyStatus.texture = KEYFOUND
 		
 func flipLights():
@@ -163,6 +164,7 @@ func destoryEnemy():
 
 func pickUp():
 	print("You picked up the key")
+	pickedUpKey = true
 	keyNode.queue_free()
 	keyNode = null
 	pass
@@ -192,7 +194,7 @@ func spawnenemy(pos : Vector3, scale : Vector3, health : int, speed : float, can
 	pass
 
 func openExit():
-	if gotKey:
+	if pickedUpKey:
 		#print("Opening Gate")
 		#exitArray[0].rotation = Vector3(0, 3.14/2, 0)
 		slowExit = true
